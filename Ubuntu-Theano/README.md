@@ -1,5 +1,5 @@
 # Pre-Built AMI for Theano
-* Image: ami-c9affe0a
+* Image: ami-c3d23687
 * Instance type: g2.2xlarge
 * Storage: Use at least 8 GB, 20+ GB recommended
 
