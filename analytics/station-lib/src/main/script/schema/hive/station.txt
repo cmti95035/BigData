@@ -1,0 +1,29 @@
+drop table station;
+
+CREATE EXTERNAL TABLE station(
+key int,
+bsc string,
+cgi string,
+longitude double,
+latitude double,
+type string,
+lat int,
+ci int,
+angle int,
+romm boolean
+) 
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES ("hbase.columns.mapping" = 
+":key
+,d:bsc
+,d:cgi
+,d:lng
+,d:lat
+,d:type
+,d:lac
+,d:ci
+,d:angle
+,d:room",
+"hbase.table.default.storage.type" = "binary"
+)
+TBLPROPERTIES ("hbase.table.name" = "station");

@@ -1,0 +1,45 @@
+drop table sig;
+
+CREATE EXTERNAL TABLE sig(
+key int,
+eventDate bigint,
+imsi string,
+sigSession string,
+subSession int,
+eventType int,
+lac int,
+cell int,
+pcu int,
+rac int,
+result int,
+failReason int,
+sigDuration int,
+channelType int,
+businessType int,
+apn string,
+apnIpv4 string,
+hour int
+) 
+STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES ("hbase.columns.mapping" = 
+":key
+,d:date
+,d:imsi
+,d:sigs
+,d:subs
+,d:event
+,d:lac
+,d:cell
+,d:pcu
+,d:rac
+,d:res
+,d:fail
+,d:dur
+,d:chan
+,d:busi
+,d:apn
+,d:ip
+,d:hr",
+"hbase.table.default.storage.type" = "binary"
+)
+TBLPROPERTIES ("hbase.table.name" = "sig");

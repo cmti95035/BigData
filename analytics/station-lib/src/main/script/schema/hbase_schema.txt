@@ -1,0 +1,68 @@
+ 
+create 'station', {NAME => 'd', VERSIONS => 10, BLOCKCACHE=>'false', COMPRESSION =>'SNAPPY'}
+create 'sig', {NAME => 'd', VERSIONS => 1, BLOCKCACHE=>'false', COMPRESSION =>'SNAPPY', TTL=>65750400}
+
+#1296000=15 days
+#4320000=50days
+#5184000=60days
+#5184000=60days
+#7776000=90days
+disable 'sig'
+alter 'sig', NAME => 'd', VERSIONS => 1, BLOCKCACHE=>'false', COMPRESSION =>'SNAPPY', TTL=>7776000
+alter 'sig', NAME => 'd', TTL=>4320000
+alter 'sig', NAME => 'd', TTL=>5184000
+alter 'sig', NAME => 'd', TTL=>7776000
+alter 'sig', NAME => 'd', TTL=>2147483647   //'FOREVER'
+enable 'sig'
+
+
+
+ 
+ 
+ disable 'event'
+ drop 'event'
+ 
+ disable 'receive'
+ drop 'receive'
+ 
+ disable 'device'
+ drop 'device'
+ 
+#TTL set to 2*365+31 days,  TTL length in seconds
+#this table is not mean to be read multiple times for each row, so set BLOCKCACHE=>'false'
+create 'event', {NAME => 'd', VERSIONS => 1, BLOCKCACHE=>'false', COMPRESSION =>'SNAPPY', TTL=>65750400}
+create 'server_event', {NAME => 'd', VERSIONS => 1, BLOCKCACHE=>'false', COMPRESSION =>'SNAPPY', TTL=>65750400}
+create 'order', {NAME => 'd', VERSIONS => 1, BLOCKCACHE=>'false', COMPRESSION =>'SNAPPY', TTL=>65750400}
+create 'account', {NAME => 'd', VERSIONS => 1, BLOCKCACHE=>'false', COMPRESSION =>'SNAPPY'}
+create 'account_id', {NAME => 'd', VERSIONS => 1, BLOOMFILTER=>'ROW', COMPRESSION =>'SNAPPY',IN_MEMORY => 'true'}
+
+#if table is created by pre-split, alter it:
+#1296000=15 days
+#4320000=50days
+#5184000=60days
+#5184000=60days
+#7776000=90days
+disable 'event'
+alter 'event', NAME => 'd', VERSIONS => 1, BLOCKCACHE=>'false', COMPRESSION =>'SNAPPY', TTL=>7776000
+alter 'event', NAME => 'd', TTL=>4320000
+alter 'event', NAME => 'd', TTL=>5184000
+alter 'event', NAME => 'd', TTL=>7776000
+alter 'event', NAME => 'd', TTL=>2147483647   //'FOREVER'
+enable 'event'
+
+#this table is not mean to be read multiple times for each row, so set BLOCKCACHE=>'false'
+create 'receive', {NAME => 'd', VERSIONS => 1, BLOCKCACHE=>'false', COMPRESSION =>'SNAPPY'}
+ 
+create 'device', {NAME => 'd', VERSIONS => 1, BLOOMFILTER=>'ROW', COMPRESSION =>'SNAPPY'}
+===================================================run in live=======================================================
+#in memory
+create 'ean', {NAME => 'd', VERSIONS => 1, BLOOMFILTER=>'ROW', COMPRESSION =>'SNAPPY'}
+
+create 'event_mr_output', {NAME => 'd', VERSIONS => 1, BLOCKCACHE=>'false', COMPRESSION =>'SNAPPY'}
+
+create 'reading', {NAME => 'd', VERSIONS => 10, BLOOMFILTER=>'ROW', COMPRESSION =>'SNAPPY'}
+create 'ean_duration', {NAME => 'd', VERSIONS => 1, BLOOMFILTER=>'ROW', COMPRESSION =>'SNAPPY'}
+create 'session', {NAME => 'd', VERSIONS => 1, BLOOMFILTER=>'ROW', COMPRESSION =>'SNAPPY'}
+create 'ean_correlate', {NAME => 'd', VERSIONS => 1, BLOOMFILTER=>'ROW', COMPRESSION =>'SNAPPY'}
+create 'ean_correlate2', {NAME => 'd', VERSIONS => 1, BLOOMFILTER=>'ROW', COMPRESSION =>'SNAPPY'}
+create 'event_user', {NAME => 'd', VERSIONS => 1, BLOOMFILTER=>'ROW', COMPRESSION =>'SNAPPY'}
