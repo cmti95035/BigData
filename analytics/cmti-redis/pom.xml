@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion> 
+	
+  <parent>
+  	<groupId>com.cmti</groupId>
+  	<artifactId>analytics</artifactId>
+  	<version>1.0-SNAPSHOT</version>
+  </parent>
+
+    <groupId>com.cmti</groupId>    
+	<artifactId>cmti-redis</artifactId>
+	<packaging>jar</packaging>
+	<version>${global.version}</version>
+	<name>Redis base</name>
+
+
+	<build>
+		<plugins>
+			<!-- download and include source and javadoc in eclipse -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+          		<version>2.9</version>
+                <configuration>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                </configuration>
+            </plugin>
+            
+		</plugins>
+
+	</build>
+
+<!-- http://caffeinbean.wordpress.com/2011/03/01/hadoop-failed-to-set-setxincludeawaretrue-for-parser-error-and-how-to-resolve-it/ -->
+    <dependencies> 
+    <dependency>
+		<groupId>redis.clients</groupId>
+		<artifactId>jedis</artifactId>
+		<version>2.6.2</version>
+	</dependency>
+
+    <dependency>
+		<groupId>com.clearspring.analytics</groupId><!-- for HyperLogLog -->
+  		<artifactId>stream</artifactId>
+  		<version>2.7.0</version>
+	</dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+    </dependency>
+
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-lang3</artifactId>
+		<version>3.3.2</version>
+	</dependency>
+ 
+  
+	</dependencies>
+
+
+	<repositories>
+		<repository>
+			<id>alternate repo</id>
+			<url>https://maven.nuxeo.org/nexus/content/repositories/public/</url>
+		</repository>
+
+		<repository>
+			<id>central</id>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository>
+
+        
+	</repositories>
+
+</project>
