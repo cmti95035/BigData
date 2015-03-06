@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<Schema name="Device Usage">
+
+<!-- http://mondrian.pentaho.com/documentation/schema.php 
+http://mondrian.pentaho.com/documentation/xml_schema.php
+-->
+
+<!-- Shared dimensions -->
+
+  <Dimension name="Date Dimension" type="TimeDimension">
+	<Hierarchy hasAll="true" allMemberName="All Periods" primaryKey="id">
+		<Table name="dim_date"/>
+		<Level name="Year" column="year" uniqueMembers="true" levelType="TimeYears" type="Numeric"/>
+		<!--Level name="Quarter" column="quarter" uniqueMembers="false" levelType="TimeQuarters" type="Numeric"/-->
+		<Level name="Month" column="month" uniqueMembers="false" ordinalColumn="month" nameColumn="month_name" levelType="TimeMonths" type="Numeric"/>
+		<Level name="Week" column="week" uniqueMembers="false" levelType="TimeWeeks" type="Numeric"/>
+		<Level name="Day" column="day" uniqueMembers="false" levelType="TimeDays" type="Numeric"/>
+	</Hierarchy>
+  </Dimension>
+
+  <Dimension name="Date Dimension (Week)" type="TimeDimension">
+	<Hierarchy hasAll="true" allMemberName="All Periods" primaryKey="id">
+		<Table name="dim_date"/>
+		<Level name="Year" column="year" uniqueMembers="true" levelType="TimeYears" type="Numeric"/>
+		<!-- Level name="Quarter" column="quarter" uniqueMembers="false" levelType="TimeQuarters" type="Numeric"/ -->
+		<Level name="Month" column="month" uniqueMembers="false" ordinalColumn="month" nameColumn="month_name" levelType="TimeMonths" type="Numeric"/>
+		<Level name="Week" column="week" uniqueMembers="false" levelType="TimeWeeks" type="Numeric"/>
+	</Hierarchy>
+  </Dimension>
+
+  <Dimension name="Date Dimension (Month)" type="TimeDimension">
+	<Hierarchy hasAll="true" allMemberName="All Periods" primaryKey="id">
+		<Table name="dim_date"/>
+		<Level name="Year" column="year" uniqueMembers="true" levelType="TimeYears" type="Numeric"/>
+		<!-- Level name="Quarter" column="quarter" uniqueMembers="false" levelType="TimeQuarters" type="Numeric"/ -->
+		<Level name="Month" column="month" uniqueMembers="false" ordinalColumn="month" nameColumn="month_name" levelType="TimeMonths" type="Numeric"/>
+	</Hierarchy>
+  </Dimension>
+
+  <Dimension name="Date Dimension (Year)" type="TimeDimension">
+	<Hierarchy hasAll="true" allMemberName="All Periods" primaryKey="id">
+		<Table name="dim_date"/>
+		<Level name="Year" column="year" uniqueMembers="true" levelType="TimeYears" type="Numeric"/>
+	</Hierarchy>
+  </Dimension>
+
+  <Dimension name="Event Type">
+    <Hierarchy hasAll="true" primaryKey="id">
+      <Table name="dim_event_type"/>
+      <Level name="Component" column="component" uniqueMembers="true" type="String" />
+      <Level name="Event Name" column="name" uniqueMembers="false" type="String" />
+    </Hierarchy>
+  </Dimension>
+
+  <Dimension name="Result Type (Sig)">
+    <Hierarchy hasAll="false" primaryKey="id">
+      <Table name="dim_result_type_sig"/>
+      <Level name="Result Name" column="name" uniqueMembers="true" type="String" />
+    </Hierarchy>
+  </Dimension>
+
+
+<Cube name="IMSI Count by Event - Day" description="dd">
+  <Table name="fact_imsi_sig_day"/>
+
+  <DimensionUsage name="Date" source="Date Dimension" foreignKey="date_id"/>
+  <DimensionUsage name="Result" source="Result Type (Sig)" foreignKey="result_type_id"/>
+  
+  <Measure name="Unique IMSI Count" column="imsi_count" aggregator="sum"/>
+</Cube>
+
+
+ 
+</Schema>

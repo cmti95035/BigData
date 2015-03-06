@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    <property>
+        <name>hbase.zookeeper.quorum</name>
+        <value>localhost:2181</value>
+    </property>
+    <property>
+        <name>hbase.client.write.buffer</name>
+        <value>20971520</value>
+        <!-- 20MB -->
+    </property>
+  
+  	<property>
+        <name>zookeeper.session.timeout</name>
+        <value>600000</value>
+	</property>
+	<property>
+
+    <name>hbase.zookeeper.property.tickTime</name>
+    	<value>6000</value>
+	</property>
+
+  	<!-- for heavy write, give 10 mins timeout. 
+  	quickstart.cloudera
+  	
+  	 -->
+  	<!-- property>
+        <name>hbase.rpc.timeout</name>
+        <value>600000</value>
+	</property -->
+ 
+</configuration>
