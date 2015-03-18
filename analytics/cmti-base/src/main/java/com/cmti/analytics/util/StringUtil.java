@@ -22,8 +22,7 @@ public class StringUtil {
 			//OK
 		}
 		return ret==null?defaultValue:ret;
-	}
-	
+	}	
 
 	public static Long getLong(String value) {
 		return getLong(value, null);
@@ -40,7 +39,6 @@ public class StringUtil {
 		return ret==null?defaultValue:ret;
 	}
 	
-
 	public static Integer getInt(String value) {
 		return getInt(value, null);		
 	}
