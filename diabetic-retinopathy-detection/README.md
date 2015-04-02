@@ -7,7 +7,7 @@
 ```bash
   ls train/*.jpeg test/*.jpeg | parallel ./preprocess.sh
 ```
-* Use the neural net toolkits and boosted regression model in Dato's GraphLab Create package to build the classifier and submission:
+* Use the neural net toolkits and boosted tree regression model in Dato's GraphLab Create package to build the classifier and submission:
 ```bash
   python submit.py
 ```
