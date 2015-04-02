@@ -1,5 +1,5 @@
 # USAGE
-# python search.py --dataset images --shelve db.shelve --query images/84eba74d-38ae-4bf6-b8bd-79ffa1dad23a.jpg
+# python search.py --dataset images --shelve db.shelve --query images/6b7fd042-0020-49cf-a762-4020e8410b93.jpg
 
 # import the necessary packages
 from PIL import Image
