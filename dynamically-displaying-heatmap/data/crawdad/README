@@ -1,0 +1,61 @@
+== LTE Measurements at the University of Colorado, Boulder =
+
+Authors: Caleb Phillips* (caleb.phillips@colorado.edu), Erik Bergal* (Erik.Bergal@Colorado.EDU), and Chingpu Wu+ (jinwer@gmail.com)
+         *Computer Science Department and +Interdisciplinary Telecommunications Program
+         University of Colorado at Boulder, Boulder, CO, USA
+
+Version: 2012-03-31
+
+Summary: This data was collected at the University of Colorado Boulder. It contains 
+careful point measurements, taken on a 100m equalateral triangular lattice, of the the 
+Verizon LTE network. Contained inside is a set of CSV files (one per measurement), 
+locations of the measurements (locations.csv), and locations and information about
+the basestations (verizon.csv). 
+
+License: This data is available under an academic "as-is" license. If you use this data, 
+please cite it using the appropriate CRAWDAD link. And, if you have cool results, or a 
+technical question, feel free to contact us and let us know. We are not in any way affiliated
+with Verizon and make no claim that this data is at all representative of their network
+performance. This data is intended for academic research purposes only.
+
+Environment: The University of Colorado Campus, Boulder, Colorado, USA.
+
+Network: All measurements were done ``passively'', without any greater access to the LTE
+network than a typical client device would have.
+
+Collection:  Data collection was performed using a netbook computer running MS Windows, JDSU (formerly Agilent) E6474A software,
+and an LG VL600 LTE USB dongle. At each point, a number of simultaneous channel performance
+metrics were collected, and a 60 second bidirectional throughput test was performed to an Internet host using iperf.
+The measurement devices were attached to a Croozer-brand bicycle/hand cart. At each point a GPS reading
+was taken from a hand-held Garmin GPS60. The data collection procedure is as follows:
+
+ 1. Locate a point to measure using the map. Try to get as close to the actual point as possible. If it is 
+    on/in a building or other obstacle, go to the nearest accessible outdoor location and do the measurement 
+    there instead. If the point is totally unreachable (i.e. closest point is 100m+ away), then circle 
+    the point and move on.
+ 2. Write down the ID of the point being measured (i.e., 12 4 0) for the 0th measurement at point 12 4
+ 3. Using the hand held GPS device, write down the current location and accuracy of the GPS position
+ 4. Using the computer’s clock (or a synchronized watch), write down the current time
+ 5. Click the green circle in the JDSU software to start a test
+ 6. After 5 seconds, a command window will open behind the main window and will run a throughput test. 
+    After 60 more seconds, this window will close.
+ 7. Click the Stop button (or press Shift + F9) to stop the test
+ 8. Mark off the location just measured on the map with an X.
+ 9. Every third point, perform 2 additional ``cluster measurements'' where you select a nearby 
+    point within an 8 meter radius of the original point (20 wavelengths at 700 MHz). These points  
+    should be more or less selected at random.
+
+At each point, the JDSU software collects a continuous stream of measurements using a large number of metrics. This data 
+is stored in a proprietary file format that can be exported to a parseable ASCII CSV file after measurement is completed. 
+The CSVs contain a number of metrics and a variable number of measurements per metric. These are documented to some
+extent in JDSU whitepapers, but some are not documented. The header field should be sufficiently descriptive in most cases,
+however because the JDSU software and LG hardware are closed-source, it is not feasible to say how particular metrics
+are calculated.
+
+Sanitization: The data has not been sanitized or censored in any way.
+
+Limitation: The measurement device is a functional LTE radio and as such will connect to the best network available (ranking by RSRP) 
+in order to pass traffic. A given measurement point may be served exclusively by a single cell, or by a combination of cells. 
+Hence some number of measurements are available for most cells that serve the CU campus, but as a result of this behavior, 
+the strongest cells receive the most measurements. And, the resulting measurement set is more descriptive
+of the combined coverage of the cells, rather than a complete model of any particular BS. 
