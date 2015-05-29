@@ -1,0 +1,34 @@
+ 
+create 'mr', {NAME => 'd', VERSIONS => 1, BLOCKCACHE=>'false', COMPRESSION =>'SNAPPY'}
+create 'mr_on_road', {NAME => 'd', VERSIONS => 1, BLOCKCACHE=>'false', COMPRESSION =>'SNAPPY'}
+create 'road_test_data', {NAME => 'd', VERSIONS => 1, BLOCKCACHE=>'false', COMPRESSION =>'SNAPPY'}
+
+create 'road', {NAME => 'd', VERSIONS => 10, IN_MEMORY => 'true', COMPRESSION =>'SNAPPY'}
+
+put 'road' , "\x00\x0F\xB2\xF3", 'd:province','sichuan'
+put 'road' , "\x00\x0F\xB2\xF3", 'd:city','chengdu'
+put 'road' , "\x00\x0F\xB2\xF3",'d:name','3 huan'
+put 'road' , "\x00\x0F\xB2\xF3",'d:loop',"\xFF"  
+
+create 'road_test', {NAME => 'd', VERSIONS => 1, IN_MEMORY => 'true', COMPRESSION =>'SNAPPY'}
+put 'road_test' , '0102885120140928160610ms9.csv','d:road_id',"\x00\x0F\xB2\xF3" 
+
+create 'road_cell', {NAME => 'd', VERSIONS => 10, IN_MEMORY => 'true', COMPRESSION =>'SNAPPY'}
+
+
+
+
+
+
+
+
+
+
+
+
+
+put 'road' , "\x00\x0F\xB2\xF3",'d:loop',"\x01" //true
+put 'road' , "\x00\x0F\xB2\xF3",'d:loop',"\x00" //false
+
+
+for road 1028851=\x00\x0F\xB2\xF3 (convert hex to dec http://www.binaryhexconverter.com/hex-to-decimal-converter)

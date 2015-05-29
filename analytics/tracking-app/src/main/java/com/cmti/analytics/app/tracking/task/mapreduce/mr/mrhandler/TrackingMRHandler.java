@@ -135,7 +135,7 @@ public class TrackingMRHandler extends BaseMRHandler<Mr> {
 		
 		//now we have a set of ordered Mr's. and unique cells on the road
 		if(cells.size() >= minMatch) {//minimal of matching cell
-			logger.info(imsi +"mr-size="+mrs.size()+"cell size="+cells.size());
+			logger.info(imsi +" mr-size="+mrs.size()+" cell size="+cells.size());
 			for(Mr mr : mrs){
 				logger.info(mr);
 			}

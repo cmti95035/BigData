@@ -22,7 +22,12 @@ import com.cmti.analytics.hbase.util.HBaseUtil;
  * scan RoadTestData table and populate RoadCell table (in RoadTestRoadCellHandler)
  * java -cp tracking-app-1.0-SNAPSHOT.jar -Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml com.cmti.analytics.app.tracking.task.scan.ScanRoadTestData
  * 
- *  
+ * AWS
+ cd ~/gmo
+ java -cp tracking-app-1.0-SNAPSHOT.jar:/home/hadoop/lib/hbase.jar -Djava.ext.dirs=/home/hadoop/lib/lib -Dsite=aws -Dlog4j.configurationFile=log4j2/log4j2_prod.xml com.cmti.analytics.app.tracking.task.scan.ScanRoadTestData
+  
+ * log: /tracking-app/src/main/my_note/ScanRoadTestData.log
+ * 
  * @author gmo
  *
  */

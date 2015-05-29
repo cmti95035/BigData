@@ -1,12 +1,7 @@
 package com.cmti.analytics.app.tracking.task.mapreduce.mr;
 
 import java.io.IOException;
-import java.util.Date;
 
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.hbase.HConstants;
-import org.apache.hadoop.hbase.filter.Filter;
-import org.apache.hadoop.hbase.filter.FilterList;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.util.ToolRunner;
 import org.apache.logging.log4j.LogManager;
@@ -17,10 +12,6 @@ import com.cmti.analytics.hbase.task.mapreduce.FullScanCombiner;
 import com.cmti.analytics.hbase.task.mapreduce.FullScanMR;
 import com.cmti.analytics.hbase.task.mapreduce.FullScanMapper;
 import com.cmti.analytics.hbase.task.mapreduce.FullScanReducer;
-import com.cmti.analytics.hbase.util.FilterBuilder;
-import com.cmti.analytics.hbase.util.HBaseConfig;
-import com.cmti.analytics.util.ConfigUtil;
- 
  
 /**
  * this MR full scans mr table.
@@ -68,23 +59,18 @@ public class MrMR extends FullScanMR<Mr>{
 	public String getOutputTableName(){
 		return "aa";//this OutputTableName is not used.
 	};
-/*
-	@Override
-	public void init() {
-		super.init();
-	}
-	*/
+
 	@Override
 	public int run2(String[] args) throws Exception {
 		Job job = createJob();
 
-		logger.error("Finished createJob " + job.getJobName());
+		logger.info("Finished createJob " + job.getJobName());
 		
 		if (!job.waitForCompletion(true)) {
 		    throw new IOException("Error with job " + job);
 		}
 		
-		logger.error("Finished " + job);
+		logger.info("Finished " + job);
 				
 		return 0;
 	}

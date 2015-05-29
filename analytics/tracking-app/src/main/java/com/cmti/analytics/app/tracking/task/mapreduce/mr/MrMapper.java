@@ -11,8 +11,7 @@ import com.cmti.analytics.hbase.task.mapreduce.FullScanMapper;
  
 
 /**
- * this MR full scans mr table.
- * can filter on both event and receive dates
+ * this MR scans mr table.
  * 
  * @author gmo
  *
