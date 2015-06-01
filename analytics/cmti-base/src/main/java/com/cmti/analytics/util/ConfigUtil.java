@@ -6,6 +6,11 @@ import org.apache.commons.configuration.Configuration;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
+/**
+ * Util to retrieve data from Configuration.
+ * @author Guobiao Mo
+ *
+ */
 public class ConfigUtil{ 
 
 	private static Logger logger = Logger.getLogger(ConfigUtil.class);	

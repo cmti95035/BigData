@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * Utility class for objects and beans.
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class CompareUtil {

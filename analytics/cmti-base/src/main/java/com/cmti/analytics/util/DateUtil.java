@@ -6,6 +6,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+/**
+ * Date util.
+ * @author Guobiao Mo
+ *
+ */
 public class DateUtil extends org.apache.commons.lang.time.DateUtils {
 
 	public static final long ONE_DAY = 3600000L*24L;

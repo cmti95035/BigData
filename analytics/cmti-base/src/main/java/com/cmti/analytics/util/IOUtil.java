@@ -6,7 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 /**
  * IO utility
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class IOUtil extends org.apache.commons.io.IOUtils {

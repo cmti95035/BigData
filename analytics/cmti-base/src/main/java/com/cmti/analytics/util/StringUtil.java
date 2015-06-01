@@ -4,7 +4,7 @@ import org.apache.commons.lang.StringUtils;
 
 /**
  * Utility class for String.
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class StringUtil {

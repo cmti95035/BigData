@@ -9,7 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 /**
  * JDBC util
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class JdbcUtils {

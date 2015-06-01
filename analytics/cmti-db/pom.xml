@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion> 
+	
+  <parent>
+  	<groupId>com.cmti</groupId>
+  	<artifactId>analytics</artifactId>
+  	<version>1.0-SNAPSHOT</version>
+  </parent>
+
+    <groupId>com.cmti</groupId>    
+	<artifactId>cmti-db</artifactId>
+	<packaging>jar</packaging>
+	<version>${global.version}</version>
+	<name>database base</name>
+
+
+	<build>
+		<plugins>
+			<!-- download and include source and javadoc in eclipse -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+          		<version>2.9</version>
+                <configuration>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                </configuration>
+            </plugin>
+            
+		</plugins>
+
+	</build>
+
+<!-- http://caffeinbean.wordpress.com/2011/03/01/hadoop-failed-to-set-setxincludeawaretrue-for-parser-error-and-how-to-resolve-it/ -->
+    <dependencies> 
+      
+  	<dependency>
+		<groupId>com.cmti</groupId>
+		<artifactId>cmti-base</artifactId>
+		<version>${global.version}</version>
+	</dependency>
+  
+
+  		<!-- genericdao This first dependency includes all the JPA implementations for the DAOs -->
+		<dependency>
+    	    <groupId>com.googlecode.genericdao</groupId>
+    	    <artifactId>dao</artifactId>
+    	    <version>1.2.0</version>  
+		</dependency>
+		<!-- genericdao This second one includes the Hibernate Entity Manager plugin for the framework -->
+		<dependency>
+      	  <groupId>com.googlecode.genericdao</groupId>
+     	   <artifactId>search-jpa-hibernate</artifactId>
+        	<version>1.2.0</version>  
+		</dependency>
+	<!-- end genericdao -->
+	
+	<!-- hibernate -->
+	    <dependency>
+  			<groupId>org.hibernate</groupId>
+  			<artifactId>hibernate-c3p0</artifactId>
+  			<version>4.2.6.Final</version>
+		</dependency> 
+
+        <dependency>
+   			<groupId>org.hibernate</groupId>
+   			<artifactId>hibernate-entitymanager</artifactId>
+   			<version>${hibernate.version}</version>
+		</dependency>
+	<!-- end hibernate -->
+		
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.17</version>
+		</dependency>
+              
+    	<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
+    		 
+            
+	</dependencies>
+
+
+	<repositories>
+		<repository>
+			<id>alternate repo</id>
+			<url>https://maven.nuxeo.org/nexus/content/repositories/public/</url>
+		</repository>
+
+		<repository>
+			<id>central</id>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository>  
+	</repositories>
+
+</project>

@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Utility class that provides system configuration
  * 
- * @author gmo
+ * @author Guobiao Mo
  */
 public class Config {
 	protected static final Logger logger = LogManager.getLogger(Config.class);
