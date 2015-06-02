@@ -25,7 +25,7 @@ public class RecordSigMapping extends HBaseObject{
 	//keys 
 
 	@Override
-	public String getDefaultColumFamily(){
+	public String getDefaultColumnFamily(){
 		return DEFAULT_CF;
 	}
 

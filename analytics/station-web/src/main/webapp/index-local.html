@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<!-- //for china
+    <script src="http://maps.google.cn/maps/api/js?region=cn&language=zh-CN&key=AIzaSyAcpyUH5uwdF_bbSfnS8_v6cVuwUFFKsUY"/
+    create key in https://developers.google.com/maps/documentation/javascript/tutorial#api_key
+    https://code.google.com/apis/console/
+    
+    reference: https://developers.google.com/maps/documentation/javascript/reference
+    localhost key: AIzaSyBM1PgY0muWDIYGQ9TuxaPL9oCmSGm1HrI
+    atetric key: AIzaSyAcpyUH5uwdF_bbSfnS8_v6cVuwUFFKsUY
+    
+     -->
+    
+  <head>
+    <style type="text/css">
+      html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?region=cn&language=zh-CN&key=AIzaSyBM1PgY0muWDIYGQ9TuxaPL9oCmSGm1HrI">	    </script>
+    <script type="text/javascript" src="https://geoxml3.googlecode.com/svn/trunk/geoxml3.js"></script>
+    <script type="text/javascript" src="https://geoxml3.googlecode.com/svn/trunk/ProjectedOverlay.js"></script>
+    <script> 
+	  function initialize() {
+        var mapOptions = {
+          //center: { lat: 31, lng: 103},
+		  //center: new google.maps.LatLng(31, 103),
+          zoom: 12,
+		  mapTypeId: google.maps.MapTypeId.HYBRID ,
+		 
+        };
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+        //var myParser = new geoXML3.parser({map: map});
+        var myParser = new geoXML3.parser({map: map, singleInfoWindow: true, suppressInfoWindows: true});
+
+        myParser.parse('mtrmtrip_poly.xml');//not working, need to follow geoxml3_test_mtrmtrip_polygon_suppressInfoWindows.html
+        //myParser.parse('http://localhost/map/html/data/sichuan/station');		
+
+      }
+
+//      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body onload="initialize()">
+	<div id="map-canvas"></div>
+  </body>
+</html>

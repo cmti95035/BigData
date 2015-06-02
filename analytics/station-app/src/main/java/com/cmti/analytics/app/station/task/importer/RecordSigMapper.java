@@ -36,7 +36,7 @@ import com.cmti.analytics.hbase.loader.BulkLoaderMapper;
 
         for (long nEvents = 0; nEvents < 10000000; nEvents++) { 
         	 String msg = producer.getLine();
-        	 RecordSig sig = dao.parseLine(msg);
+        	 RecordSig sig = dao.parseLine(msg, context);
 			
 			byte[] bRowKey = dao.getKey(sig);
 			ImmutableBytesWritable rowKey = new ImmutableBytesWritable(bRowKey);

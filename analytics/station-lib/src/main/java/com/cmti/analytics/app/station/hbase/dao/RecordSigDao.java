@@ -5,6 +5,7 @@ import java.util.Date;
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.lang3.text.StrTokenizer;
 import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.mapreduce.Mapper.Context;
 
 import com.cmti.analytics.app.station.hbase.domain.RecordSig;
 import com.cmti.analytics.hbase.dao.ExportDao;
@@ -45,7 +46,7 @@ public class RecordSigDao extends ExportDao<RecordSig, Integer> {
 	}
 
 	@Override
-	public RecordSig parseLine(String line) {
+	public RecordSig parseLine(String line, Context context) {
 		RecordSig sig = new RecordSig();
 		
 		StrTokenizer st = new StrTokenizer(line, ",");		

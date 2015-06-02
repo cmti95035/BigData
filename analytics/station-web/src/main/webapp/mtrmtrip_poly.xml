@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+<Document>
+	<name>Omaha, Nebraska to Mount Rushmore</name>
+	<open>1</open>
+	<Snippet maxLines="2">
+<![CDATA[<font size=+1><a href="http://maps.google.com/maps?saddr=Omaha%2C%20Nebraska&daddr=Mount%20Rushmore&ie=utf-8&v=2.1&cv=4.0.2722&hl=en">Printable view</a></font>]]>	</Snippet>
+<Style id="rangecolour">
+<LineStyle><color>660000FF</color><width>0.1</width></LineStyle>
+<PolyStyle><color>660000FF</color></PolyStyle>
+</Style>
+<Style id="linecolour">
+<LineStyle><color>660000FF</color><width>3</width></LineStyle>
+</Style>
+
+	<Style id="roadStyle">
+		<LineStyle>
+			<color>7fcf0064</color>
+			<width>6</width>
+		</LineStyle>
+	</Style>
+	<Placemark>
+		<name>Head east on Capitol Ave toward N 18th St</name>
+		<address>Omaha, NE</address>
+		<description>go 0.1&amp;#160;mi</description>
+		<LookAt>
+			<longitude>-95.93989</longitude>
+			<latitude>41.26065</latitude>
+			<altitude>0</altitude>
+			<range>100</range>
+			<tilt>45</tilt>
+			<heading>89.999107</heading>
+		</LookAt>
+		<StyleMap>
+			<Pair>
+				<key>normal</key>
+				<Style>
+					<IconStyle>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/go.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/go-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<Style>
+					<IconStyle>
+						<scale>1.3</scale>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/go.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/go-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+		</StyleMap>
+		<Point>
+			<coordinates>-95.93989,41.26065,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Turn left at N 16th St</name>
+		<description>go 0.1&amp;#160;mi</description>
+		<LookAt>
+			<longitude>-95.93718</longitude>
+			<latitude>41.26065</latitude>
+			<altitude>0</altitude>
+			<range>100</range>
+			<tilt>45</tilt>
+			<heading>89.999107</heading>
+		</LookAt>
+		<StyleMap>
+			<Pair>
+				<key>normal</key>
+				<Style>
+					<IconStyle>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<Style>
+					<IconStyle>
+						<scale>1.3</scale>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+		</StyleMap>
+		<Point>
+			<coordinates>-95.93718,41.26065,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Turn right at Chicago St</name>
+		<description>go 0.1&amp;#160;mi</description>
+		<LookAt>
+			<longitude>-95.93719</longitude>
+			<latitude>41.26264</latitude>
+			<altitude>0</altitude>
+			<range>100</range>
+			<tilt>45</tilt>
+			<heading>359.783569</heading>
+		</LookAt>
+		<StyleMap>
+			<Pair>
+				<key>normal</key>
+				<Style>
+					<IconStyle>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<Style>
+					<IconStyle>
+						<scale>1.3</scale>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+		</StyleMap>
+		<Point>
+			<coordinates>-95.93719,41.26264,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Take the ramp onto I-480 E  Entering Iowa</name>
+		<description>go 1.1&amp;#160;mi</description>
+		<LookAt>
+			<longitude>-95.93474999999999</longitude>
+			<latitude>41.26268</latitude>
+			<altitude>0</altitude>
+			<range>100</range>
+			<tilt>45</tilt>
+			<heading>88.749855</heading>
+		</LookAt>
+		<StyleMap>
+			<Pair>
+				<key>normal</key>
+				<Style>
+					<IconStyle>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<Style>
+					<IconStyle>
+						<scale>1.3</scale>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+		</StyleMap>
+		<Point>
+			<coordinates>-95.93474999999999,41.26268,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Take the exit onto I-29 N toward Sioux City  Entering South Dakota</name>
+		<description>go 183&amp;#160;mi</description>
+		<LookAt>
+			<longitude>-95.91493</longitude>
+			<latitude>41.26091</latitude>
+			<altitude>0</altitude>
+			<range>100</range>
+			<tilt>45</tilt>
+			<heading>71.53727</heading>
+		</LookAt>
+		<StyleMap>
+			<Pair>
+				<key>normal</key>
+				<Style>
+					<IconStyle>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<Style>
+					<IconStyle>
+						<scale>1.3</scale>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+		</StyleMap>
+		<Point>
+			<coordinates>-95.91493,41.26091,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Take exit 84B to merge onto I-90 W</name>
+		<description>go 336&amp;#160;mi</description>
+		<LookAt>
+			<longitude>-96.77001</longitude>
+			<latitude>43.6134</latitude>
+			<altitude>0</altitude>
+			<range>100</range>
+			<tilt>45</tilt>
+			<heading>3.548483</heading>
+		</LookAt>
+		<StyleMap>
+			<Pair>
+				<key>normal</key>
+				<Style>
+					<IconStyle>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<Style>
+					<IconStyle>
+						<scale>1.3</scale>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+		</StyleMap>
+		<Point>
+			<coordinates>-96.77001,43.6134,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Take exit 60 on the left for I-90 Business toward Mt Rushmore</name>
+		<description>go 0.3&amp;#160;mi</description>
+		<LookAt>
+			<longitude>-103.17619</longitude>
+			<latitude>44.09972</latitude>
+			<altitude>0</altitude>
+			<range>100</range>
+			<tilt>45</tilt>
+			<heading>270.365265</heading>
+		</LookAt>
+		<StyleMap>
+			<Pair>
+				<key>normal</key>
+				<Style>
+					<IconStyle>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<Style>
+					<IconStyle>
+						<scale>1.3</scale>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+		</StyleMap>
+		<Point>
+			<coordinates>-103.17619,44.09972,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Merge onto I-90-BL W</name>
+		<description>go 0.8&amp;#160;mi</description>
+		<LookAt>
+			<longitude>-103.18044</longitude>
+			<latitude>44.09622</latitude>
+			<altitude>0</altitude>
+			<range>100</range>
+			<tilt>45</tilt>
+			<heading>206.134171</heading>
+		</LookAt>
+		<StyleMap>
+			<Pair>
+				<key>normal</key>
+				<Style>
+					<IconStyle>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<Style>
+					<IconStyle>
+						<scale>1.3</scale>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+		</StyleMap>
+		<Point>
+			<coordinates>-103.18044,44.09622,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Turn left at N Campbell St/US-16T  Continue to follow US-16T</name>
+		<description>go 3.3&amp;#160;mi</description>
+		<LookAt>
+			<longitude>-103.19174</longitude>
+			<latitude>44.08766</latitude>
+			<altitude>0</altitude>
+			<range>100</range>
+			<tilt>45</tilt>
+			<heading>252.384262</heading>
+		</LookAt>
+		<StyleMap>
+			<Pair>
+				<key>normal</key>
+				<Style>
+					<IconStyle>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<Style>
+					<IconStyle>
+						<scale>1.3</scale>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+		</StyleMap>
+		<Point>
+			<coordinates>-103.19174,44.08766,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Turn right at E Gannon Blvd/E US-16B/US-16T  Continue to follow US-16T</name>
+		<description>go 3.5&amp;#160;mi</description>
+		<LookAt>
+			<longitude>-103.19205</longitude>
+			<latitude>44.03959</latitude>
+			<altitude>0</altitude>
+			<range>100</range>
+			<tilt>45</tilt>
+			<heading>180.576035</heading>
+		</LookAt>
+		<StyleMap>
+			<Pair>
+				<key>normal</key>
+				<Style>
+					<IconStyle>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<Style>
+					<IconStyle>
+						<scale>1.3</scale>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+		</StyleMap>
+		<Point>
+			<coordinates>-103.19205,44.03959,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Turn left at US-16 W</name>
+		<description>go 13&amp;#160;mi</description>
+		<LookAt>
+			<longitude>-103.25016</longitude>
+			<latitude>44.01855</latitude>
+			<altitude>0</altitude>
+			<range>100</range>
+			<tilt>45</tilt>
+			<heading>277.596527</heading>
+		</LookAt>
+		<StyleMap>
+			<Pair>
+				<key>normal</key>
+				<Style>
+					<IconStyle>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<Style>
+					<IconStyle>
+						<scale>1.3</scale>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+		</StyleMap>
+		<Point>
+			<coordinates>-103.25016,44.01855,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Take the US-16A exit on the left toward Keystone/Mt Rushmore</name>
+		<description>go 0.3&amp;#160;mi</description>
+		<LookAt>
+			<longitude>-103.44133</longitude>
+			<latitude>43.925</latitude>
+			<altitude>0</altitude>
+			<range>100</range>
+			<tilt>45</tilt>
+			<heading>304.768738</heading>
+		</LookAt>
+		<StyleMap>
+			<Pair>
+				<key>normal</key>
+				<Style>
+					<IconStyle>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<Style>
+					<IconStyle>
+						<scale>1.3</scale>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+		</StyleMap>
+		<Point>
+			<coordinates>-103.44133,43.925,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Merge onto US-16-ALT</name>
+		<description>go 3.4&amp;#160;mi</description>
+		<LookAt>
+			<longitude>-103.44258</longitude>
+			<latitude>43.92233</latitude>
+			<altitude>0</altitude>
+			<range>100</range>
+			<tilt>45</tilt>
+			<heading>166.499191</heading>
+		</LookAt>
+		<StyleMap>
+			<Pair>
+				<key>normal</key>
+				<Style>
+					<IconStyle>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<Style>
+					<IconStyle>
+						<scale>1.3</scale>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+		</StyleMap>
+		<Point>
+			<coordinates>-103.44258,43.92233,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Continue on SD-244</name>
+		<description>go 2.5&amp;#160;mi</description>
+		<LookAt>
+			<longitude>-103.43624</longitude>
+			<latitude>43.88615</latitude>
+			<altitude>0</altitude>
+			<range>100</range>
+			<tilt>45</tilt>
+			<heading>216.408127</heading>
+		</LookAt>
+		<StyleMap>
+			<Pair>
+				<key>normal</key>
+				<Style>
+					<IconStyle>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<Style>
+					<IconStyle>
+						<scale>1.3</scale>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause.png</href>
+						</Icon>
+						<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/pause-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+		</StyleMap>
+		<Point>
+			<coordinates>-103.43624,43.88615,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Arrive at: Mount Rushmore</name>
+		<address>Mount Rushmore</address>
+		<StyleMap>
+			<Pair>
+				<key>normal</key>
+				<Style>
+					<IconStyle>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/stop.png</href>
+						</Icon>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/stop-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<Style>
+					<IconStyle>
+						<scale>1.3</scale>
+						<Icon>
+							<href>http://maps.google.com/mapfiles/kml/paddle/stop.png</href>
+						</Icon>
+					</IconStyle>
+					<ListStyle>
+						<listItemType>check</listItemType>
+						<ItemIcon>
+							<state>open closed error fetching0 fetching1 fetching2</state>
+							<href>http://maps.google.com/mapfiles/kml/paddle/stop-lv.png</href>
+						</ItemIcon>
+						<bgColor>00ffffff</bgColor>
+					</ListStyle>
+				</Style>
+			</Pair>
+		</StyleMap>
+		<Point>
+			<coordinates>-103.46094,43.87861,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Route</name>
+		<description><![CDATA[Distance: 547&#160;mi (about 7 hours 52 mins)<br/>Map data &#169;2007 NAVTEQ&trade;]]></description>
+		<styleUrl>#roadStyle</styleUrl>
+		<MultiGeometry>
+			<LineString>
+				<coordinates>
+-95.93989,41.26065 -95.93718,41.26065 -95.93718,41.26065 -95.93719,41.26264 -95.93719,41.26264 -95.93474999999999,41.26268 -95.93474999999999,41.26268 -95.93398999999999,41.26266 -95.93335,41.26257 -95.92972,41.26186 -95.92891,41.26154 -95.92851,41.26134 -95.92816,41.26111 -95.92706,41.26022 -95.92600,41.25961 -95.92540,41.25938 -95.9247,41.25928 -95.92435999999999,41.25925 -95.9238,41.25929 -95.92292999999999,41.25945 -95.92133,41.25967 -95.91911,41.26009 -95.91752,41.26026 -95.91493,41.26091 -95.91493,41.26091 -95.9143,41.26097 -95.91258,41.26131 -95.91182,41.2614 -95.91109,41.26141 -95.91000,41.26149 -95.90921,41.2617 -95.90871,41.26199 -95.90848,41.26224 -95.90822,41.26266 -95.90804,41.26317 -95.90794,41.26376 -95.90796,41.26543 -95.90812,41.26715 -95.90810,41.26759 -95.90792999999999,41.26811 -95.90769,41.26853 -95.90724,41.26906 -95.90685,41.26937 -95.90605,41.26981 -95.89306999999999,41.2744 -95.89134,41.27485 -95.88991,41.27502 -95.88865,41.27506 -95.88177,41.27488 -95.88024,41.27488 -95.87965,41.27493 -95.8788,41.27509 -95.87772,41.27543 -95.87720,41.27567 -95.87649999999999,41.27611 -95.87607,41.27644 -95.87567,41.27682 -95.86704,41.28586 -95.86671,41.2863 -95.86645,41.28676 -95.86626,41.28726 -95.86617,41.28758 -95.86609,41.28836 -95.86615,41.28928 -95.86700999999999,41.29575 -95.86770,41.29932 -95.86918,41.30587 -95.86945,41.30689 -95.86992,41.30815 -95.87027,41.30889 -95.87080,41.30986 -95.87142,41.3108 -95.8725,41.31213 -95.87943,41.31916 -95.88052,41.32049 -95.88118,41.32141 -95.8819,41.32258 -95.88240999999999,41.32353 -95.88296,41.32474 -95.88620,41.33245 -95.88666,41.33339 -95.89261999999999,41.34417 -95.89393,41.3464 -95.89436,41.34705 -95.89518,41.3481 -95.89725,41.35026 -95.89802,41.35113 -95.89926,41.35278 -95.89968,41.35343 -95.90058,41.35501 -95.90093,41.35588 -95.90111,41.35649 -95.90124,41.35724 -95.90125999999999,41.35829 -95.90113,41.35909 -95.89957,41.36563 -95.89936,41.36706 -95.89931,41.36779 -95.89942,41.38467 -95.89942,41.40935 -95.89946999999999,41.41044 -95.89960,41.41152 -95.90045,41.41741 -95.90057,41.41936 -95.90044,41.42142 -95.89948,41.42834 -95.8995,41.47395 -95.90138,41.4993 -95.90167,41.50276 -95.90183,41.50382 -95.90204,41.50448 -95.90243,41.50534 -95.90313999999999,41.50641 -95.90367999999999,41.50701 -95.90457,41.5078 -95.91482,41.5151 -95.91536,41.51558 -95.91584,41.51609 -95.91623,41.51659 -95.91660,41.51714 -95.91689,41.51769 -95.91724,41.5186 -95.91742,41.51941 -95.91749,41.52002 -95.91761,41.53442 -95.91737999999999,41.54553 -95.91732,41.54630 -95.91736,41.54709 -95.91733,41.55011 -95.91710,41.55324 -95.91715,41.55611 -95.91711,41.55923 -95.91715,41.55994 -95.91768,41.56409 -95.91786,41.56507 -95.91799,41.56546 -95.91846,41.56652 -95.91911,41.56752 -95.92019,41.56864 -95.92068,41.56905 -95.94245,41.58383 -95.94496,41.58548 -95.94655,41.58665 -95.96434,41.60238 -95.98011,41.61381 -96.02401999999999,41.64867 -96.02524,41.64973 -96.02606,41.65066 -96.02642,41.65116 -96.02703,41.65218 -96.03984,41.67954 -96.04043,41.68087 -96.04084,41.68222 -96.04102,41.68333 -96.04222,41.6939 -96.04253,41.69723 -96.04321,41.70335 -96.04340,41.70474 -96.04804,41.73409 -96.04819,41.73547 -96.04817,41.73686 -96.04533,41.75794 -96.04529,41.7585 -96.04533,41.75961 -96.04549,41.76072 -96.04562,41.76127 -96.05241,41.78413 -96.05262,41.78495 -96.05271,41.78578 -96.05271,41.78634 -96.05255,41.78745 -96.05091,41.79402 -96.05079,41.79485 -96.05082,41.79569 -96.05108,41.79679 -96.05131,41.79732 -96.05159999999999,41.79783 -96.05195,41.79832 -96.05262,41.79908 -96.05613,41.80293 -96.05701,41.80383 -96.06686999999999,41.81466 -96.06829,41.81629 -96.07517,41.82391 -96.0859,41.83762 -96.08729,41.83928 -96.10018,41.85157 -96.10091,41.85255 -96.10119,41.85306 -96.10163,41.85412 -96.10177,41.85468 -96.1032,41.86774 -96.10352,41.87138 -96.10435,41.87943 -96.10441,41.88055 -96.10335,41.95314 -96.10323,41.95481 -96.10141,41.97059 -96.10139,41.97109 -96.10151999999999,41.97258 -96.10176,41.97355 -96.10193,41.97403 -96.10421,41.97900 -96.10674,41.98473 -96.11714,42.0077 -96.11801,42.00925 -96.11927,42.01094 -96.13018,42.02427 -96.13279,42.02738 -96.14986,42.0483 -96.15176,42.05071 -96.17180,42.07522 -96.17264,42.07627 -96.17329,42.07717 -96.19651,42.1155 -96.20038,42.12184 -96.20962,42.13672 -96.21078,42.13857 -96.22156,42.15435 -96.22206,42.1551 -96.2225,42.15587 -96.24073,42.19497 -96.24118,42.19598 -96.24151999999999,42.19694 -96.24169,42.19819 -96.24076,42.21774 -96.24066,42.22003 -96.24066,42.22118 -96.24076,42.22224 -96.24181,42.22883 -96.24222,42.23171 -96.24263999999999,42.23383 -96.24278,42.23432 -96.24294999999999,42.23482 -96.24343,42.23577 -96.24867999999999,42.24341 -96.24910,42.2441 -96.25311,42.25002 -96.26973,42.27438 -96.27045,42.27528 -96.27239,42.27719 -96.29908,42.30209 -96.30018,42.30313 -96.30095,42.30403 -96.30127,42.30452 -96.30151,42.30501 -96.30723,42.31904 -96.30754,42.31976 -96.30806,42.32072 -96.30877,42.32165 -96.30963,42.3225 -96.31461,42.32668 -96.31589,42.32781 -96.32093,42.33207 -96.32257,42.3335 -96.32356,42.33459 -96.33499999999999,42.35142 -96.33569,42.35234 -96.35143,42.37164 -96.35889,42.38281 -96.36571,42.39313 -96.36605,42.39380 -96.36632,42.39457 -96.36645,42.39509 -96.36654,42.39614 -96.36651999999999,42.40498 -96.36528,42.41202 -96.36515,42.41289 -96.36506,42.41417 -96.36506,42.41551 -96.36516,42.41664 -96.3655,42.41854 -96.36574,42.41943 -96.36611,42.42058 -96.36644,42.42141 -96.36705,42.42267 -96.36763,42.4237 -96.36852,42.42506 -96.37399,42.4323 -96.37463,42.4334 -96.37502,42.43452 -96.37514,42.43541 -96.37523,42.44772 -96.37532,42.44928 -96.37553,42.45038 -96.37618999999999,42.45267 -96.37773,42.45749 -96.37903,42.46203 -96.38225,42.47259 -96.38245,42.47313 -96.38301,42.4742 -96.38645,42.47855 -96.38848,42.48091 -96.39167999999999,42.48431 -96.39230,42.48487 -96.3935,42.48575 -96.39581,42.48722 -96.39648,42.48757 -96.39696,42.48777 -96.39819,42.48814 -96.39964,42.48843 -96.40494,42.48933 -96.40739,42.48956 -96.40828999999999,42.48975 -96.40884,42.48993 -96.41109,42.49095 -96.41189,42.49127 -96.41251,42.49148 -96.41383,42.49182 -96.4144,42.49189 -96.41842,42.49216 -96.41951,42.49222 -96.42068999999999,42.49223 -96.44151,42.49145 -96.44214,42.49146 -96.4435,42.49157 -96.45204,42.49279 -96.45364,42.49306 -96.45624,42.49362 -96.45747,42.49374 -96.45947,42.49366 -96.46509,42.49323 -96.46727,42.49313 -96.46834,42.49325 -96.47096,42.49368 -96.47184,42.49387 -96.48026,42.49626 -96.48303,42.49707 -96.48370,42.4973 -96.48463,42.49773 -96.48519,42.49808 -96.48570,42.49847 -96.48636,42.49913 -96.48672999999999,42.4996 -96.49156,42.50731 -96.49251,42.50874 -96.49679,42.51451 -96.49773999999999,42.51607 -96.49825,42.51715 -96.49865,42.51826 -96.49887,42.51909 -96.49908,42.52022 -96.49919,42.52113 -96.49944,42.53422 -96.49955,42.53594 -96.49976,42.53707 -96.50005,42.53807 -96.50062,42.53956 -96.50118,42.54062 -96.50221,42.54216 -96.51382,42.55667 -96.51512,42.55809 -96.51919,42.5619 -96.52091,42.56345 -96.5227,42.56495 -96.52657,42.56815 -96.53706,42.57628 -96.5459,42.58292 -96.56675,42.59724 -96.59278999999999,42.61838 -96.59482,42.61997 -96.60463,42.62684 -96.62461999999999,42.6412 -96.6259,42.64215 -96.63557,42.64987 -96.64559,42.6572 -96.65397,42.66321 -96.65527,42.664 -96.6567,42.66467 -96.68156,42.67397 -96.6823,42.6743 -96.68300,42.67465 -96.68431,42.67545 -96.6932,42.68213 -96.69404,42.68284 -96.69523,42.68413 -96.69563,42.68467 -96.69628,42.68582 -96.69654,42.68641 -96.69687999999999,42.68749 -96.69705,42.68857 -96.69708,42.68906 -96.69712,42.70979 -96.69719,42.71041 -96.69740,42.71134 -96.69785,42.71254 -96.69848,42.71369 -96.69887,42.71425 -96.69977,42.7153 -96.70111,42.71649 -96.72705999999999,42.73575 -96.74582,42.74883 -96.74735,42.74995 -96.76486,42.76348 -96.76624,42.7645 -96.76729,42.76522 -96.77528,42.77033 -96.77679,42.7714 -96.7837,42.7769 -96.78427,42.77737 -96.78505,42.77811 -96.78600,42.77915 -96.78663,42.77996 -96.79435,42.79148 -96.79470,42.79203 -96.79525,42.7932 -96.79546,42.79381 -96.79573,42.79505 -96.7958,42.7963 -96.79576,42.82328 -96.79589,42.85911 -96.79495,42.89327 -96.79488,42.89766 -96.79471,42.96706 -96.79483,42.97333 -96.79553,43.00061 -96.79543,43.05393 -96.79546,43.05708 -96.79583,43.07426 -96.79592,43.07633 -96.79604,43.08367 -96.79602,43.10462 -96.7966,43.11992 -96.79658,43.14065 -96.79640,43.14383 -96.79555,43.15305 -96.79544,43.15497 -96.79541999999999,43.15688 -96.79586999999999,43.22452 -96.79600,43.24047 -96.79604999999999,43.24078 -96.79601,43.24331 -96.79613,43.28907 -96.79604999999999,43.29824 -96.79607,43.30182 -96.79635,43.32273 -96.79617,43.38568 -96.79622,43.38837 -96.79618,43.40297 -96.7965,43.41933 -96.79645,43.42154 -96.79619,43.42715 -96.79607,43.4288 -96.79603,43.43188 -96.79613,43.43464 -96.79791,43.45126 -96.79792999999999,43.4521 -96.79648,43.47383 -96.79639,43.48109 -96.79625,43.4822 -96.79599,43.48332 -96.7928,43.49197 -96.79240,43.49296 -96.79197,43.49384 -96.79053999999999,43.49616 -96.78164,43.50991 -96.78093,43.51127 -96.78058,43.51226 -96.78043,43.51303 -96.78029,43.51433 -96.78023,43.54767 -96.78028,43.55081 -96.78016,43.55314 -96.77999,43.55492 -96.77979999999999,43.55622 -96.77888,43.56121 -96.77795999999999,43.56795 -96.77764,43.56895 -96.77721,43.56981 -96.77638,43.57093 -96.77240,43.57532 -96.77164999999999,43.57625 -96.77135,43.57674 -96.77100,43.5775 -96.77073,43.57854 -96.77067,43.57949 -96.77107,43.59478 -96.77078,43.60441 -96.77001,43.6134 -96.77001,43.6134 -96.76971,43.61391 -96.76960,43.61401 -96.7693,43.61413 -96.76897,43.61415 -96.76864999999999,43.61407 -96.76841,43.61392 -96.76827,43.6137 -96.76824,43.61358 -96.76828999999999,43.61335 -96.76846,43.61315 -96.76872,43.61301 -96.76961,43.61284 -96.77612,43.61281 -96.77818,43.61275 -96.78139,43.6125 -96.78260,43.61236 -96.78501,43.61201 -96.78661,43.61172 -96.79571,43.6099 -96.79746,43.60958 -96.79966,43.60926 -96.80189,43.60902 -96.80500,43.60883 -96.80631,43.6088 -96.81359,43.60879 -96.81567,43.60874 -96.82249,43.60876 -96.87085999999999,43.60863 -96.87502,43.60869 -96.88551,43.6091 -96.88925999999999,43.6092 -96.89426,43.60922 -96.89683,43.60918 -96.94414,43.60912 -96.95027,43.60918 -96.9579,43.60909 -96.96852,43.60907 -96.97127999999999,43.60903 -96.98317,43.60904 -96.98553,43.60907 -97.02247,43.60902 -97.02383,43.60906 -97.02473999999999,43.60913 -97.02655,43.60936 -97.02876,43.60978 -97.03003,43.6101 -97.03086,43.61036 -97.03168,43.61064 -97.03327,43.61129 -97.0348,43.61204 -97.04145,43.61589 -97.04382,43.61722 -97.04796,43.61969 -97.08478,43.64108 -97.08625,43.64196 -97.0896,43.6441 -97.09180,43.64565 -97.09363,43.64703 -97.09399999999999,43.64736 -97.09622,43.649 -97.11543,43.66379 -97.11601,43.66418 -97.11693,43.66473 -97.11793,43.66523 -97.11968,43.66591 -97.12082,43.66623 -97.12199,43.66649 -97.12318999999999,43.66668 -97.12442,43.66679 -97.12526,43.66682 -97.13142,43.66676 -97.15559,43.66672 -97.18002,43.66655 -97.18297,43.66656 -97.18371,43.66661 -97.18882,43.66651 -97.19992,43.66638 -97.22837,43.66616 -97.29685,43.66679 -97.30059,43.66679 -97.31328,43.66668 -97.31399999999999,43.66673 -97.31634,43.66668 -97.32425,43.66662 -97.37610,43.66629 -97.37916,43.6663 -97.38168,43.66637 -97.38827,43.66634 -97.39451,43.66648 -97.39785999999999,43.66647 -97.41479,43.66663 -97.41836,43.66671 -97.42258,43.66671 -97.43648,43.66684 -97.44157,43.66673 -97.49188,43.66459 -97.49526,43.66446 -97.49911,43.66437 -97.52625,43.66448 -97.53376,43.66457 -97.57914,43.66536 -97.65890,43.66572 -97.66012,43.66575 -97.66064,43.66572 -97.6722,43.66575 -97.70070,43.66584 -97.70575,43.66589 -97.72520,43.66593 -97.73232,43.66578 -97.74129,43.66549 -97.74277,43.66541 -97.74641,43.66534 -97.77213,43.66452 -97.77695,43.66447 -97.77932,43.66452 -97.78083,43.6646 -97.78138,43.66458 -97.81137,43.66599 -97.81393,43.66626 -97.81578,43.66657 -97.81729,43.66689 -97.81918,43.66739 -97.82143,43.66813 -97.82283,43.66867 -97.83214,43.67242 -97.83517999999999,43.67359 -97.84516,43.67764 -97.84848,43.67907 -97.85076,43.68015 -97.85366999999999,43.68163 -97.85584,43.68282 -97.86972,43.69075 -97.87129,43.69157 -97.8733,43.69246 -97.87537,43.69321 -97.87643,43.69354 -97.87751,43.69384 -97.87935,43.69428 -97.88160,43.69468 -97.88431,43.69498 -97.88585999999999,43.69507 -97.88777,43.69511 -97.94132,43.69508 -97.94243,43.69511 -97.94731,43.69504 -97.95207,43.69489 -97.97170,43.69324 -97.97386,43.69308 -97.97646,43.69295 -98.00010,43.69233 -98.00842,43.69217 -98.00879,43.69209 -98.01572,43.69192 -98.04715,43.69166 -98.04994,43.69175 -98.05448,43.69209 -98.05844999999999,43.69259 -98.06337,43.6933 -98.06548,43.69354 -98.06761,43.69373 -98.07142,43.69394 -98.07456,43.69402 -98.07655,43.69402 -98.07992,43.69415 -98.08450,43.69426 -98.09157,43.69434 -98.12354,43.69449 -98.12682,43.69456 -98.12976999999999,43.69468 -98.13866,43.69515 -98.14109,43.69533 -98.14158999999999,43.69529 -98.14418,43.69542 -98.14855,43.69552 -98.15116999999999,43.69551 -98.15188,43.69554 -98.16913,43.69547 -98.17447,43.69541 -98.18735,43.69541 -98.20276,43.69556 -98.20729,43.69557 -98.22077,43.69543 -98.23935,43.69547 -98.24017,43.6955 -98.27119999999999,43.69552 -98.27633,43.69564 -98.27931,43.69576 -98.28264,43.69598 -98.28758999999999,43.69611 -98.29153,43.69612 -98.29604,43.69608 -98.29881,43.69612 -98.31753,43.69615 -98.31980,43.6961 -98.32208,43.69611 -98.32935999999999,43.69603 -98.37817,43.69541 -98.38546,43.69527 -98.38809999999999,43.69527 -98.40608,43.69505 -98.43678,43.69501 -98.44419,43.69504 -98.45208,43.69498 -98.45327,43.69504 -98.45533,43.69523 -98.45741,43.69560 -98.45941,43.6961 -98.47781999999999,43.70214 -98.48591,43.70488 -98.49389,43.7074 -98.49506,43.70771 -98.49667,43.70805 -98.49791999999999,43.70825 -98.50006,43.70846 -98.50138,43.70852 -98.51908,43.70855 -98.54269,43.70865 -98.66821,43.7089 -98.67101,43.70904 -98.67253,43.70921 -98.67421,43.70946 -98.67534,43.70967 -98.67802,43.71033 -98.67997,43.71094 -98.68782,43.71371 -98.68973,43.71434 -98.69302999999999,43.71522 -98.69571,43.71579 -98.69705999999999,43.71602 -98.69911999999999,43.71631 -98.70048,43.71646 -98.70707,43.71704 -98.71399,43.71772 -98.71984,43.71814 -98.73654999999999,43.71958 -98.73792,43.71978 -98.73931,43.72005 -98.74032,43.72029 -98.7413,43.72056 -98.74312999999999,43.72119 -98.74472,43.72185 -98.74638,43.72271 -98.74742999999999,43.72335 -98.76221,43.7329 -98.76443,43.73408 -98.76588,43.73472 -98.76668,43.73503 -98.76796,43.73545 -98.76895,43.73573 -98.77094,43.73617 -98.77676,43.73732 -98.77958,43.73771 -98.78134,43.73786 -98.78238,43.73792 -98.79121,43.738 -98.82999,43.7382 -98.83557,43.73821 -98.84976,43.73809 -98.86234,43.73814 -98.87297,43.73834 -98.87790,43.73823 -98.89139,43.73763 -98.89641,43.73748 -98.90054,43.73751 -98.93829,43.73819 -98.95047,43.73818 -98.95386,43.73823 -98.95820,43.73824 -98.96493,43.73817 -98.98567,43.73813 -98.98747,43.73819 -98.98926,43.73835 -98.99147,43.73870 -98.99275,43.73899 -99.02182,43.74746 -99.02531,43.74837 -99.02881,43.74913 -99.03193,43.74965 -99.03552,43.75013 -99.0371,43.75030 -99.06064,43.75240 -99.06323999999999,43.75257 -99.06583,43.75262 -99.16155999999999,43.75195 -99.16371,43.75201 -99.16477999999999,43.75208 -99.17791,43.75323 -99.18197,43.7535 -99.18393,43.75348 -99.18723,43.7533 -99.19118,43.75289 -99.19684,43.75239 -99.20043,43.75213 -99.20422,43.752 -99.20836,43.75194 -99.25743,43.75262 -99.25961,43.75282 -99.26102,43.75303 -99.26333,43.75356 -99.26466,43.75395 -99.29482,43.76475 -99.30576,43.7687 -99.30817999999999,43.76962 -99.3124,43.77114 -99.31886,43.77339 -99.32319,43.77497 -99.32473,43.77564 -99.32623,43.77643 -99.32771,43.77737 -99.32844,43.77789 -99.32987,43.7791 -99.33077,43.78001 -99.33163,43.78102 -99.33753,43.79005 -99.3387,43.79144 -99.33929999999999,43.79208 -99.33972,43.79249 -99.34081999999999,43.79343 -99.34202999999999,43.79434 -99.34363999999999,43.79541 -99.34560,43.79659 -99.35868,43.80512 -99.35938,43.80551 -99.36048,43.806 -99.36101,43.80618 -99.36230999999999,43.80654 -99.36340,43.80674 -99.36499,43.80690 -99.36606,43.80690 -99.36696,43.80684 -99.36872,43.80656 -99.36957,43.80635 -99.37081,43.80593 -99.3811,43.80174 -99.38227999999999,43.80131 -99.38311,43.80106 -99.38395,43.80086 -99.38566,43.80058 -99.38732,43.80045 -99.38821,43.80043 -99.38933,43.80049 -99.39122,43.8008 -99.39138,43.80073 -99.39165,43.80071 -99.39879,43.80156 -99.39905,43.80164 -99.39917,43.80175 -99.40034,43.80180 -99.40208,43.80213 -99.40319,43.80245 -99.40458,43.80296 -99.40649,43.80384 -99.41244,43.80672 -99.41739,43.8094 -99.42931,43.81617 -99.43086,43.81701 -99.43386,43.81852 -99.43652,43.81969 -99.43805,43.82031 -99.45160,43.82538 -99.45486,43.82678 -99.45659,43.8276 -99.45863,43.82864 -99.48250,43.84162 -99.48358,43.84215 -99.48468,43.84263 -99.48582,43.84305 -99.48823,43.84375 -99.49030,43.84417 -99.49149,43.84434 -99.5116,43.84689 -99.51383,43.84713 -99.51778,43.84742 -99.52025,43.84752 -99.54527,43.84757 -99.55162,43.84753 -99.55373,43.84758 -99.55468999999999,43.84766 -99.55707,43.84795 -99.56025,43.84871 -99.5613,43.84904 -99.5654,43.85043 -99.56784,43.85133 -99.56961,43.85191 -99.59961,43.86228 -99.60605,43.86458 -99.61446,43.86738 -99.61517,43.86761 -99.61719,43.86813 -99.61841,43.86836 -99.62008,43.86861 -99.62262,43.86877 -99.62587,43.86881 -99.67834,43.86879 -99.68149,43.86883 -99.70789,43.86883 -99.70945,43.86886 -99.71149,43.86899 -99.7131,43.86917 -99.71504,43.86949 -99.71736,43.86999 -99.7351,43.87481 -99.73726,43.87536 -99.74133999999999,43.87632 -99.74286,43.87657 -99.74442,43.87675 -99.74458,43.87686 -99.74786,43.87699 -99.75134,43.87703 -99.7547,43.877 -99.79771,43.87699 -99.79933,43.87701 -99.80091,43.87708 -99.80328,43.87731 -99.80527,43.87761 -99.80719,43.87803 -99.80876,43.87843 -99.83077,43.88506 -99.85742,43.89303 -99.86090,43.89412 -99.86631,43.89562 -99.87054,43.89685 -99.87292,43.89719 -99.8746,43.89737 -99.87662,43.89749 -99.97418999999999,43.89751 -100.01849,43.89746 -100.02437,43.89742 -100.02895,43.8975 -100.03136,43.89759 -100.054,43.89871 -100.06,43.89883 -100.1172,43.89842 -100.14761,43.89823 -100.1482,43.89825 -100.15009,43.8984 -100.15194,43.89866 -100.15319,43.8989 -100.15578,43.89961 -100.15826,43.90056 -100.18124,43.91043 -100.18252,43.91092 -100.18356,43.91126 -100.18563,43.9118 -100.18666,43.912 -100.18774,43.91218 -100.18964,43.9124 -100.19131,43.91249 -100.25143,43.91255 -100.29882,43.91253 -100.30693,43.9126 -100.31894,43.91259 -100.32846,43.91252 -100.33095,43.91248 -100.33978,43.9122 -100.39831,43.91008 -100.40198,43.90999 -100.40715,43.90975 -100.41203,43.9096 -100.42172,43.90922 -100.42869,43.90899 -100.43297,43.90889 -100.43989,43.90886 -100.49678,43.90889 -100.53933,43.90887 -100.54217,43.90891 -100.54707,43.90887 -100.62724,43.90882 -100.6341,43.90878 -100.6348,43.90873 -100.63734,43.90843 -100.6382,43.90828 -100.63941,43.90801 -100.64206,43.90725 -100.64335,43.90677 -100.64479,43.90611 -100.68093,43.88638 -100.68258,43.88556 -100.6851,43.88459 -100.68758,43.88391 -100.68877,43.88367 -100.69125,43.88334 -100.69275,43.88326 -100.69455,43.88323 -100.71059,43.8833 -100.71236,43.88328 -100.71348,43.88329 -100.71701,43.88343 -100.72724,43.88432 -100.73299,43.88478 -100.74002,43.88544 -100.75211,43.88645 -100.75769,43.88677 -100.76045,43.88682 -100.76426,43.88683 -100.87764,43.88672 -100.88016,43.88694 -100.88137,43.88708 -100.88256,43.88728 -100.88505,43.88776 -100.88751,43.88845 -100.88961,43.8892 -100.89303,43.89062 -100.89463,43.89122 -100.91576,43.89957 -100.91684,43.89993 -100.91794,43.90024 -100.91979,43.90066 -100.92214,43.90099 -100.92452,43.90116 -100.9998,43.90121 -101.00468,43.90127 -101.00955,43.9012 -101.07403,43.9012 -101.07914,43.90116 -101.08292,43.90102 -101.08484,43.90091 -101.08909,43.90055 -101.09325,43.90003 -101.09503,43.89977 </coordinates>
+			</LineString>
+			<LineString>
+				<coordinates>
+-101.09503,43.89977 -101.09887,43.89912 -101.10421,43.89804 -101.10864,43.89701 -101.10951,43.89677 -101.11193,43.89595 -101.11311,43.89549 -101.11408,43.89506 -101.11711,43.89355 -101.14115,43.88126 -101.14502,43.87937 -101.14667,43.87846 -101.15496,43.87423 -101.15771,43.87288 -101.15946,43.87209 -101.16304,43.87065 -101.17494,43.86647 -101.17829,43.86519 -101.17992,43.8645 -101.18234,43.8634 -101.2198,43.84507 -101.22097,43.84458 -101.2226,43.84404 -101.22429,43.84357 -101.22691,43.84306 -101.22904,43.84285 -101.2304,43.84279 -101.24573,43.84283 -101.26451,43.8429 -101.26625,43.84294 -101.28157,43.84295 -101.31466,43.84305 -101.31656,43.84309 -101.31942,43.84327 -101.3234,43.84376 -101.35536,43.84961 -101.36052,43.85031 -101.36423,43.85062 -101.36638,43.85074 -101.39171,43.85199 -101.39759,43.85216 -101.40593,43.85212 -101.48484,43.851 -101.48972,43.85087 -101.49257,43.85059 -101.49385,43.85043 -101.49569,43.85006 -101.49877,43.84924 -101.52578,43.84059 -101.53119,43.83881 -101.53618,43.83724 -101.5379,43.83685 -101.53924,43.83661 -101.54103,43.83641 -101.54236,43.83631 -101.54372,43.83627 -101.56942,43.83624 -101.57833,43.83628 -101.65615,43.83627 -101.66121,43.83618 -101.66902,43.83623 -101.69383,43.83623 -101.6981,43.8362 -101.71405,43.8362 -101.71975,43.83615 -101.75788,43.83612 -101.80028,43.83643 -101.87123,43.83626 -101.87644,43.83616 -101.88655,43.83579 -101.88736,43.83579 -101.88823,43.83584 -101.88982,43.83608 -101.89061,43.83629 -101.89136,43.83653 -101.8928,43.83715 -101.89557,43.83861 -101.91444,43.84781 -101.93171,43.85636 -101.9358,43.85835 -101.94121,43.86081 -101.94595,43.86272 -101.95481,43.86612 -101.95971,43.86789 -101.96436,43.8697 -101.96668,43.87066 -101.97169,43.87284 -102.00534,43.88863 -102.00823,43.88992 -102.01162,43.89136 -102.02926,43.89865 -102.03146,43.89952 -102.04504,43.90519 -102.04784,43.90627 -102.05114,43.90732 -102.05534,43.90843 -102.06344,43.91029 -102.06419,43.91051 -102.06535,43.91075 -102.07862,43.91385 -102.08526,43.91546 -102.13919,43.92824 -102.14045,43.92858 -102.14221,43.92924 -102.14345,43.92986 -102.14452,43.93052 -102.14529,43.93106 -102.1491,43.9346 -102.15124,43.93664 -102.15328,43.93868 -102.16477,43.94961 -102.18611,43.96969 -102.18726,43.97072 -102.18959,43.97255 -102.20145,43.9811 -102.20428,43.98301 -102.20613,43.98442 -102.20773,43.98554 -102.20892,43.98613 -102.2103,43.98669 -102.21085,43.98686 -102.2124,43.98717 -102.21342,43.98729 -102.21496,43.9874 -102.225,43.98735 -102.22766,43.98727 -102.23451,43.98691 -102.23538,43.9868 -102.24067,43.98644 -102.24166,43.98644 -102.24276,43.98653 -102.24388,43.98671 -102.24477,43.98692 -102.24574,43.98721 -102.24658,43.98751 -102.25017,43.98909 -102.25183,43.98994 -102.25285,43.99055 -102.25439,43.9916 -102.25571,43.99267 -102.25838,43.99456 -102.263,43.99768 -102.28236,44.01143 -102.28409,44.01273 -102.28795,44.01534 -102.29123,44.01766 -102.29446,44.02002 -102.29603,44.02092 -102.29813,44.0218 -102.29946,44.02217 -102.30065,44.02244 -102.30195,44.02265 -102.31083,44.02367 -102.31333,44.02415 -102.31456,44.02448 -102.31606,44.02497 -102.31998,44.02643 -102.32197,44.02738 -102.32358,44.02825 -102.32613,44.0298 -102.32702,44.03025 -102.32801,44.03068 -102.32907,44.03105 -102.33031,44.03139 -102.33162,44.03166 -102.33347,44.03189 -102.33643,44.03215 -102.33767,44.03235 -102.33865,44.03259 -102.33987,44.03299 -102.34136,44.03365 -102.34242,44.03427 -102.34289,44.03458 -102.34467,44.036 -102.35298,44.04291 -102.35431,44.04406 -102.35902,44.04797 -102.36019,44.04907 -102.36157,44.05076 -102.36206,44.05154 -102.36279,44.05287 -102.36388,44.05508 -102.36574,44.05862 -102.3663,44.05944 -102.36738,44.06079 -102.36868,44.06206 -102.37185,44.06478 -102.37242,44.06517 -102.37332,44.06569 -102.37422,44.06612 -102.37497,44.06643 -102.37651,44.06688 -102.37756,44.0671 -102.3797,44.06732 -102.38949,44.06754 -102.39085,44.06753 -102.39398,44.06763 -102.39715,44.06767 -102.40353,44.06785 -102.40585,44.06799 -102.41737,44.06904 -102.41922,44.06909 -102.42098,44.06897 -102.42255,44.06873 -102.42409,44.06837 -102.42562,44.06791 -102.42673,44.06752 -102.42816,44.06693 -102.43188,44.06504 -102.43259,44.06473 -102.43333,44.06447 -102.43489,44.06408 -102.43578,44.06393 -102.43652,44.06385 -102.43817,44.06381 -102.43939,44.06392 -102.44047,44.06407 -102.44426,44.06475 -102.44661,44.06523 -102.4507,44.06593 -102.45414,44.06661 -102.45464,44.06664 -102.45571,44.0668 -102.45825,44.06731 -102.45942,44.06768 -102.46032,44.06802 -102.46101,44.06832 -102.46233,44.06904 -102.46296,44.06945 -102.46449,44.07056 -102.47513,44.07836 -102.47618,44.07909 -102.47899,44.08084 -102.48186,44.08255 -102.48323,44.08345 -102.48488,44.08462 -102.48945,44.08802 -102.49086,44.08891 -102.49535,44.09133 -102.49677,44.0922 -102.49785,44.09304 -102.49878,44.09384 -102.5,44.09504 -102.5005,44.09561 -102.50144,44.09643 -102.50248,44.09718 -102.50363,44.09785 -102.50496,44.09849 -102.5065,44.09906 -102.51839,44.10242 -102.51942,44.10267 -102.52047,44.10288 -102.52315,44.10326 -102.524,44.10334 -102.52536,44.10339 -102.60419,44.10353 -102.60628,44.10361 -102.60836,44.10377 -102.61067,44.10404 -102.61311,44.10442 -102.62397,44.10647 -102.62594,44.1067 -102.62793,44.10680 -102.6293,44.10679 -102.63086,44.10671 -102.63241,44.10656 -102.64278,44.1046 -102.64455,44.10429 -102.64669,44.104 -102.64938,44.10375 -102.65292,44.1036 -102.70564,44.10362 -102.73253,44.10367 -102.7452,44.10367 -102.74751,44.10364 -102.75554,44.10367 -102.82192,44.10367 -102.8255,44.10364 -102.83434,44.1037 -102.8384,44.10366 -102.86078,44.10418 -102.87155,44.10422 -102.87767,44.1042 -102.89266,44.10431 -102.89452,44.10446 -102.89639,44.10473 -102.89772,44.105 -102.89904,44.10533 -102.89991,44.10559 -102.90142,44.10613 -102.90321,44.10686 -102.91208,44.11061 -102.91372,44.11125 -102.91541,44.11184 -102.93447,44.11759 -102.9358,44.11792 -102.93716,44.11815 -102.93854,44.11828 -102.93947,44.11832 -102.99052,44.11839 -103.01007,44.11806 -103.07056,44.11802 -103.0745,44.11799 -103.08422,44.11768 -103.08763,44.11761 -103.09947,44.11754 -103.10814,44.11758 -103.11076,44.11751 -103.11127,44.11746 -103.11276,44.1172 -103.11389,44.11691 -103.11553,44.11625 -103.1367,44.10451 -103.13755,44.10408 -103.13913,44.10341 -103.14014,44.10304 -103.14123,44.1027 -103.14249,44.10236 -103.14381,44.10207 -103.15131,44.1006 -103.15446,44.10001 -103.15543,44.09988 -103.15785,44.09974 -103.16067,44.09965 -103.17619,44.09972 -103.17619,44.09972 -103.17713,44.09949 -103.1777,44.0993 -103.17844,44.0989 -103.1787,44.09869 -103.17906,44.09824 -103.18044,44.09622 -103.18044,44.09622 -103.18201,44.09399 -103.18255,44.09339 -103.18303,44.09294 -103.18381,44.09233 -103.18804,44.08957 -103.18818,44.08936 -103.19031,44.08814 -103.19117,44.08779 -103.19174,44.08766 -103.19174,44.08766 -103.19176,44.08411 -103.19168,44.0817 -103.19171,44.08087 -103.19166,44.08032 -103.19167,44.07661 -103.19161,44.07589 -103.19161,44.06786 -103.19176,44.06686 -103.19166,44.06424 -103.19168,44.05762 -103.19177,44.05586 -103.1918,44.04411 -103.1919,44.04391 -103.19201,44.04245 -103.19205,44.03959 -103.19205,44.03959 -103.19214,44.03907 -103.19224,44.03887 -103.19257,44.03862 -103.19286,44.03851 -103.1931,44.03845 -103.19493,44.03844 -103.19558,44.03839 -103.1969,44.0382 -103.1982,44.03789 -103.19884,44.03769 -103.20008,44.03720 -103.20066,44.03691 -103.20176,44.03623 -103.2025,44.03566 -103.20315,44.03505 -103.20535,44.03272 -103.20578,44.03233 -103.20627,44.032 -103.20682,44.03172 -103.20741,44.03150 -103.20802,44.03134 -103.20867,44.03125 -103.20934,44.03121 -103.22109,44.03127 -103.22331,44.03125 -103.22453,44.03112 -103.22512,44.031 -103.22625,44.03064 -103.22757,44.03000 -103.24024,44.02316 -103.24106,44.0226 -103.24214,44.02162 -103.24276,44.02087 -103.24363,44.01945 -103.24394,44.01907 -103.24436,44.01876 -103.24485,44.0185 -103.24538,44.01832 -103.24593,44.01822 -103.24651,44.0182 -103.25016,44.01855 -103.25016,44.01855 -103.25046,44.01708 -103.25125,44.01231 -103.25252,44.00516 -103.25285,44.00359 -103.25299,44.00316 -103.25328,44.00255 -103.25353,44.00216 -103.2543,44.00123 -103.25467,44.00088 -103.25509,44.00054 -103.2558,44.00007 -103.26432,43.99536 -103.26534,43.9947 -103.26582,43.99434 -103.26629,43.99396 -103.26805,43.99233 -103.27321,43.98746 -103.27359,43.98706 -103.27405,43.98643 -103.27429,43.98599 -103.27638,43.9818 -103.27671,43.98098 -103.27692,43.98016 -103.277,43.97955 -103.27714,43.97797 -103.27713,43.97622 -103.27717,43.97583 -103.27739,43.97509 -103.27779,43.97442 -103.27835,43.97382 -103.27868,43.97355 -103.27941,43.97314 -103.28031,43.97277 -103.28124,43.97254 -103.28223,43.97245 -103.28319,43.97248 -103.28366,43.97254 -103.29149,43.97422 -103.29649,43.9751 -103.2977,43.97521 -103.29893,43.97522 -103.29956,43.97519 -103.30121,43.97498 -103.30191,43.97483 -103.3052,43.97381 -103.30636,43.97356 -103.30776,43.97338 -103.30942,43.97334 -103.31196,43.97337 -103.31282,43.97332 -103.31376,43.97321 -103.31523,43.97298 -103.32105,43.97192 -103.32208,43.97177 -103.3311,43.97018 -103.33239,43.96999 -103.3335,43.96988 -103.33736,43.9697 -103.33934,43.9695 -103.34128,43.96916 -103.34225,43.96894 -103.34674,43.96766 -103.34953,43.9668 -103.35005,43.9666 -103.35096,43.96612 -103.35135,43.96586 -103.35201,43.96526 -103.35252,43.96462 -103.35354,43.96319 -103.35419,43.96238 -103.35516,43.96151 -103.35573,43.9611 -103.35674,43.9605 -103.35759,43.96009 -103.36073,43.95889 -103.36173,43.95846 -103.36245,43.95807 -103.36333,43.95744 -103.36388,43.95694 -103.36449,43.95624 -103.365,43.9554 -103.36626,43.95289 -103.3667,43.95218 -103.36779,43.95069 -103.36844,43.94996 -103.37103,43.94755 -103.37396,43.94494 -103.37567,43.94353 -103.3767,43.9429 -103.37729,43.94265 -103.37793,43.94245 -103.37859,43.9423 -103.37927,43.9422 -103.38233,43.94206 -103.38527,43.942 -103.38655,43.94209 -103.38748,43.94225 -103.3881,43.9424 -103.39094,43.94324 -103.39204,43.94345 -103.39261,43.94352 -103.39377,43.94357 -103.39521,43.94348 -103.39578,43.9434 -103.39662,43.94322 -103.39715,43.94307 -103.39819,43.94269 -103.39916,43.9422 -103.40132,43.94074 -103.40199,43.94033 -103.40248,43.94009 -103.40301,43.93989 -103.40356,43.93974 -103.40475,43.93957 -103.40537,43.93956 -103.40598,43.93959 -103.40814,43.93982 -103.4094,43.93991 -103.41004,43.9399 -103.41085,43.93983 -103.41159,43.9397 -103.41432,43.93901 -103.41492,43.93883 -103.41591,43.93842 -103.41652,43.93805 -103.41694,43.93772 -103.41759,43.93699 -103.41785,43.93659 -103.41847,43.93529 -103.41873,43.93488 -103.41905,43.93449 -103.41943,43.93413 -103.41988,43.9338 -103.42037,43.93352 -103.42147,43.93308 -103.42342,43.93256 -103.42479,43.93212 -103.42559,43.93177 -103.42639,43.93136 -103.42698,43.931 -103.43049,43.92859 -103.43452,43.92616 -103.43725,43.92468 -103.43779,43.92449 -103.43836,43.92437 -103.43921,43.92433 -103.43975,43.9244 -103.44025,43.92452 -103.44065,43.92466 -103.44133,43.925 -103.44133,43.925 -103.44208,43.92497 -103.44246,43.92487 -103.44294,43.9246 -103.44315,43.92434 -103.44325,43.92385 -103.44321,43.92369 -103.44304,43.92328 -103.44273,43.92278 -103.44258,43.92233 -103.44258,43.92233 -103.44244,43.9209 -103.4423,43.92052 -103.4419,43.91979 -103.4418,43.91943 -103.44176,43.91897 -103.44182,43.91816 -103.4417,43.91756 -103.44129,43.91681 -103.44009,43.91505 -103.43862,43.91362 -103.43834,43.91323 -103.43808,43.91258 -103.43786,43.91123 -103.43715,43.90985 -103.43706,43.90921 -103.43713,43.90837 -103.43696,43.90787 -103.43676,43.90757 -103.43642,43.90724 -103.43611,43.90704 -103.43567,43.90683 -103.43534,43.90673 -103.43274,43.90621 -103.43216,43.90597 -103.43192,43.90583 -103.43128,43.9053 -103.43046,43.90423 -103.43025,43.90384 -103.43019,43.90363 -103.43019,43.90333 -103.43038,43.90237 -103.43014,43.90167 -103.42987,43.90116 -103.42945,43.90062 -103.42912,43.89998 -103.42889,43.89889 -103.42872,43.89848 -103.4286,43.8983 -103.42807,43.89782 -103.42655,43.89712 -103.42632,43.89696 -103.42604,43.89667 -103.42572,43.89616 -103.42524,43.89484 -103.42518,43.89414 -103.42528,43.89368 -103.4262,43.89218 -103.42648,43.89191 -103.42733,43.89147 -103.42753,43.89133 -103.42778,43.89097 -103.42781,43.89076 -103.42775,43.89032 -103.42764,43.89011 -103.42747,43.88995 -103.42723,43.88985 -103.42697,43.8898 -103.42595,43.8897 -103.42564,43.88963 -103.42538,43.88951 -103.42517,43.88934 -103.42504,43.88912 -103.42501,43.88888 -103.42509,43.88867 -103.42586,43.88781 -103.4261,43.88767 -103.42636,43.88758 -103.42665,43.88755 -103.42976,43.88748 -103.43159,43.88725 -103.43255,43.88727 -103.43343,43.88718 -103.43385,43.88723 -103.43453,43.88738 -103.43485,43.88734 -103.43512,43.88721 -103.43536,43.88701 -103.43624,43.88615 -103.43624,43.88615 -103.43661,43.88593 -103.4375,43.88571 -103.43781,43.88569 -103.43844,43.88576 -103.43875,43.88584 -103.43905,43.88597 -103.44133,43.88708 -103.44154,43.88715 -103.44198,43.88721 -103.44239,43.88717 -103.44274,43.88706 -103.44361,43.88654 -103.44387,43.88645 -103.44414,43.88638 -103.44484,43.8863 -103.44547,43.88615 -103.44596,43.88585 -103.4465,43.88534 -103.44695,43.88472 -103.4471,43.88441 -103.44721,43.88374 -103.44709,43.88306 -103.44603,43.88089 -103.44593,43.88059 -103.44589,43.88033 -103.44592,43.87998 -103.446,43.8798 -103.44646,43.87918 -103.44662,43.87906 -103.447,43.87891 -103.44743,43.87885 -103.44765,43.87886 -103.44906,43.87916 -103.44968,43.87917 -103.45009,43.87911 -103.45045,43.87898 -103.45079,43.87881 -103.45107,43.87860 -103.45194,43.87782 -103.45223,43.87742 -103.45227,43.87710 -103.45217,43.87677 -103.45207,43.87661 -103.45166,43.87619 -103.45149,43.87585 -103.45147,43.87537 -103.45157,43.87508 -103.45197,43.87462 -103.4527,43.87416 -103.45303,43.87402 -103.45341,43.87394 -103.4538,43.87393 -103.45436,43.87404 -103.45469,43.87418 -103.45506,43.87449 -103.45515,43.87462 -103.45525,43.87485 -103.45533,43.87526 -103.45547,43.87551 -103.45565,43.87561 -103.45589,43.87566 -103.45618,43.87563 -103.45693,43.87542 -103.45769,43.87493 -103.45932,43.87425 -103.45967,43.87416 -103.46004,43.87414 -103.46057,43.87429 -103.46095,43.87458 -103.46105,43.8747 -103.46113,43.87496 -103.46096,43.87544 -103.4604,43.87615 -103.46031,43.87633 -103.46029,43.87652 -103.46047,43.87777 -103.46094,43.87861 </coordinates>
+			</LineString>
+		</MultiGeometry>
+	</Placemark>
+
+<Placemark><name>distribution/range</name>
+<description></description>
+<styleUrl>#rangecolour</styleUrl>
+<Polygon>
+<tessellate>1</tessellate><altitudeMode>clampToGround</altitudeMode>
+<outerBoundaryIs><LinearRing><coordinates>
+-120.761719,44.74049,0 
+-116.71875,35.346047,0 
+-104.941406,33.607299,0 
+-98.4375,28.798471,0 
+-94.394531,31.533599,0 
+-96.855469,47.777728,0 
+-120.761719,44.74049,0 
+</coordinates></LinearRing></outerBoundaryIs>
+<innerBoundaryIs><LinearRing><coordinates>
+-117.246094,42.449402,0 
+-112.851562,43.733001,0 
+-112.5,40.071346,0 
+-116.191406,39.801784,0 
+-117.246094,42.449402,0 
+</coordinates></LinearRing></innerBoundaryIs>
+<innerBoundaryIs><LinearRing><coordinates>
+-105.292969,43.859881,0 
+-99.492187,44.490235,0 
+-98.964844,39.259479,0 
+-103.710937,38.712947,0 
+-105.292969,43.859881,0 
+</coordinates></LinearRing></innerBoundaryIs>
+</Polygon>
+</Placemark>
+
+</Document>
+</kml>

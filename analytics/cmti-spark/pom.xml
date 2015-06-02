@@ -1,0 +1,44 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+  	<groupId>com.cmti</groupId>
+  	<artifactId>analytics</artifactId>
+  	<version>1.0-SNAPSHOT</version>
+  </parent>
+
+    <groupId>com.cmti</groupId>    
+	<artifactId>cmti-spark</artifactId>
+	<packaging>jar</packaging>
+	<version>${global.version}</version>
+	<name>Spark Base</name>
+
+	
+  <dependencies>
+  
+  	<dependency>
+		<groupId>com.cmti</groupId>
+		<artifactId>cmti-hbase</artifactId>
+		<version>${global.version}</version>
+	</dependency>
+  
+    <dependency> <!-- Spark dependency -->
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-core_2.10</artifactId>
+      <version>1.3.0</version>
+    </dependency>
+
+    <dependency> <!-- Spark dependency -->
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-streaming_2.10</artifactId>
+      <version>1.3.0</version>
+    </dependency>
+
+    <dependency> <!-- Spark dependency http://spark.apache.org/docs/latest/streaming-programming-guide.html -->
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-streaming-kafka_2.10</artifactId>
+      <version>1.3.0</version>
+    </dependency>
+
+  </dependencies>
+</project>

@@ -20,9 +20,16 @@ import com.cmti.analytics.app.station.olapdatabase.domain.DimStation;
 import com.cmti.analytics.app.station.olapdatabase.service.DimStationService;
 import com.cmti.analytics.app.station.redis.domain.EventCount;
 
+/**
 //http://localhost/map/html/data/welcome
 
 //http://localhost/map/html/data
+
+ * provide data to web client
+ * 
+ * @author Guobiao Mo
+ *
+ */
 
 @Controller
 @RequestMapping("/data")
@@ -66,7 +73,7 @@ public class DataController {
 		    EventCount ec = new EventCount(key, value);
 		    System.err.println("key="+key+" count="+value);
 		    
-		    s.addEventCount(ec);
+//		    s.addEventCount(ec);//FIXME
 	    }	   
 				
 		model.addAttribute("station", s);

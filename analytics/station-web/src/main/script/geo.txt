@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+      xmlns:georss="http://www.georss.org/georss"
+      xmlns:woe="http://where.yahooapis.com/v1/schema.rng"
+      xmlns:flickr="urn:flickr:user"
+      xmlns:media="http://search.yahoo.com/mrss/">
+
+  <title>The faulkner_usa Pool, with geodata</title>
+  <link rel="self" href="http://api.flickr.com/services/feeds/geo/?g=322338@N20&amp;lang=en-us&amp;format=feed-georss" />
+  <link rel="alternate" type="text/html" href="http://www.flickr.com/photos/"/>
+  <id>tag:flickr.com,2005:/photos/public/group/322338@N20/geo/</id>
+  <icon>http://l.yimg.com/g/images/buddyicon02_r.png#322338@N20</icon>
+  <subtitle>Pictures of my dog in a variety of locations</subtitle>
+  <updated>2006-08-29T15:41:19Z</updated>
+  <generator uri="http://www.flickr.com/">Flickr</generator>
+
+<entry>
+    <title>Hoover Dam, AZ</title>
+    <link rel="alternate" type="text/html" href="http://www.flickr.com/photos/shreck/228310097/"/>
+    <id>tag:flickr.com,2005:/photo/228310097</id>
+    <published>2006-08-29T15:41:19Z</published>
+    <updated>2006-08-29T15:41:19Z</updated>
+    <flickr:date_taken>2005-08-29T14:38:52-08:00</flickr:date_taken>
+    <dc:date.Taken>2005-08-29T14:38:52-08:00</dc:date.Taken>
+    <content type="html">			&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/people/shreck/&quot;&gt;manshreck&lt;/a&gt; posted a photo:&lt;/p&gt;
+	
+&lt;p&gt;&lt;a href=&quot;http://www.flickr.com/photos/shreck/228310097/&quot; title=&quot;Hoover Dam, AZ&quot;&gt;&lt;img src=&quot;http://farm1.staticflickr.com/98/228310097_8202e98ba4_m.jpg&quot; width=&quot;240&quot; height=&quot;179&quot; alt=&quot;Hoover Dam, AZ&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Faulkner at Hoover Dam&lt;/p&gt;</content>
+    <author>
+      <name>manshreck</name>
+      <uri>http://www.flickr.com/people/shreck/</uri>
+      <flickr:nsid>51296622@N00</flickr:nsid>
+      <flickr:buddyicon>http://farm1.staticflickr.com/29/buddyicons/51296622@N00.jpg?1130103303#51296622@N00</flickr:buddyicon>
+    </author>
+    <link rel="enclosure" type="image/jpeg" href="http://farm1.staticflickr.com/98/228310097_8202e98ba4_z.jpg" />
+    <category term="" scheme="http://www.flickr.com/photos/tags/" />
+    <displaycategories>
+            </displaycategories>
+        <georss:point>36.015851 -114.734086</georss:point>
+    <geo:lat>36.015851</geo:lat>
+    <geo:long>-114.734086</geo:long>
+    <woe:woeid>12589233</woe:woeid>
+</entry>
+
+
+</feed>

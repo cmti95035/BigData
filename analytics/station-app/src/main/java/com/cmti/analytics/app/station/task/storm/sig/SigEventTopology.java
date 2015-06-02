@@ -115,7 +115,7 @@ public class SigEventTopology extends AbstractTopology{
 	    @Override
 	    public void execute(Tuple tuple, BasicOutputCollector collector) {
 	    	String line =   tuple.getString(0); 
-	    	RecordSig sig = dao.parseLine(line);
+	    	RecordSig sig = dao.parseLine(line, null);
 	    	int cell = sig.getCell();
 
 	    	collector.emit(new Values(cell, sig));

@@ -24,10 +24,10 @@ public class StationMapping extends HBaseObject{
 	//keys 
 
 	@Override
-	public String getDefaultColumFamily(){
+	public String getDefaultColumnFamily(){
 		return DEFAULT_CF;
 	}
-
+	
 		@Key 
 		public Integer id; 		
 			
@@ -60,5 +60,5 @@ public class StationMapping extends HBaseObject{
 			
 		// macro station and wireless room sub-station 
 		@Column(value = "room")
-		public Boolean room;	
+		public Boolean room;
 }

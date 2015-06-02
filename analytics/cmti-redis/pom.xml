@@ -12,7 +12,7 @@
 	<artifactId>cmti-redis</artifactId>
 	<packaging>jar</packaging>
 	<version>${global.version}</version>
-	<name>Redis base</name>
+	<name>CMTI Redis base</name>
 
 
 	<build>
@@ -32,8 +32,14 @@
 
 	</build>
 
-<!-- http://caffeinbean.wordpress.com/2011/03/01/hadoop-failed-to-set-setxincludeawaretrue-for-parser-error-and-how-to-resolve-it/ -->
     <dependencies> 
+    
+  	<dependency>
+		<groupId>com.cmti</groupId>
+		<artifactId>cmti-base</artifactId>
+		<version>${global.version}</version>
+	</dependency>
+      	
     <dependency>
 		<groupId>redis.clients</groupId>
 		<artifactId>jedis</artifactId>
@@ -45,19 +51,6 @@
   		<artifactId>stream</artifactId>
   		<version>2.7.0</version>
 	</dependency>
-
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-    </dependency>
-
-	<dependency>
-		<groupId>org.apache.commons</groupId>
-		<artifactId>commons-lang3</artifactId>
-		<version>3.3.2</version>
-	</dependency>
- 
   
 	</dependencies>
 

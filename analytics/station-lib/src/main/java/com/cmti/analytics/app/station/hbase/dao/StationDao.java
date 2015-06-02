@@ -8,6 +8,7 @@ import org.apache.commons.configuration.Configuration;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.text.StrTokenizer;
 import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.mapreduce.Mapper.Context;
 
 import com.cmti.analytics.app.station.hbase.domain.Station;
 import com.cmti.analytics.hbase.dao.ExportDao;
@@ -25,7 +26,7 @@ public class StationDao extends ExportDao<Station, Integer> {
 	//SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yy");
 
 	@Override
-	public Station parseLine(String line) {
+	public Station parseLine(String line, Context context) {
 		Station station = new Station();
 		
 		StrTokenizer st = new StrTokenizer(line, ",");		
