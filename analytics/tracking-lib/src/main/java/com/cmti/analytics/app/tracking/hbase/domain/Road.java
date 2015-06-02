@@ -30,16 +30,16 @@ public class Road extends RoadBean {
 		List<UserCell> tmp = new ArrayList<UserCell>();
 
 		Integer matchRoadCellId = null; //last matched roadCell id
-		logger.error("road id={}, ucells.size()={}", this.getRoadId(), ucells.size());
+		logger.info("road id={}, ucells.size()={}", this.getRoadId(), ucells.size());
 		
 		for (int i = 0; i < ucells.size(); i++) {
 			UserCell ucell = ucells.get(i);
 
-			logger.error("i={}, match id ={}, ucell={}", i, matchRoadCellId, ucell);
+			logger.info("i={}, match id ={}, ucell={}", i, matchRoadCellId, ucell);
 			
 			if (matchRoadCellId == null) {//new life
 				matchRoadCellId = find(ucell); 
-				logger.error("new life, i={} ,  match id ={} add 1st ucell={}", i, matchRoadCellId, ucell);
+				logger.info("new life, i={} ,  match id ={} add 1st ucell={}", i, matchRoadCellId, ucell);
 				tmp.add(ucell); 
 				continue;
 			}
@@ -48,15 +48,15 @@ public class Road extends RoadBean {
 			matchRoadCellId = match(ucell, matchRoadCellId);
 
 			if (matchRoadCellId != null) {
-				logger.error("found match, add ucell to tmp {}", ucell);
+				logger.info("found match, add ucell to tmp {}", ucell);
 				tmp.add(ucell);
 			} else {
-				logger.error("end here by ucell={} ", ucell);
+				logger.info("end here by ucell={} ", ucell);
 				if (tmp.size() >= minMatch) {
-					logger.error("got tmp.size()={}, add them", tmp.size());
+					logger.info("got tmp.size()={}, add them", tmp.size());
 					ret.addAll(tmp);
 				}else{
-					logger.error("got tmp.size()={}, skip them", tmp.size());
+					logger.info("got tmp.size()={}, skip them", tmp.size());
 				}
 				tmp.clear();
 			}			

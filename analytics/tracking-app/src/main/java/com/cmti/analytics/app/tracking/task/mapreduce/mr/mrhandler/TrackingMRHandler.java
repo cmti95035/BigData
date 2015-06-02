@@ -18,6 +18,7 @@ import com.cmti.analytics.app.tracking.hbase.domain.Road;
 import com.cmti.analytics.app.tracking.hbase.domain.UserCell;
 import com.cmti.analytics.conf.Config;
 import com.cmti.analytics.hbase.task.mapreduce.BaseMRHandler;
+import com.cmti.analytics.hbase.task.mapreduce.RelayCombineMRHandler;
 import com.cmti.analytics.hbase.task.mapreduce.util.MRUtil;
 import com.cmti.analytics.hbase.task.mapreduce.util.StringArrayWritable;
 
@@ -29,7 +30,7 @@ value: sum user count
  * @author gmo
  *
  */
-public class TrackingMRHandler extends BaseMRHandler<Mr> {
+public class TrackingMRHandler extends RelayCombineMRHandler<Mr> {
 
 	protected static final Logger logger = LogManager.getLogger(TrackingMRHandler.class);
 	//public static final String SIGNATURE = COUNT;
@@ -93,8 +94,7 @@ public class TrackingMRHandler extends BaseMRHandler<Mr> {
 			//if(road.getCells().contains(cell)){
 
 				int roadId = 1028851;//road.getRoadId(); FIXME
-//				String keyStr = MRUtil.buildKey(getSignature(), periodType, eventTypeId, dateKey, groupType);
-				String keyStr = MRUtil.buildKey(roadId, imsi);//for now, don't use  Signature
+				String keyStr = MRUtil.buildKey(getSignature(), roadId, imsi); 
 				
 				key.set(keyStr);
 				value.set(date, cell, rscp);
@@ -106,11 +106,16 @@ public class TrackingMRHandler extends BaseMRHandler<Mr> {
 
 	@Override
 	public void doReduce(Text keyText, Iterable<StringArrayWritable> ivalues, Context context) throws IOException, InterruptedException {
-		String[] keys = MRUtil.parseKey(keyText);
-		int roadId = Integer.parseInt(keys[0]);  
-		long imsi = Long.parseLong(keys[1]);  
+		String keyStr = keyText.toString();
+		if(keyStr.startsWith(getSignature()) == false) {
+			return;
+		}
 
-		TreeSet<Mr> mrs = new TreeSet<Mr>();//store sorted (by time) Mr in ivalues.
+		String[] keys = MRUtil.parseKey(keyStr);
+		int roadId = Integer.parseInt(keys[1]);
+		long imsi = Long.parseLong(keys[2]);
+
+		List<Mr> mrs = new ArrayList<Mr>();//store Mr from ivalues.
 		HashSet<Integer> cells = new HashSet<Integer>();//store unique cells
 		
 		Iterator<StringArrayWritable> it=ivalues.iterator();
@@ -133,31 +138,37 @@ public class TrackingMRHandler extends BaseMRHandler<Mr> {
 			cells.add(cell);
 		}
 		
-		//now we have a set of ordered Mr's. and unique cells on the road
+		//now we have a set of ordered MRs. and unique cells on the road
 		if(cells.size() >= minMatch) {//minimal of matching cell
-			logger.info(imsi +" mr-size="+mrs.size()+" cell size="+cells.size());
-			for(Mr mr : mrs){
-				logger.info(mr);
-			}
-			List<MrOnRoad> mors = findMrOnRoad(mrs, roadId);
+			logger.info("imsi={}, cell size={}", imsi, cells.size());
+			Collections.sort(mrs);//sorted (by time)
+			doMrList(roadId, mrs);
 			
-			//save MrOnRoad to HBase 
-			for(MrOnRoad mor : mors) {
-				logger.info("mrOnRoadDao.upsert(mor, mor.getTime()) {}", mor);
-				mrOnRoadDao.insert(mor, mor.getTime());
-			}		
+			Collections.sort(mrs, Collections.reverseOrder());//reverse sorted (by time)
+			doMrList(roadId, mrs);
 		}
 	}
 
+	private void doMrList(int roadId, List<Mr> mrs) throws IOException, InterruptedException {
+		logger.info("mr-size={}", mrs.size());
+		for(Mr mr : mrs){
+			logger.info(mr);
+		}
+		List<MrOnRoad> mors = findMrOnRoad(mrs, roadId);
+		
+		//save MrOnRoad to HBase 
+		for(MrOnRoad mor : mors) {
+			logger.info("mrOnRoadDao.upsert(mor, mor.getTime()) {}", mor);
+			mrOnRoadDao.insert(mor, mor.getTime());
+		}		
+	}
+	
 	//find mr on road
-	private List<MrOnRoad> findMrOnRoad(TreeSet<Mr> mrs, int roadId) throws IOException {
+	private List<MrOnRoad> findMrOnRoad(List<Mr> mrList, int roadId) throws IOException {
 		//if a user passes cells in the order of that of a road test (or reserves), we know that the user is on the road
 		//for each Mr, convert it to MrOnRoad. based on the timestamps of entering, exiting of the cell and the mr timestamp, and road's cell gps data.
 		//we can determine the location of the mr.
-		
-		//convert ordered Set mrs to a List to have index
-		List<Mr> mrList = new ArrayList<Mr>(mrs);
-				
+						
 		List<UserCell> cells = new ArrayList<UserCell>();
 		
 		//convert mrList to a list of UserCell.
@@ -183,7 +194,7 @@ public class TrackingMRHandler extends BaseMRHandler<Mr> {
 		}
 		
 		for(UserCell cell :cells) {
-			logger.error(cell);
+			logger.info(cell);
 		}
 		
 		Road road = roadDao.getRoad(roadId);//both road and road_cell tables are in-memory, no need to cache it

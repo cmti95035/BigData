@@ -11,6 +11,6 @@ public class SignatureConstant {
 	//OlapDurationMRHandler
 	public static final String ROAD_TEST = "r";
 	
-	public static final String INTERVAL_EVENT_COUNT = "i";
+	public static final String MR_COUNT = "c";
 
 }

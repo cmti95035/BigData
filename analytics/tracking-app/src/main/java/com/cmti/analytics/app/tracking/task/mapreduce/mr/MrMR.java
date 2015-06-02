@@ -24,13 +24,23 @@ import com.cmti.analytics.hbase.task.mapreduce.FullScanReducer;
   
 
  #hadoop jar tracking-app-1.0-SNAPSHOT.jar com.cmti.analytics.app.tracking.task.mapreduce.mr.MrMR  -libjars  p.jar     -D mapred.map.child.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" -D mapred.reduce.child.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml"  
-  
+ 
+
+AWS:
+
+export HADOOP_OPTS="-Dsite=aws -Dlog4j.configurationFile=log4j2/log4j2_prod.xml"
+ 
+nohup hadoop jar tracking-app-1.0-SNAPSHOT.jar com.cmti.analytics.app.tracking.task.mapreduce.mr.MrMR -D mapreduce.map.java.opts="-Dsite=aws -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" -D mapreduce.reduce.java.opts="-Dsite=aws -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" > MrMR.log & 
+nohup hadoop jar tracking-app-1.0-SNAPSHOT.jar com.cmti.analytics.app.tracking.task.mapreduce.mr.MrMR -D mapred.map.child.java.opts="-Dsite=aws -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" -D mapred.reduce.child.java.opts="-Dsite=aws -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" > MrMR.log & 
+
+tail -f MrMR.log 
+
  * 
  * @author gmo
  *
  */
 public class MrMR extends FullScanMR<Mr>{
-	protected static final Logger logger = LogManager.getLogger(MrMR.class); 	
+	protected static final Logger logger = LogManager.getLogger(MrMR.class);
 	
 	public MrMR() {		
 	}
@@ -42,7 +52,7 @@ public class MrMR extends FullScanMR<Mr>{
 
 	@Override
 	public Class<? extends FullScanCombiner<Mr>> getCombinerClass(){
-		return null;//MrCombiner.class;
+		return MrCombiner.class;
 	}
 
 	@Override

@@ -15,11 +15,7 @@ put 'road_test' , '0102885120140928160610ms9.csv','d:road_id',"\x00\x0F\xB2\xF3"
 
 create 'road_cell', {NAME => 'd', VERSIONS => 10, IN_MEMORY => 'true', COMPRESSION =>'SNAPPY'}
 
-
-
-
-
-
+create 'aa', {NAME => 'd'}
 
 
 
