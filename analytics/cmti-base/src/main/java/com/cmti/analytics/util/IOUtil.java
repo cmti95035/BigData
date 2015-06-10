@@ -1,7 +1,11 @@
 package com.cmti.analytics.util;
 
 import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 /**
@@ -32,4 +36,14 @@ public class IOUtil extends org.apache.commons.io.IOUtils {
 			}
 		}
 	}
+
+	public static String getUrlContent(String urlstr) throws IOException{
+		InputStream in = new URL(urlstr).openStream();
+		try {
+			return IOUtils.toString( in ) ;
+		} finally {
+			IOUtils.closeQuietly(in);
+		}
+	}
+
 }

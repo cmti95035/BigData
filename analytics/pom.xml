@@ -55,14 +55,16 @@
     <module>cmti-db</module>
     <module>cmti-hbase</module>
     
+    <module>cmti-spark</module>
+    
     <module>tracking-lib</module>
     <module>tracking-app</module>
+    
     <!-- 
 
 	<module>cmti-redis</module>
     <module>cmti-storm</module>
     <module>cmti-kafka</module>
-    <module>cmti-spark</module>
 	
     <module>station-lib</module>
     <module>station-app</module>	

@@ -8,17 +8,17 @@ import com.cmti.analytics.hbase.annotation.Table;
 import com.cmti.analytics.hbase.dao.HBaseObject;
 
 /** 
- * @author gmo
+ * @author Guobiao Mo
  * 
  * 
  */
-@Table(name = RoadTestDataMapping.DEFAULT_TABLE, 
-		defaultCf=RoadTestDataMapping.DEFAULT_CF,
+@Table(name = DriveTestDataMapping.DEFAULT_TABLE, 
+		defaultCf=DriveTestDataMapping.DEFAULT_CF,
 		hasUnmapped=false)  
-public class RoadTestDataMapping extends HBaseObject{
+public class DriveTestDataMapping extends HBaseObject{
 
 	public final static String DEFAULT_CF = "d";
-	public final static String DEFAULT_TABLE = "road_test_data";
+	public final static String DEFAULT_TABLE = "drive_test_data";
 	//keys 
 
 	@Override
@@ -30,7 +30,7 @@ public class RoadTestDataMapping extends HBaseObject{
 	public Integer roadId;
 	
 	@CompositeKey(order=1)
-	public String roadTestId;
+	public String driveTestId;
 
 	@CompositeKey(order=2)
 	public Integer frame; 

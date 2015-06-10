@@ -9,17 +9,17 @@ import com.cmti.analytics.hbase.annotation.Table;
 import com.cmti.analytics.hbase.dao.HBaseObject;
 
 /** 
- * @author gmo
+ * @author Guobiao Mo
  * 
  * 
  */
-@Table(name = RoadTestMapping.DEFAULT_TABLE, 
-		defaultCf=RoadTestMapping.DEFAULT_CF,
+@Table(name = DriveTestMapping.DEFAULT_TABLE, 
+		defaultCf=DriveTestMapping.DEFAULT_CF,
 		hasUnmapped=false)  
-public class RoadTestMapping extends HBaseObject{
+public class DriveTestMapping extends HBaseObject{
 
 	public final static String DEFAULT_CF = "d";
-	public final static String DEFAULT_TABLE = "road_test";
+	public final static String DEFAULT_TABLE = "drive_test";
 	//keys 
 
 	@Override
@@ -28,7 +28,7 @@ public class RoadTestMapping extends HBaseObject{
 	}
 
 	@Key
-	public String roadTestId; 
+	public String driveTestId; 
 	
 	//columns//////////////////////////////////////////////////////////////////////
 

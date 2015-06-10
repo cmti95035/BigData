@@ -1,9 +1,9 @@
 package com.cmti.analytics.app.tracking.hbase.domain.bean;
 
 import com.cmti.analytics.util.ObjectUtil;
-import com.cmti.analytics.app.tracking.hbase.domain.mapping.RoadTestDataMapping;
+import com.cmti.analytics.app.tracking.hbase.domain.mapping.DriveTestDataMapping;
 
-public class RoadTestDataBean extends RoadTestDataMapping {
+public class DriveTestDataBean extends DriveTestDataMapping {
 
 //key
 	public void setRoadId(Integer roadId){
@@ -14,12 +14,12 @@ public class RoadTestDataBean extends RoadTestDataMapping {
 		return roadId;
 	}
 	
-	public void setRoadTestId(String roadTestId){
-		this.roadTestId = roadTestId;
+	public void setDriveTestId(String driveTestId){
+		this.driveTestId = driveTestId;
 	}
 
-	public String getRoadTestId(){
-		return roadTestId;
+	public String getDriveTestId(){
+		return driveTestId;
 	}
 	
 	public void setFrame(Integer frame){
@@ -90,7 +90,7 @@ public class RoadTestDataBean extends RoadTestDataMapping {
   	
 	@Override
 	public String toString(){
-		return "RoadTestDataBean(" + " roadId="+ roadId + " roadTestId="+ roadTestId + " frame="+ frame + ")";
+		return "DriveTestDataBean(" + " roadId="+ roadId + " driveTestId="+ driveTestId + " frame="+ frame + ")";
 	}
 	
 }

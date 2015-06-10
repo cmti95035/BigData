@@ -8,9 +8,9 @@ import org.apache.hadoop.hbase.client.Scan;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.cmti.analytics.app.tracking.hbase.dao.RoadTestDataDao;
-import com.cmti.analytics.app.tracking.hbase.domain.RoadTestData;
-import com.cmti.analytics.app.tracking.task.scan.scanhandler.RoadTestRoadCellHandler;
+import com.cmti.analytics.app.tracking.hbase.dao.DriveTestDataDao;
+import com.cmti.analytics.app.tracking.hbase.domain.DriveTestData;
+import com.cmti.analytics.app.tracking.task.scan.scanhandler.DriveTestRoadCellHandler;
 import com.cmti.analytics.hbase.dao.DaoScanner;
 import com.cmti.analytics.hbase.dao.IDaoScanner;
 import com.cmti.analytics.hbase.task.scan.IHandler;
@@ -28,36 +28,36 @@ import com.cmti.analytics.hbase.util.HBaseUtil;
   
  * log: /tracking-app/src/main/my_note/ScanRoadTestData.log
  * 
- * @author gmo
+ * @author Guobiao Mo
  *
  */
-public class ScanRoadTestData extends ScanTable<RoadTestData> {
-	protected static final Logger logger = LogManager.getLogger(ScanRoadTestData.class); 
+public class ScanDriveTestData extends ScanTable<DriveTestData> {
+	protected static final Logger logger = LogManager.getLogger(ScanDriveTestData.class); 
 	
-	public ScanRoadTestData() throws IOException {
+	public ScanDriveTestData() throws IOException {
 	}
 
 	@Override
-	protected List<IHandler<RoadTestData>> getHandlers(){
-		ArrayList<IHandler<RoadTestData>> ret = new ArrayList<IHandler<RoadTestData>>();
-		ret.add(new RoadTestRoadCellHandler());
+	protected List<IHandler<DriveTestData>> getHandlers(){
+		ArrayList<IHandler<DriveTestData>> ret = new ArrayList<IHandler<DriveTestData>>();
+		ret.add(new DriveTestRoadCellHandler());
 		return ret;
 	}
 	
 	@Override
-	protected IDaoScanner<RoadTestData> getDaoScanner() throws IOException{
+	protected IDaoScanner<DriveTestData> getDaoScanner() throws IOException{
 		Scan scan = HBaseUtil.newOnePassMassScan();
 		
-		RoadTestDataDao dao = new RoadTestDataDao();
+		DriveTestDataDao dao = new DriveTestDataDao();
 		dao.open();
 		
-		DaoScanner<RoadTestData> scanner = dao.getDaoScanner(scan);
+		DaoScanner<DriveTestData> scanner = dao.getDaoScanner(scan);
 		
 		return scanner;
 	}
 	
 	public static void main(String args[]) throws Exception {
-		ScanRoadTestData er = new ScanRoadTestData();
+		ScanDriveTestData er = new ScanDriveTestData();
 		er.scan();
 		er.close();
 	}

@@ -17,7 +17,7 @@ import org.apache.hadoop.mapreduce.Mapper.Context;
 import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 
 import com.cmti.analytics.app.tracking.hbase.domain.MrOnRoad; 
-import com.cmti.analytics.app.tracking.hbase.domain.RoadTestData;
+import com.cmti.analytics.app.tracking.hbase.domain.DriveTestData;
 import com.cmti.analytics.app.tracking.util.TrackingUtil;
 import com.cmti.analytics.hbase.dao.ExportDao;
 import com.cmti.analytics.hbase.dao.HBaseGenericDao;
@@ -27,16 +27,16 @@ import com.cmti.analytics.util.StringUtil;
 
 /**
  * Dao for 'RoadTestData'
- * @author gmo
+ * @author Guobiao Mo
  *
  */
-public class RoadTestDataDao extends ExportDao<RoadTestData, Object> {
+public class DriveTestDataDao extends ExportDao<DriveTestData, Object> {
 
 	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");//2014/9/28 16:06:28
 
 	//used by bulk loader, set hbase timestamp as RoadTestData time
 	@Override
-	public Put getPut(RoadTestData t) throws IOException, InterruptedException {
+	public Put getPut(DriveTestData t) throws IOException, InterruptedException {
 		return getPut(t, t.getTime().getTime());
 	}
 	
@@ -44,8 +44,8 @@ public class RoadTestDataDao extends ExportDao<RoadTestData, Object> {
 //example line:
 //14085,2014/9/28 16:16:13,103.995804,30.633093,30067,10104,32,75,-66,87,-71,91,-87,18,-89,120,-91,53,-91,83,-93,100,-95,45,-97
 
-	public RoadTestData parseLine(String line, Context context) {
-		RoadTestData roadTestData = new RoadTestData();
+	public DriveTestData parseLine(String line, Context context) {
+		DriveTestData driveTestData = new DriveTestData();
 		
 		StrTokenizer st = new StrTokenizer(line, ",");
 		st.setIgnoreEmptyTokens(false);
@@ -92,16 +92,16 @@ public class RoadTestDataDao extends ExportDao<RoadTestData, Object> {
 		String fileName =  ((FileSplit) context.getInputSplit()).getPath().getName();//use this as road test id 0102885120140928160610ms9.csv
 		int roadId = TrackingUtil.extractRoadIdFromRoadMeasureId(fileName);
 
-		roadTestData.setRoadId(roadId);
-		roadTestData.setRoadTestId(fileName);
-		roadTestData.setLatitude(latitude);
-		roadTestData.setLongitude(longitude);
-		roadTestData.setFrame(frame);
-		roadTestData.setTime(date);				
-		roadTestData.setCell(cell);
-		roadTestData.setRscp(rscp);
+		driveTestData.setRoadId(roadId);
+		driveTestData.setDriveTestId(fileName);
+		driveTestData.setLatitude(latitude);
+		driveTestData.setLongitude(longitude);
+		driveTestData.setFrame(frame);
+		driveTestData.setTime(date);				
+		driveTestData.setCell(cell);
+		driveTestData.setRscp(rscp);
 
-		return roadTestData;
+		return driveTestData;
 	}
 	
 }

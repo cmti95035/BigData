@@ -13,7 +13,7 @@ import org.apache.velocity.VelocityContext;
 import org.apache.velocity.Template;
 /**
  * usage:
- * java -cp C:\git\cmti2\cmti\analytics\tracking-app\target\tracking-app-1.0-SNAPSHOT.jar -Ddir=C:\git\cmti2\cmti\analytics\tracking-lib\src\main\java\com\cmti\analytics\app\tracking\hbase -Dpackage=com.cmti.analytics.app.tracking.hbase com.cmti.analytics.hbase.domaingen.GenSource Mr MrOnRoad Road RoadCell RoadTest RoadTestData
+ * java -cp C:\git\cmti2\cmti\analytics\tracking-app\target\tracking-app-1.0-SNAPSHOT.jar -Ddir=C:\git\cmti2\cmti\analytics\tracking-lib\src\main\java\com\cmti\analytics\app\tracking\hbase -Dpackage=com.cmti.analytics.app.tracking.hbase com.cmti.analytics.hbase.domaingen.GenSource Mr MrOnRoad Road RoadCell DriveTest DriveTestData
  * @author Guobiao Mo
  *
  */

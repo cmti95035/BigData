@@ -10,8 +10,8 @@ import org.apache.logging.log4j.Logger;
 public class RoadCell extends RoadCellBean {
 	protected static final Logger logger = LogManager.getLogger(RoadCell.class);
 
-	public void appendGeo(RoadTestData roadTestData) {
-		appendGeo(roadTestData.getLongitude(), roadTestData.getLatitude());
+	public void appendGeo(DriveTestData driveTestData) {
+		appendGeo(driveTestData.getLongitude(), driveTestData.getLatitude());
 	}
 
 	public void appendGeo(Double lon, Double lat) {

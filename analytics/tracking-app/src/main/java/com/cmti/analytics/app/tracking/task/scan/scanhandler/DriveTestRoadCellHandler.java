@@ -12,25 +12,25 @@ import com.cmti.analytics.app.tracking.hbase.dao.RoadCellDao;
 import com.cmti.analytics.app.tracking.hbase.dao.RoadDao;
 import com.cmti.analytics.app.tracking.hbase.domain.Road;
 import com.cmti.analytics.app.tracking.hbase.domain.RoadCell;
-import com.cmti.analytics.app.tracking.hbase.domain.RoadTestData;
+import com.cmti.analytics.app.tracking.hbase.domain.DriveTestData;
 import com.cmti.analytics.conf.Config;
 import com.cmti.analytics.hbase.task.scan.IHandler;
  
 /**
  * scan RoadTestData of a road to create Road cells of that road
  * 
- * @author gmo
+ * @author Guobiao Mo
  *
  */
-public class RoadTestRoadCellHandler implements IHandler<RoadTestData>{
+public class DriveTestRoadCellHandler implements IHandler<DriveTestData>{
 
-	protected static final Logger logger = LogManager.getLogger(RoadTestRoadCellHandler.class);
+	protected static final Logger logger = LogManager.getLogger(DriveTestRoadCellHandler.class);
 	int fuzzyLookAheadCell; 
 
 	protected RoadCellDao roadCellDao;
 	protected RoadDao roadDao;
 	
-	public RoadTestRoadCellHandler() {
+	public DriveTestRoadCellHandler() {
 		Configuration config = Config.getConfig();
 		fuzzyLookAheadCell = config.getInt("fuzzy.look.ahead.cell", 10); //max no. of look ahead same cell for fuzzy zone. 
 
@@ -63,7 +63,7 @@ public class RoadTestRoadCellHandler implements IHandler<RoadTestData>{
 	List<RoadCell> cells=new ArrayList<RoadCell>();
 	
 	@Override 
-	public void handle(RoadTestData roadTestData)  throws IOException{	//can handle multiple roads.
+	public void handle(DriveTestData roadTestData)  throws IOException{	//can handle multiple roads.
 /*		Integer cellId = roadTestData.getCell();
 		if(MrDao.cellList.contains(cellId)){
 			logger.info("cellId {} in MrDao.cellList", cellId);			
@@ -97,7 +97,7 @@ public class RoadTestRoadCellHandler implements IHandler<RoadTestData>{
 		}
 	}
 	
-	private void newRoadCell(RoadTestData roadTestData) {
+	private void newRoadCell(DriveTestData roadTestData) {
 		cell = new RoadCell();
 		cell.setCellId(roadTestData.getCell());
 		cell.setRoadId(roadTestData.getRoadId());

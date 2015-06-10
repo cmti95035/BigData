@@ -12,6 +12,8 @@ import org.apache.hadoop.hbase.mapreduce.HFileOutputFormat;
 //import org.apache.hadoop.hbase.mapreduce.HFileOutputFormat2;
 import org.apache.hadoop.hbase.mapreduce.PutSortReducer;
 import org.apache.hadoop.hbase.mapreduce.TableMapReduceUtil;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
@@ -19,6 +21,7 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 
 
 //import com.cmti.analytics.app.device.task.importer.HdfsEventBulkLoader;
@@ -49,7 +52,11 @@ public abstract class BulkLoader<T extends HBaseObject, P> extends ConfiguredMR 
 	protected abstract HBaseGenericDao<T, P> getDao();
 	protected abstract Class<? extends Mapper> getMapperClass();	
 
-	protected void close() {
+	protected Class<? extends FileInputFormat<LongWritable, Text>> getFileInputFormatClass(){
+		return TextInputFormat.class;
+	}
+	
+	protected void close() {//called by subclass
 		getDao().close();
 	};
 
@@ -59,8 +66,6 @@ public abstract class BulkLoader<T extends HBaseObject, P> extends ConfiguredMR 
 		conf.setInt("mapreduce.reduce.memory.mb", 4096);
 		
 		conf.set("dao.class", getDao().getClass().getCanonicalName());//used in BulkLoaderMapper
-//		conf.set("mapper.class", "com.cmti.analytics.app.station.hbase.dao.RecordSigDao");
-//		conf.set("mapper.class", "com.cmti.analytics.app.station.hbase.dao.StationDao");
 		logger.error(conf.toString());
 		
 		Path inputDir = new Path(inputPath);
@@ -68,9 +73,10 @@ public abstract class BulkLoader<T extends HBaseObject, P> extends ConfiguredMR 
 		
 		job.setJarByClass(BulkLoader.class);
 		FileInputFormat.setInputPaths(job, inputDir);
+		FileInputFormat.setInputDirRecursive(job, true);
 		//FileInputFormat.addInputPath(job, path);
 		//FileInputFormat.addInputPaths(job, commaSeparatedPaths);
-		job.setInputFormatClass(TextInputFormat.class);
+		job.setInputFormatClass(getFileInputFormatClass());
 		job.setMapperClass(getMapperClass());
 
 		if (StringUtils.isNotBlank(outputPath)) {// generate HFile in HDFS
@@ -81,7 +87,7 @@ public abstract class BulkLoader<T extends HBaseObject, P> extends ConfiguredMR 
 			job.setMapOutputValueClass(Put.class);
 			HFileOutputFormat.configureIncrementalLoad(job, table);
 		} else {
-			// insert into table directly using TableOutputFormat
+			// insert into table directly using TableOutputFormat, not tested TODO
 			TableMapReduceUtil.initTableReducerJob(getDao().getTableName(), null, job);
 			job.setNumReduceTasks(0);
 		}		
@@ -97,8 +103,6 @@ public abstract class BulkLoader<T extends HBaseObject, P> extends ConfiguredMR 
 		if (!job.waitForCompletion(true)) {
 		    throw new IOException("Error with job " + job);
 		}
-		
-//		close();
 		
 		return 0;
 	}

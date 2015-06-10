@@ -6,8 +6,8 @@ import org.apache.hadoop.util.ToolRunner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.cmti.analytics.app.tracking.hbase.dao.RoadTestDataDao;
-import com.cmti.analytics.app.tracking.hbase.domain.RoadTestData;
+import com.cmti.analytics.app.tracking.hbase.dao.DriveTestDataDao;
+import com.cmti.analytics.app.tracking.hbase.domain.DriveTestData;
 import com.cmti.analytics.hbase.loader.BulkLoader;
 import com.cmti.analytics.hbase.loader.BulkLoaderMapper;
  
@@ -36,32 +36,32 @@ tail -f HdfsRoadTestDataBulkLoader.log
  
  hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles  /data/output/roadtest road_test_data
 
- * @author gmo
+ * @author Guobiao Mo
  *
  */
-public class HdfsRoadTestDataBulkLoader extends BulkLoader<RoadTestData, Object> {
+public class HdfsDriveTestDataBulkLoader extends BulkLoader<DriveTestData, Object> {
 
-	protected final Logger logger = LogManager.getLogger(HdfsRoadTestDataBulkLoader.class); 
+	protected final Logger logger = LogManager.getLogger(HdfsDriveTestDataBulkLoader.class); 
 		
-	private RoadTestDataDao dao;
-	public HdfsRoadTestDataBulkLoader() throws IOException{
-		dao = new RoadTestDataDao();
+	private DriveTestDataDao dao;
+	public HdfsDriveTestDataBulkLoader() throws IOException{
+		dao = new DriveTestDataDao();
 		dao.open();		
 	}
 
 	@Override
-	protected RoadTestDataDao getDao(){
+	protected DriveTestDataDao getDao(){
 		return dao;
 	}
 
 	@Override
 	public Class<? extends BulkLoaderMapper> getMapperClass(){
-		BulkLoaderMapper<RoadTestData, Object> mapper = new BulkLoaderMapper<RoadTestData, Object>();
+		BulkLoaderMapper<DriveTestData, Object> mapper = new BulkLoaderMapper<DriveTestData, Object>();
 		return mapper.getClass();
 	}
 
 	public static void main(String[] args) throws Exception {
-		HdfsRoadTestDataBulkLoader loader = new HdfsRoadTestDataBulkLoader();
+		HdfsDriveTestDataBulkLoader loader = new HdfsDriveTestDataBulkLoader();
         int res = ToolRunner.run(loader, args);
         loader.close();
         System.exit(res);

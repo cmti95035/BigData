@@ -1,0 +1,11 @@
+package ${homePackage}.domain;
+
+import ${homePackage}.domain.bean.${rawName}Bean;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+public class ${rawName} extends ${rawName}Bean {
+	protected static final Logger logger = LogManager.getLogger(${rawName}.class);
+
+}

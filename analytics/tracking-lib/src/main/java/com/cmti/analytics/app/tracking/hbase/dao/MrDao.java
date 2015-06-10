@@ -15,7 +15,7 @@ import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.mapreduce.Mapper.Context;
 
 import com.cmti.analytics.app.tracking.hbase.domain.Mr;
-import com.cmti.analytics.app.tracking.hbase.domain.RoadTestData;
+import com.cmti.analytics.app.tracking.hbase.domain.DriveTestData;
 import com.cmti.analytics.hbase.dao.ExportDao;
 import com.cmti.analytics.hbase.util.HBaseUtil;
 import com.cmti.analytics.util.StringUtil;
@@ -23,7 +23,7 @@ import com.cmti.analytics.util.StringUtil;
 
 /**
  * Dao for 'MR'
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class MrDao extends ExportDao<Mr, Object> {
@@ -193,6 +193,7 @@ public class MrDao extends ExportDao<Mr, Object> {
 	public Mr parseLine(String line, Context context) {
 		Mr mr = new Mr();
 		
+		//research if opencsv can do a better job here
 		StrTokenizer st = new StrTokenizer(line, ",");
 		st.setIgnoreEmptyTokens(false);
 		
@@ -229,7 +230,7 @@ public class MrDao extends ExportDao<Mr, Object> {
 		return mr;
 	}
 
-	public Mr parseLine2(String line) {//parse data files outputed from FtpMR.java, /tracking-app/src/main/java/com/cmti/analytics/app/tracking/task/importer/mr-data.txt
+	public Mr parseLine2(String line) {//parse data files that are outputed from FtpMR.java, /tracking-app/src/main/java/com/cmti/analytics/app/tracking/task/importer/mr-data.txt
 		Mr mr = new Mr();
 		
 		StrTokenizer st = new StrTokenizer(line, " ");

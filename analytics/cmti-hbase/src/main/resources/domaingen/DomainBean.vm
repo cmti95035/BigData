@@ -1,0 +1,56 @@
+package ${homePackage}.domain.bean;
+
+import com.cmti.analytics.util.ObjectUtil;
+import ${homePackage}.domain.mapping.${rawName}Mapping;
+
+public class ${rawName}Bean extends ${rawName}Mapping {
+
+//key
+#foreach($f in $keys)
+	public void set${f.capName}($f.type $f.name){
+		this.$f.name = $f.name;
+	}
+
+	public $f.type get${f.capName}(){
+		return $f.name;
+	}
+	
+#end 
+
+//field
+#foreach($f in $fields)
+	public void set${f.capName}($f.type $f.name){
+		boolean updated = !ObjectUtil.equals(this.$f.name, $f.name);
+		if(updated){
+			this.$f.name = $f.name;
+			setDirty("$f.name");
+		}
+	}
+
+	public $f.type get${f.capName}(){
+		return $f.name;
+	}
+#if($f.list)	
+
+	public void add${f.capName}($f.listType value){
+		$f.type list = get${f.capName}();
+		if(list==null){
+			list = new ${f.type}();
+			set${f.capName}(list);
+		}
+					
+##		if(!list.contains(value)){
+		list.add(value);
+		setDirty("$f.name");
+##		}		
+	}
+	
+#end ##if	
+#end ##foreach
+	
+	@Override
+	public String toString(){
+		return "${rawName}Bean(" #foreach($f in $keys)+ " $f.name="+ $f.name #end+ ")";
+	}
+	
+}
