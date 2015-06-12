@@ -32,7 +32,7 @@ import com.cmti.analytics.util.StringUtil;
 key: day of week, hour
 value: sum event count
 
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 

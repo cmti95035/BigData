@@ -11,7 +11,7 @@ import com.cmti.analytics.hbase.util.ByteUtil;
 
 /**
  * Dao for 'RoadCell'
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class RoadCellDao extends HBaseGenericDao<RoadCell, Object> {

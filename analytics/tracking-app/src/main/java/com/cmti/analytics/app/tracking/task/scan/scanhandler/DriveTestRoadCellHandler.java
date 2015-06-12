@@ -7,7 +7,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.commons.configuration.Configuration;
 
-import com.cmti.analytics.app.tracking.hbase.dao.MrDao;
 import com.cmti.analytics.app.tracking.hbase.dao.RoadCellDao;
 import com.cmti.analytics.app.tracking.hbase.dao.RoadDao;
 import com.cmti.analytics.app.tracking.hbase.domain.Road;
@@ -112,16 +111,16 @@ public class DriveTestRoadCellHandler implements IHandler<DriveTestData>{
 	//calculate distance
 	//combine ender starter and their lon lat
 	
-	//TODO road test car may ran overlap some road segment, 
+	//TODO drive test car may ran overlap some road segment, 
 	private void saveAndClearRoad() throws IOException {//all cells in cells should have the same road id
 		
 		//for a loop, combine starter and ender if they are the same cell.
 		RoadCell cell0 = cells.get(0);
 		
-		int roadId = cell0.getRoadId();
-		Road road = roadDao.getRoad(roadId);
+	//	int roadId = cell0.getRoadId();
+		//Road road = roadDao.getByKey(roadId);
 		
-		logger.info("road {}", road);
+		//logger.info("road {}", road);
 		//TODO based on road.loop to ....		
 		
 		RoadCell cellLast = cells.get(cells.size()-1);

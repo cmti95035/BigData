@@ -11,7 +11,7 @@ import com.cmti.analytics.hbase.task.mapreduce.FullScanReducer;
 /**
  * this MR full scans server event table. 
  * 
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class RecordSigReducer extends FullScanReducer<RecordSig> {

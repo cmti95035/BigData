@@ -90,7 +90,7 @@ public class DriveTestDataDao extends ExportDao<DriveTestData, Object> {
 		Integer rscp = StringUtil.getInt(data[8]);
 
 		String fileName =  ((FileSplit) context.getInputSplit()).getPath().getName();//use this as road test id 0102885120140928160610ms9.csv
-		int roadId = TrackingUtil.extractRoadIdFromRoadMeasureId(fileName);
+		int roadId = TrackingUtil.extractRoadIdFromDriveTestId(fileName);
 
 		driveTestData.setRoadId(roadId);
 		driveTestData.setDriveTestId(fileName);

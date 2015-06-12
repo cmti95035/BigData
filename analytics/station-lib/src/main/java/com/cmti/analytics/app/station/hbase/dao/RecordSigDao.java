@@ -16,7 +16,7 @@ import com.cmti.analytics.util.StringUtil;
 
 /**
  * Dao for 'sig'
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class RecordSigDao extends ExportDao<RecordSig, Integer> {

@@ -11,7 +11,7 @@ import com.cmti.analytics.hbase.dao.HBaseObject;
 /**
  * sample data https://docs.google.com/spreadsheets/d/1FSPbGAesZmjGQoOKmOcBXWVwpK2aEBTawB37ESy2QmM/edit#gid=821411373
  * 
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 @Table(name = StationMapping.DEFAULT_TABLE, 

@@ -36,23 +36,27 @@ public class GeoUtil {
     /*::           GeoDataSource.com (C) All Rights Reserved 2015                :*/
     /*::                                                                         :*/
     /*::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
-
-    public static double distance(double lat1, double lon1, double lat2, double lon2, char unit) {
+	public enum Unit {MILE, KM}
+	
+    public static double distance(double lat1, double lon1, double lat2, double lon2, Unit unit) {
       double theta = lon1 - lon2;
       double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
       dist = Math.acos(dist);
-      dist = rad2deg(dist);
+      dist = rad2deg(dist) * 60.;
+      
+      return unit==Unit.MILE?dist * 1.1515:dist * 1.85316;//number from http://en.wikipedia.org/wiki/Nautical_mile not the same as http://www.geodatasource.com/developers/java
+      /*
       dist = dist * 60 * 1.1515;//statute miles (default)   
       if (unit == 'K') {//kilometers
         dist = dist * 1.609344;
       } else if (unit == 'N') {// nautical miles     
       	dist = dist * 0.8684;
       }
-      return dist;
+      return dist;*/
     }
 
     public static double distance(double lat1, double lon1, double lat2, double lon2) { 
-      return distance(lat1, lon1, lat2, lon2, 'K');
+      return distance(lat1, lon1, lat2, lon2, Unit.KM);
     }
 
     /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
@@ -70,11 +74,14 @@ public class GeoUtil {
     }
 	
     public static void main(String[] args) throws Exception{
-    	System.out.println(distance(32.9697, -96.80322, 29.46786, -98.53506, 'M') + " Miles\n");
-    	System.out.println(distance(32.9697, -96.80322, 29.46786, -98.53506, 'K') + " Kilometers\n");
-    	System.out.println(distance(32.9697, -96.80322, 29.46786, -98.53506, 'N') + " Nautical Miles\n");    	
+    	System.out.println(distance(38.898556, -77.037852, 38.897147, -77.043934, Unit.MILE) + " Miles\n");
+    	System.out.println(distance(38.898556, -77.037852, 38.897147, -77.043934, Unit.KM) + " Kilometers\n");
+    	
+    	System.out.println(distance(32.9697, -96.80322, 29.46786, -98.53506, Unit.MILE) + " Miles\n");
+    	System.out.println(distance(32.9697, -96.80322, 29.46786, -98.53506, Unit.KM) + " Kilometers\n");
+//    	System.out.println(distance(32.9697, -96.80322, 29.46786, -98.53506, 'N') + " Nautical Miles\n");    	
 
-    	System.out.println(distance(30.626354, 104.144173, 30.626497, 104.144241, 'K') + " Kilometers\n");
+    	System.out.println(distance(30.626354, 104.144173, 30.626497, 104.144241, Unit.KM) + " Kilometers\n");
     	System.out.println(distance(30.626354, 104.144173, 30.626497, 104.144241) + " Kilometers\n");
     }
 }

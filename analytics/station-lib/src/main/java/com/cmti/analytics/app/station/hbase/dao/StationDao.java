@@ -18,7 +18,7 @@ import com.cmti.analytics.util.StringUtil;
 
 /**
  * Dao for 'Station'
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class StationDao extends ExportDao<Station, Integer> {

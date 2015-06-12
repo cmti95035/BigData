@@ -37,7 +37,7 @@ tail -f HdfsMrBulkLoader.log
 
 hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles  /data/output/mr mr
 
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class HdfsMrBulkLoader extends BulkLoader<Mr, Object> {

@@ -36,7 +36,7 @@ nohup hadoop jar tracking-app-1.0-SNAPSHOT.jar com.cmti.analytics.app.tracking.t
 tail -f MrMR.log 
 
  * 
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class MrMR extends FullScanMR<Mr>{

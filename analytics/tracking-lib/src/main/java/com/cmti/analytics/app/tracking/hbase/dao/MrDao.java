@@ -213,7 +213,7 @@ public class MrDao extends ExportDao<Mr, Object> {
 		}else{
 			//logger.error("{} in", cell);
 		}
-		mr.setCell(cell);
+		mr.setCellId(cell);
 		
 		
 		long imsi = StringUtil.getLong(data[1]);
@@ -245,7 +245,7 @@ public class MrDao extends ExportDao<Mr, Object> {
 		}
 		
 		mr.setImsi(StringUtil.getLong(data[0]));
-		mr.setCell(StringUtil.getInt(data[1]));
+		mr.setCellId(StringUtil.getInt(data[1]));
 		
 		try {
 			mr.setTime(dateFormat.parse(data[2]));

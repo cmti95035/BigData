@@ -3,7 +3,7 @@ package com.cmti.analytics.app.station.task.mapreduce.sig;
 /**
  * put all Signatures here
  * any Signature must not be substring of any other Signature
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class SignatureConstant {

@@ -24,7 +24,7 @@ public class FullScanReducer<T extends HBaseObject> extends TableReducer<Text, S
 	protected List<BaseMRHandler<T>> handlers;
 	
 	@Override
-	protected void setup(Context context){// throws IOException, InterruptedException {
+	protected void setup(Context context) throws IOException, InterruptedException {
 		handlers = MRUtil.getMRHandler(this.getClass());
 //		handlers = setupMRHandlers();
 		for(BaseMRHandler<T> handler : handlers){

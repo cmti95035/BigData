@@ -24,16 +24,16 @@ public class MrBean extends MrMapping {
 	
 
 //field
-	public void setCell(Integer cell){
-		boolean updated = !ObjectUtil.equals(this.cell, cell);
+	public void setCellId(Integer cellId){
+		boolean updated = !ObjectUtil.equals(this.cellId, cellId);
 		if(updated){
-			this.cell = cell;
-			setDirty("cell");
+			this.cellId = cellId;
+			setDirty("cellId");
 		}
 	}
 
-	public Integer getCell(){
-		return cell;
+	public Integer getCellId(){
+		return cellId;
 	}
  	public void setRscp(Integer rscp){
 		boolean updated = !ObjectUtil.equals(this.rscp, rscp);

@@ -13,7 +13,7 @@ import com.cmti.analytics.hbase.task.mapreduce.FullScanMapper;
 /**
  * this MR scans mr table.
  * 
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class MrMapper extends FullScanMapper<Mr>  {

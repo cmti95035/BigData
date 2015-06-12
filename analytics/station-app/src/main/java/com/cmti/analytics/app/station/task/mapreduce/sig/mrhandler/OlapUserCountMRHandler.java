@@ -29,7 +29,7 @@ import com.cmti.analytics.util.SpringUtil;
 key: 
 value: sum user count
 
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class OlapUserCountMRHandler extends SetValueMRHandler<RecordSig> {

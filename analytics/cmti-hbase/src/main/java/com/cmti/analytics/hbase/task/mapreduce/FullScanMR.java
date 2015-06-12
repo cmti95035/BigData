@@ -109,13 +109,11 @@ public abstract class FullScanMR<T extends HBaseObject> extends ConfiguredMR {
 		return job;
 	}
 
-	//abstract protected int getNumReduceTasks();
-
 	protected int getNumReduceTasks(){
 		String className = this.getClass().getCanonicalName()+".reducer.number";
 		int ret =  config.getInt(className, 1); 
 
-		logger.error(className+ret);
+		logger.info(className+ret);
 		return ret;
 	}
 

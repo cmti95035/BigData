@@ -1,6 +1,6 @@
 package com.cmti.analytics.hbase.task.mapreduce;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -14,7 +14,7 @@ import com.cmti.analytics.hbase.task.mapreduce.util.StringArrayWritable;
  *
  */
 public abstract class SingleIntegerValueMRHandler<T extends HBaseObject> extends BaseMRHandler<T>{
-	//used by PageTurnedMRHandler and OlapEventCountMRHandler
+	//used by CellMrCountMRHandler
 	@Override
 	protected List<Integer> combineReduce(Text keyText, Iterable<StringArrayWritable> ivalues) {
 		String keyStr = keyText.toString();
@@ -29,10 +29,7 @@ public abstract class SingleIntegerValueMRHandler<T extends HBaseObject> extends
 			sum += array.toInt();
 		}
 		
-		ArrayList<Integer> ret = new ArrayList<Integer>();
-		ret.add(sum);
-		
-		return ret;
+		return Arrays.asList(sum);
 	}	
 
 }

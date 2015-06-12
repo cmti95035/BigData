@@ -6,7 +6,7 @@ import com.cmti.analytics.hbase.dao.HBaseGenericDao;
 
 /**
  * Dao for 'MROnRoad'
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class MrOnRoadDao extends HBaseGenericDao<MrOnRoad, Object> {

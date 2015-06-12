@@ -9,7 +9,7 @@ import com.cmti.analytics.hbase.annotation.Table;
 import com.cmti.analytics.hbase.dao.HBaseObject;
 
 /** 
- * @author gmo
+ * @author Guobiao Mo
  * 
  * 
  */

@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
  * a temp class records a user travel in a cell. 
  * this is not a hbase table domain
  * 
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class UserCell {

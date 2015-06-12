@@ -25,7 +25,7 @@ public   class FullScanCombiner<T extends HBaseObject> extends Reducer<Text, Str
 		protected List<BaseMRHandler<T>> handlers;
 		
 		@Override
-		protected void setup(Context context) {// throws IOException, InterruptedException {
+		protected void setup(Context context) throws IOException, InterruptedException {
 			Config.getConfig();
 			handlers = MRUtil.getMRHandler(this.getClass());
 			//handlers = setupMRHandlers();

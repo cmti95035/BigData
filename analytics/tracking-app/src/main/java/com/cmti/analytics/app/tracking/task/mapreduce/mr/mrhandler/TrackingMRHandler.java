@@ -15,19 +15,17 @@ import com.cmti.analytics.app.tracking.hbase.dao.RoadDao;
 import com.cmti.analytics.app.tracking.hbase.domain.Mr;
 import com.cmti.analytics.app.tracking.hbase.domain.MrOnRoad;
 import com.cmti.analytics.app.tracking.hbase.domain.Road;
+import com.cmti.analytics.app.tracking.hbase.domain.RoadCell;
 import com.cmti.analytics.app.tracking.hbase.domain.UserCell;
 import com.cmti.analytics.conf.Config;
-import com.cmti.analytics.hbase.task.mapreduce.BaseMRHandler;
 import com.cmti.analytics.hbase.task.mapreduce.RelayCombineMRHandler;
 import com.cmti.analytics.hbase.task.mapreduce.util.MRUtil;
 import com.cmti.analytics.hbase.task.mapreduce.util.StringArrayWritable;
 
 /**
  * 
-key: 
-value: sum user count
 
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class TrackingMRHandler extends RelayCombineMRHandler<Mr> {
@@ -38,41 +36,48 @@ public class TrackingMRHandler extends RelayCombineMRHandler<Mr> {
 	RoadDao roadDao;
 	MrOnRoadDao mrOnRoadDao;
 	
+	List<Road> allRoads;
+	
 	//protected RoadTestService roadTestService;
-/*
+
 	@Override
-	public TrackingMRHandler initMap(){
-		ApplicationContext springContext = SpringUtil.getApplicationContext();	
-//		osVersionService = springContext.getBean("osVersionService", OsVersionService.class);		
+	public TrackingMRHandler initMap() throws IOException, InterruptedException {
+//		ApplicationContext springContext = SpringUtil.getApplicationContext();	
+//		osVersionService = springContext.getBean("osVersionService", OsVersionService.class);
+
+		RoadDao tmpRoadDao = new RoadDao();
+		tmpRoadDao.open();
+		
+		allRoads = tmpRoadDao.getAllRoads();	
+		
+		tmpRoadDao.close();
+		
 		return this;
 	}
-	*/
+	
 
 	protected org.apache.commons.configuration.Configuration config = Config.getConfig();
 	int minMatch = config.getInt("match.cell.min", 3); //minimal of matching cell
 	
 	@Override
-	public TrackingMRHandler initReduce() {
-		try {
-			roadDao = new RoadDao();
-			roadDao.open();
+	public TrackingMRHandler initReduce() throws IOException, InterruptedException {
+		roadDao = new RoadDao();
+		roadDao.open();
 			
-			mrOnRoadDao = new MrOnRoadDao();
-			mrOnRoadDao.open();
-		} catch (IOException e) {
-			logger.error(roadDao, e);
-		}
+		mrOnRoadDao = new MrOnRoadDao();
+		mrOnRoadDao.open();
+		
 		return this;
 	}
 
 	@Override
 	public void close() throws IOException {
 		super.close();
-		if(roadDao != null) {//roadDao is null for Map phase
+		if(roadDao != null) {//roadDao is null for Reduce phase
 			roadDao.close();
 		}
 
-		if(mrOnRoadDao != null) {//roadDao is null for Map phase
+		if(mrOnRoadDao != null) {//mrOnRoadDao is null for Reduce phase
 			mrOnRoadDao.close();
 		}
 	}
@@ -80,7 +85,7 @@ public class TrackingMRHandler extends RelayCombineMRHandler<Mr> {
 	@Override
 	public void doMap(Mr mr, org.apache.hadoop.mapreduce.Mapper.Context context) throws IOException, InterruptedException {
 		Date date = mr.getTime();
-		int cell = mr.getCell(); 
+		int cellId = mr.getCellId(); 
 		long imsi = mr.getImsi();
 		Integer rscp = mr.getRscp();
 
@@ -90,18 +95,23 @@ public class TrackingMRHandler extends RelayCombineMRHandler<Mr> {
 		}
 		
 		//loop all roads, if a cell is in the road, 
-		//for(Road road :allRoads){
-			//if(road.getCells().contains(cell)){
+		for(Road road :allRoads){
+			List<RoadCell> cells = road.getRoadCells();
+			if(cells == null) {
+				continue;
+			}
 
-				int roadId = 1028851;//road.getRoadId(); FIXME
-				String keyStr = MRUtil.buildKey(getSignature(), roadId, imsi); 
+			for(RoadCell cell : cells) {
+				if(cellId == cell.getCellId().intValue()){
+					int roadId = road.getRoadId(); 
+					String keyStr = MRUtil.buildKey(getSignature(), roadId, imsi); 
 				
-				key.set(keyStr);
-				value.set(date, cell, rscp);
-				context.write(key, value);
-			
-			//}
-		//}		
+					key.set(keyStr);
+					value.set(date, cellId, rscp);
+					context.write(key, value);
+				}
+			}
+		}		
 	}
 
 	@Override
@@ -126,25 +136,25 @@ public class TrackingMRHandler extends RelayCombineMRHandler<Mr> {
 			String[] value = array.toStrings();
 
 			long timeStamp = Long.parseLong(value[0]);
-			Integer cell = Integer.parseInt(value[1]);
+			Integer cellId = Integer.parseInt(value[1]);
 			Integer power = Integer.parseInt(value[2]);
 			Mr mr = new Mr();
 			mr.setImsi(imsi);
-			mr.setCell(cell);
+			mr.setCellId(cellId);
 			mr.setTime(timeStamp);
 			mr.setRscp(power);
 			
 			mrs.add(mr);
-			cells.add(cell);
+			cells.add(cellId);
 		}
 		
 		//now we have a set of ordered MRs. and unique cells on the road
-		if(cells.size() >= minMatch) {//minimal of matching cell
+		if(cells.size() >= minMatch) {//minimal of matching unique cell ids
 			logger.info("imsi={}, cell size={}", imsi, cells.size());
 			Collections.sort(mrs);//sorted (by time)
 			doMrList(roadId, mrs);
 			
-			Collections.sort(mrs, Collections.reverseOrder());//reverse sorted (by time)
+			Collections.sort(mrs, Collections.reverseOrder());//reverse sorted (by time), i.e. other direction
 			doMrList(roadId, mrs);
 		}
 	}
@@ -174,7 +184,7 @@ public class TrackingMRHandler extends RelayCombineMRHandler<Mr> {
 		//convert mrList to a list of UserCell.
 		for(int i = 0; i < mrList.size(); i++) {
 			Mr mr = mrList.get(i);
-			int cellId = mr.getCell();
+			int cellId = mr.getCellId();
 			Date date = mr.getTime();
 			
 			//last added cell
@@ -197,7 +207,7 @@ public class TrackingMRHandler extends RelayCombineMRHandler<Mr> {
 			logger.info(cell);
 		}
 		
-		Road road = roadDao.getRoad(roadId);//both road and road_cell tables are in-memory, no need to cache it
+		Road road = roadDao.getRoad(roadId);//both road and road_cell tables are in-memory, still need to cache it TODO
 
 		//check the list of UserCell, 
 		//1. continue cells on the road (match that of road test)
@@ -211,17 +221,17 @@ public class TrackingMRHandler extends RelayCombineMRHandler<Mr> {
 			int iStart = cell.getStartId();
 			int iEnd= cell.getEndId();
 
-			logger.error("loop ucell={} iStart={} iEnd={}", cell, iStart, iEnd);
+			logger.info("loop ucell={} iStart={} iEnd={}", cell, iStart, iEnd);
 			for(int i=iStart; i<=iEnd; i++){
 				Mr mr = mrList.get(i);
 				MrOnRoad mrOnRoad = new MrOnRoad(roadId, cell, mr);
 				ret.add(mrOnRoad);
 
-				logger.error("add mrOnRoad={}  ", mrOnRoad);
+				logger.info("add mrOnRoad={}  ", mrOnRoad);
 			}
 		}
 
-		logger.error("mrOnRoad size{}  ", ret.size());
+		logger.info("mrOnRoad size{}  ", ret.size());
 		return ret;
 	}
 

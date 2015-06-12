@@ -344,9 +344,31 @@ public class HBaseGenericDao<T extends HBaseObject, P> implements Closeable {
 		updateHBase(delete);	
 	}
 	
+	/**
+	example usage see ScanTable.java, or method getAll().
+	*/	
 	public DaoScanner<T> getDaoScanner(Scan scan) throws IOException {
 		ResultScanner rs = table.getScanner(scan);
 		return new DaoScanner<T>(rs, mapping);
+	}
+
+	/**
+	 * don't use this when table is huge.
+	 * open this dao before calling this.
+	 * @return
+	 * @throws IOException
+	 */
+	public List<T> getAll() throws IOException {
+		Scan scan = HBaseUtil.newOnePassMassScan();
+				
+		DaoScanner<T> daoScanner = getDaoScanner(scan);
+
+		List<T> ret = new ArrayList<T>();
+		T t= null;
+		while( (t = daoScanner.next()) != null){
+			ret.add(t);
+		}
+		return ret;
 	}
 
 	public T parseResult(Result r) {

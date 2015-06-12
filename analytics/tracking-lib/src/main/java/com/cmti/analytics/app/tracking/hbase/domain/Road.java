@@ -18,14 +18,18 @@ public class Road extends RoadBean {
 	CircularArrayList<RoadCell> cells;
 //	CircularListIterator<RoadCell> iterator;
 
-	
+
 	public void setRoadCells(List<RoadCell> cells) {
 		if(cells != null)
 			this.cells = new CircularArrayList<RoadCell>(cells);//assume road cells are ordered TODO should make sure it is ordered here
 //		iterator = new CircularListIterator<RoadCell>(cells);
 	}
 
-	public List<UserCell> findMatchCell(List<UserCell> ucells, int minMatch) {// TODO other direction
+	public List<RoadCell> getRoadCells() {
+		return cells;
+	}
+
+	public List<UserCell> findMatchCell(List<UserCell> ucells, int minMatch) {
 		List<UserCell> ret = new ArrayList<UserCell>();
 		List<UserCell> tmp = new ArrayList<UserCell>();
 

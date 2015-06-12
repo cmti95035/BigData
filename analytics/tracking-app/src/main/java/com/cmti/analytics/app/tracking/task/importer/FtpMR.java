@@ -22,7 +22,7 @@ import com.cmti.analytics.app.tracking.hbase.dao.MrDao;
  
 
 /**
- * @author gmo
+ * @author Guobiao Mo
  *  
  *  put a zip file containing MR xml files in ftp server.
  C:\git\cmti2\cmti\analytics>java -cp C:\git\cmti2\cmti\analytics\tracking-app\target\tracking-app-1.0-SNAPSHOT.jar com.cmti.analytics.app.tracking.task.importer.FtpMR  quickstart.cloudera cloudera cloudera .

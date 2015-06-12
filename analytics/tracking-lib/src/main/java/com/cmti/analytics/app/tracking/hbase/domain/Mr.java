@@ -22,7 +22,7 @@ public class Mr extends MrBean implements Comparable<Mr>{
 
 	@Override
 	public String toString(){
-		return String.format("Mr(imsi=%s, time=%s, cell=%s, rscp=%s)", imsi, time, cell, rscp);
+		return String.format("Mr(imsi=%s, time=%s, cellId=%s, rscp=%s)", imsi, time, cellId, rscp);
 	}
 	
 }

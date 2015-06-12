@@ -4,12 +4,11 @@ import java.util.*;
 
 import com.cmti.analytics.hbase.annotation.Column;
 import com.cmti.analytics.hbase.annotation.CompositeKey;
-import com.cmti.analytics.hbase.annotation.Key;
 import com.cmti.analytics.hbase.annotation.Table;
 import com.cmti.analytics.hbase.dao.HBaseObject;
 
 /** 
- * @author gmo
+ * @author Guobiao Mo
  *
  *we may use MD5 to encrypt the imsi 
  *http://howtodoinjava.com/2013/07/22/how-to-generate-secure-password-hash-md5-sha-pbkdf2-bcrypt-examples/
@@ -44,7 +43,7 @@ public class MrMapping extends HBaseObject{
 	//columns//////////////////////////////////////////////////////////////////////
 
 	@Column(value = "ce")
-	public Integer cell; 
+	public Integer cellId; 
 
 	@Column(value = "rscp")//MR.TdScPccpchRscp
 	public Integer rscp;	

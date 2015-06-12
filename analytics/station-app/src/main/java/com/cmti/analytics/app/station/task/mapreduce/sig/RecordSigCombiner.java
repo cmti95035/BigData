@@ -12,7 +12,7 @@ import com.cmti.analytics.hbase.task.mapreduce.FullScanCombiner;
  * this MR full scans event table.
  * can filter on both event and receive dates
  * 
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 //Combiner

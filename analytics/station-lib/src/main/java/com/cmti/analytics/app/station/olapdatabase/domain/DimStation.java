@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 /**
  * tower station
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 @Entity

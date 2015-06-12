@@ -37,7 +37,7 @@ hdfs dfs -rm -r /user/cloudera/output/sig
  hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /user/cloudera/output/sig  sig
  
 
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class HdfsRecordSigBulkLoader extends BulkLoader<RecordSig, Integer> {

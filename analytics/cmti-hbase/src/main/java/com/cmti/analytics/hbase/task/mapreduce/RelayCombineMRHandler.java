@@ -11,6 +11,7 @@ import com.cmti.analytics.hbase.dao.HBaseObject;
 import com.cmti.analytics.hbase.task.mapreduce.util.StringArrayWritable;
 /**
  * An abstract MRHandler that does nothing in doCombine().
+ * Example used by TrackingMRHandler
  * @author Guobiao Mo
  *
  */

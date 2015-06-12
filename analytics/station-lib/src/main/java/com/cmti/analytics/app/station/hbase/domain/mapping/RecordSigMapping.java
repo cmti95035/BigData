@@ -12,7 +12,7 @@ import com.cmti.analytics.hbase.dao.HBaseObject;
  * 
  * MB_SIG_RECORD
 
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 @Table(name = RecordSigMapping.DEFAULT_TABLE, 

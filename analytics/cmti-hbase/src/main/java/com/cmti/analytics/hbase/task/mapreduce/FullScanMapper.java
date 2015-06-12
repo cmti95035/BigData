@@ -37,7 +37,7 @@ public abstract class FullScanMapper<T extends HBaseObject> extends TableMapper<
 	   	//protected abstract List<String> getHandlerNames();
 
 		@Override
-		protected void setup(org.apache.hadoop.mapreduce.Mapper.Context context){
+		protected void setup(org.apache.hadoop.mapreduce.Mapper.Context context) throws IOException, InterruptedException {
 //			Config.getConfig();
 			
 			handlers = MRUtil.getMRHandler(this.getClass());
@@ -48,11 +48,7 @@ public abstract class FullScanMapper<T extends HBaseObject> extends TableMapper<
 				handler.initMap();
 			}
 			
-			try {
-				dao = setupDao();
-			} catch (IOException e) {
-				logger.error("setupDao error", e);
-			}
+			dao = setupDao();
 		}
 
 		@Override

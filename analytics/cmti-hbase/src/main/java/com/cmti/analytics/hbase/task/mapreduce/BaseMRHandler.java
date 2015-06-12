@@ -45,10 +45,10 @@ public abstract class BaseMRHandler<T extends HBaseObject> implements Closeable{
 		
 	}
 
-	public BaseMRHandler<T> initMap(){
+	public BaseMRHandler<T> initMap() throws IOException, InterruptedException {
 		return this;
 	}
-	public BaseMRHandler<T> initReduce(){
+	public BaseMRHandler<T> initReduce() throws IOException, InterruptedException {
 		return this;
 	}
  

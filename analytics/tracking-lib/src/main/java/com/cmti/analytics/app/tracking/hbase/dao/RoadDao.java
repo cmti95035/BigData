@@ -12,7 +12,7 @@ import com.cmti.analytics.hbase.dao.HBaseGenericDao;
 
 /**
  * Dao for 'Road'
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class RoadDao extends HBaseGenericDao<Road, Integer> {
@@ -24,19 +24,34 @@ public class RoadDao extends HBaseGenericDao<Road, Integer> {
 		roadCellDao = new RoadCellDao();
 		roadCellDao.open();
 	}
-	
-	public Road getRoad(int roadId) throws IOException {
-		Road road = getByKey(roadId);
-		
-		//populate cells in road
-		List<RoadCell> cells = roadCellDao.getRoadCellsByRoadId(road.getRoadId());//cells can be null
-		road.setRoadCells(cells); 
 
-		logger.error("roadId={} cellsize={} road={}", roadId, cells==null?0:cells.size(), road);
+//	@Override we don't override getAll() since we want to have 2 versions, one with cells, one w/o
+	public List<Road> getAllRoads() throws IOException {
+		List<Road> roads = super.getAll();
+		for(Road road : roads) {
+			populateRoadCells(road);
+		}
+		
+		return roads;		
+	}
+
+//	@Override we don't override getByKey() since we want to have 2 versions, one with cells, one w/o
+	public Road getRoad(int roadId) throws IOException {
+		Road road = super.getByKey(roadId);
+		
+		populateRoadCells(road);
 		
 		return road;
 	}
 
+	//populate cells on road
+	private void populateRoadCells(Road road) throws IOException {
+		List<RoadCell> cells = roadCellDao.getRoadCellsByRoadId(road.getRoadId());//cells can be null
+		road.setRoadCells(cells); 	
+
+		logger.info("cellsize={} road={}", cells==null?0:cells.size(), road);	
+	}
+	
 	@Override
 	public void close() {
 		roadCellDao.close();

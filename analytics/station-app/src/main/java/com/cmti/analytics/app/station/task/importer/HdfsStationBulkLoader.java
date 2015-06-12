@@ -31,7 +31,7 @@ hdfs dfs -rm -r /user/cloudera/output/station
  
  hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /user/cloudera/output/station  station
 
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class HdfsStationBulkLoader extends BulkLoader<Station, Integer> {

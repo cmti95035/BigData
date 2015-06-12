@@ -30,7 +30,7 @@ import com.cmti.analytics.util.ConfigUtil;
  hadoop jar station-app-1.0-SNAPSHOT.jar com.cmti.analytics.app.station.task.mapreduce.sig.RecordSigMR  -libjars  p.jar     -D mapred.map.child.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" -D mapred.reduce.child.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml"  
   
  * 
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class RecordSigMR extends FullScanMR<RecordSig>{

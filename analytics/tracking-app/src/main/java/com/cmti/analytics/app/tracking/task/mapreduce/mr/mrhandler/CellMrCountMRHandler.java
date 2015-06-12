@@ -16,11 +16,11 @@ import com.cmti.analytics.hbase.task.mapreduce.util.MRUtil;
 import com.cmti.analytics.hbase.task.mapreduce.util.StringArrayWritable;
 
 /**
- * 
+ * print out cell id and its MR count.
 key: cell
-value: sum mr count
+value: sum MR count
 
- * @author gmo
+ * @author Guobiao Mo
  *
  */
 public class CellMrCountMRHandler extends SingleIntegerValueMRHandler<Mr> {
@@ -31,7 +31,7 @@ public class CellMrCountMRHandler extends SingleIntegerValueMRHandler<Mr> {
 	
 	@Override
 	public void doMap(Mr mr, org.apache.hadoop.mapreduce.Mapper.Context context) throws IOException, InterruptedException {
-		int cell = mr.getCell(); 
+		int cell = mr.getCellId(); 
 		String keyStr = MRUtil.buildKey(getSignature(), cell);
 				
 		key.set(keyStr);
