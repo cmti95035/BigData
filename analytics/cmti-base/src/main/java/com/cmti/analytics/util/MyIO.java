@@ -81,7 +81,7 @@ public class MyIO {
 
   public static List<File> list(File directory, MyFileFilter myfilter, boolean subdir) { //list all file in dir, given filter 
 	    File[] ret = directory.listFiles(myfilter); 
-	    List<File> lret= new ArrayList<File>(); 
+	    List<File> lret= new ArrayList<>(); 
 	    
 	    for(File f:ret){
 			if(f.isDirectory()==false){

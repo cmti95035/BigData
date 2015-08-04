@@ -53,18 +53,21 @@ public class MrXmlBulkLoaderMapper extends BulkLoaderMapper<Mr, Object> {
 				logger.error(xml, e1);
 				return;
 			}
-    	    @SuppressWarnings("unchecked")
+
     		List<Element> objectElements = (List<Element>)root.getChild("rnc").getChild("class").getChild("measurement").getChildren("object");//retrieve all 'object' elements
     	            	    
     	    for(Element objectElement : objectElements){//for each 'object' element
     	    	String id = objectElement.getAttributeValue("id"); //cell id
+    	    	if(((MrDao)dao).shouldImport(id)==false){
+    	    		continue;
+    	    	}
     	    	String time = objectElement.getAttributeValue("TimeStamp");//TimeStamp
     	    	String imsi = objectElement.getAttributeValue("IMSI");//imsi
 
     	    	String v = objectElement.getChildText("v");
     	    	String mrTdScPccpchRscp = v.split(" ")[0];//extract MR.TdScPccpchRscp from the 1st 'v' element 
 //        		logger.error(ze.getName()+id+" "+time+" "+mrTdScPccpchRscp+" "+ imsi);
-        		System.out.println(imsi+" "+id+" "+time+" "+mrTdScPccpchRscp);//print
+//        		System.out.println(imsi+" "+id+" "+time+" "+mrTdScPccpchRscp);//print
         		
         		Mr mr = new Mr();
 
@@ -84,6 +87,8 @@ public class MrXmlBulkLoaderMapper extends BulkLoaderMapper<Mr, Object> {
 
 				Put p = dao.getPut(mr);
 				context.write(rowKey, p);
-    	    }           	    
+    	    }  
+    	    
+    	    logger.info("got {} MRs", objectElements.size());
 		}
 }

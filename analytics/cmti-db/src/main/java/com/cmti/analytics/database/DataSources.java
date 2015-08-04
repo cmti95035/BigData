@@ -26,7 +26,7 @@ public class DataSources {
 
     public static final String DEFAULT_DB = "default";
 
-    private static final Map<String, DataSource> DATA_SOURCES = new HashMap<String, DataSource>();
+    private static final Map<String, DataSource> DATA_SOURCES = new HashMap<>();
 
     public static DataSource getDataSource() {
         return getDataSource(DEFAULT_DB);

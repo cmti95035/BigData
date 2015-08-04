@@ -63,7 +63,7 @@ public abstract class BulkLoader<T extends HBaseObject, P> extends ConfiguredMR 
 	public Job createJob(String inputPath, String outputPath) throws IOException {
 		HTable table = getDao().getTable();
 		Configuration conf = HBaseConfig.getConfig();
-		conf.setInt("mapreduce.reduce.memory.mb", 4096);
+		conf.setInt("mapreduce.reduce.memory.mb", 1024*60);//TODO this high memory is for MR loading 
 		
 		conf.set("dao.class", getDao().getClass().getCanonicalName());//used in BulkLoaderMapper
 		logger.error(conf.toString());

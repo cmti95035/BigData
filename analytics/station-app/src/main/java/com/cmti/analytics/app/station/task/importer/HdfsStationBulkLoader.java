@@ -51,7 +51,7 @@ public class HdfsStationBulkLoader extends BulkLoader<Station, Integer> {
 
 	@Override
 	public Class<? extends BulkLoaderMapper> getMapperClass(){
-		BulkLoaderMapper<Station, Integer> mapper = new BulkLoaderMapper<Station, Integer>();
+		BulkLoaderMapper<Station, Integer> mapper = new BulkLoaderMapper<>();
 		return mapper.getClass();
 	}
 

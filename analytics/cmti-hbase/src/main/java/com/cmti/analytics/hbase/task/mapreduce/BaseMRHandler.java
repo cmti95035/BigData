@@ -4,8 +4,12 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.util.Collection; 
 
+import org.apache.hadoop.hbase.client.Mutation;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapreduce.Reducer.Context;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
 
 import com.cmti.analytics.hbase.dao.HBaseObject; 
 import com.cmti.analytics.hbase.task.mapreduce.util.StringArrayWritable;
@@ -20,11 +24,11 @@ public abstract class BaseMRHandler<T extends HBaseObject> implements Closeable{
 	protected StringArrayWritable value = new StringArrayWritable();
 	
 	//@Override
- 	public void doReduce(Text key, Iterable<StringArrayWritable> values, Context context) throws IOException, InterruptedException {
+ 	public void doReduce(Text key, Iterable<StringArrayWritable> values, Reducer<Text, StringArrayWritable, ImmutableBytesWritable, Mutation>.Context context) throws IOException, InterruptedException {
    	}
 
 	//@Override
-	public void doCombine(Text _key, Iterable<StringArrayWritable> values, Context context) throws IOException, InterruptedException {
+	public void doCombine(Text _key, Iterable<StringArrayWritable> values, Reducer<Text, StringArrayWritable, Text, StringArrayWritable>.Context context) throws IOException, InterruptedException {
 		Collection<? extends Object> set = combineReduce(_key, values);
 		
 		if(set==null){
@@ -36,7 +40,7 @@ public abstract class BaseMRHandler<T extends HBaseObject> implements Closeable{
 	}
 
 	//@Override
-	public void doMap(T t, org.apache.hadoop.mapreduce.Mapper.Context context) throws IOException, InterruptedException {
+	public void doMap(T t, Mapper<ImmutableBytesWritable, Result, Text, StringArrayWritable>.Context context) throws IOException, InterruptedException {
 		
 	}
 

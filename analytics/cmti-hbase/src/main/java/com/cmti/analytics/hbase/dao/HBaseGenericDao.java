@@ -4,7 +4,6 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HTableDescriptor;
 import org.apache.hadoop.hbase.client.Delete;
-import org.apache.hadoop.hbase.client.Durability;
 import org.apache.hadoop.hbase.client.Get;
 import org.apache.hadoop.hbase.client.HBaseAdmin;
 import org.apache.hadoop.hbase.client.HTable;
@@ -176,8 +175,12 @@ public class HBaseGenericDao<T extends HBaseObject, P> implements Closeable {
 	}
 
 	public long increment(byte[] rowKey, byte[] family, byte[] qualifier, long amount) throws IOException{		
-		return  getTable().incrementColumnValue(rowKey, family, qualifier, amount);	
-//		return  getTable().incrementColumnValue(rowKey, family, qualifier, amount, Durability.SKIP_WAL);
+		//if value is null in hbase, and amount=0, hbase value is still null, not set to 0. be aware.	
+		return  getTable().incrementColumnValue(rowKey, family, qualifier, amount);		
+	}
+
+	public long increment(T t, byte[] family, byte[] qualifier, long amount) throws IOException{		
+		return  getTable().incrementColumnValue(getKey(t), family, qualifier, amount);	
 	}
 	
 	public void upsert(Collection<T> ts) throws IOException, InterruptedException {
@@ -363,7 +366,7 @@ public class HBaseGenericDao<T extends HBaseObject, P> implements Closeable {
 				
 		DaoScanner<T> daoScanner = getDaoScanner(scan);
 
-		List<T> ret = new ArrayList<T>();
+		List<T> ret = new ArrayList<>();
 		T t= null;
 		while( (t = daoScanner.next()) != null){
 			ret.add(t);

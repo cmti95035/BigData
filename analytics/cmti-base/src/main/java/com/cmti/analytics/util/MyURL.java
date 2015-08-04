@@ -24,7 +24,7 @@ public class MyURL{
     public static String toHtmlDisplay(String str) {
 		if (str == null)
 			return null;
-		ArrayList<String> alist = new ArrayList<String>();
+		ArrayList<String> alist = new ArrayList<>();
 		StringTokenizer st= new StringTokenizer(str);
 		
 		while(st.hasMoreTokens()){

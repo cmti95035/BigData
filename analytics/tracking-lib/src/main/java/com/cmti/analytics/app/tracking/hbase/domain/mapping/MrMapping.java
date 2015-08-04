@@ -42,6 +42,12 @@ public class MrMapping extends HBaseObject{
 
 	//columns//////////////////////////////////////////////////////////////////////
 
+	@Column(value = "imsi")
+	public Long imsi2; 
+
+	@Column(value = "time")
+	public Date time2; 
+
 	@Column(value = "ce")
 	public Integer cellId; 
 

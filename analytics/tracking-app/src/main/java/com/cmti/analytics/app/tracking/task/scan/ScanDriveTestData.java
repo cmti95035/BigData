@@ -20,11 +20,13 @@ import com.cmti.analytics.hbase.util.HBaseUtil;
 
 /**
  * scan RoadTestData table and populate RoadCell table (in RoadTestRoadCellHandler)
- * java -cp tracking-app-1.0-SNAPSHOT.jar -Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml com.cmti.analytics.app.tracking.task.scan.ScanRoadTestData
  * 
+ export HADOOP_CLASSPATH=/usr/lib/hbase/hbase-protocol.jar
+  java -cp tracking-app-1.0-SNAPSHOT.jar -Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml com.cmti.analytics.app.tracking.task.scan.ScanDriveTestData
+  
  * AWS
  cd ~/gmo
- java -cp tracking-app-1.0-SNAPSHOT.jar:/home/hadoop/lib/hbase.jar -Djava.ext.dirs=/home/hadoop/lib/lib -Dsite=aws -Dlog4j.configurationFile=log4j2/log4j2_prod.xml com.cmti.analytics.app.tracking.task.scan.ScanRoadTestData
+ java -cp tracking-app-1.0-SNAPSHOT.jar:/home/hadoop/lib/hbase.jar -Djava.ext.dirs=/home/hadoop/lib/lib -Dsite=aws -Dlog4j.configurationFile=log4j2/log4j2_prod.xml com.cmti.analytics.app.tracking.task.scan.ScanDriveTestData
   
  * log: /tracking-app/src/main/my_note/ScanRoadTestData.log
  * 
@@ -39,7 +41,8 @@ public class ScanDriveTestData extends ScanTable<DriveTestData> {
 
 	@Override
 	protected List<IHandler<DriveTestData>> getHandlers(){
-		ArrayList<IHandler<DriveTestData>> ret = new ArrayList<IHandler<DriveTestData>>();
+		ArrayList<IHandler<DriveTestData>> ret = new ArrayList<>();
+//		ret.add(new PrintDriveTestDataHandler());
 		ret.add(new DriveTestRoadCellHandler());
 		return ret;
 	}

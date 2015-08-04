@@ -39,7 +39,7 @@ public class ByteFormatter {
 
 	public byte[][] parse(byte[] bytes) {
 
-		List<byte[]> ret = new ArrayList<byte[]>();
+		List<byte[]> ret = new ArrayList<>();
 
 		int copyStart = 0;
 		byte[] copied = null;

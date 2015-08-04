@@ -12,7 +12,7 @@ import com.cmti.analytics.hbase.util.FamilyColumn;
 public abstract class HBaseObject {
 
 	//store if a column is dirty
-	private Set<String> dirtyProperties = new HashSet<String>();
+	private Set<String> dirtyProperties = new HashSet<>();
 	private boolean allDirty;
 	
 	public void setDirty(String propertyName) {
@@ -35,7 +35,7 @@ public abstract class HBaseObject {
 	}	
 
 	//column versions
-	protected Map<FamilyColumn, Long> versions = new HashMap<FamilyColumn, Long>();
+	protected Map<FamilyColumn, Long> versions = new HashMap<>();
 	
 	public void setVersion(FamilyColumn column, Long version) {
 		versions.put(column, version);
@@ -48,7 +48,7 @@ public abstract class HBaseObject {
 
 	//unmapped columns
 	
-	protected Map<FamilyColumn, String> unmapped = new HashMap<FamilyColumn, String>();
+	protected Map<FamilyColumn, String> unmapped = new HashMap<>();
 
 	public Map<FamilyColumn, String> getUnmapped(){
 		return unmapped;
@@ -66,6 +66,10 @@ public abstract class HBaseObject {
 	}
 
 	public void addUnmapped(String key, Object value){
+		addUnmapped(new FamilyColumn(getDefaultColumnFamily(), key), value==null?null:value.toString());
+	}
+
+	public void addUnmapped(byte[] key, Object value){
 		addUnmapped(new FamilyColumn(getDefaultColumnFamily(), key), value==null?null:value.toString());
 	}
 

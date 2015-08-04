@@ -62,7 +62,7 @@ public class MRUtil {
 		int i = mrClassName.lastIndexOf('.');
 		String prefix = mrClassName.substring(0, i+1) + "mrhandler.";//assume all handlers are in sub package "mrhandler".
 		
-		List<BaseMRHandler<T>> ret = new ArrayList<BaseMRHandler<T>>();
+		List<BaseMRHandler<T>> ret = new ArrayList<>();
 		List<String> handlerNames = getHandlerNames(prefix);
 		for(String handlerName : handlerNames) {
 			Class<BaseMRHandler<T>> clazz;
@@ -79,7 +79,7 @@ public class MRUtil {
 	}	
 
 	private static List<String> getHandlerNames(String prefix) {
-		List<String> ret = new ArrayList<String>();
+		List<String> ret = new ArrayList<>();
 		
 		Configuration config = Config.getConfig();
 		//Iterator<String> keys = config.getKeys(prefix);//does not work

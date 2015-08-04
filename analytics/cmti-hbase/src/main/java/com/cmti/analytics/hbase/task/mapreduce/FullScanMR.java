@@ -64,12 +64,16 @@ public abstract class FullScanMR<T extends HBaseObject> extends ConfiguredMR {
 	
 	public Job createJob(Configuration hbaseConfig) throws IOException, InterruptedException, ClassNotFoundException {
 		init();
-		
+
+
+		hbaseConfig.setInt("mapreduce.map.memory.mb", 1024*10);//FIXME
+
+		hbaseConfig.setInt("mapreduce.reduce.memory.mb", 1024*10);
 		
 		String jobName = getClass().getSimpleName() + " MR job";
 		Job job = new Job(hbaseConfig, jobName);
 		job.setJarByClass(FullScanMR.class);
-		
+
 		//http://hbase.apache.org/book/mapreduce.specex.html
 		job.setSpeculativeExecution(false);
 		job.setReduceSpeculativeExecution(false);
@@ -113,7 +117,7 @@ public abstract class FullScanMR<T extends HBaseObject> extends ConfiguredMR {
 		String className = this.getClass().getCanonicalName()+".reducer.number";
 		int ret =  config.getInt(className, 1); 
 
-		logger.info(className+ret);
+		logger.info("{}={}", className, ret);
 		return ret;
 	}
 

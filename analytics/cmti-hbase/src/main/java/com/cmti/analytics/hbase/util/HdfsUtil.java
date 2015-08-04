@@ -21,7 +21,7 @@ public class HdfsUtil{
 	private static Logger logger = Logger.getLogger(HdfsUtil.class);	
 
 	public static List<Long> getLongFromFile(String path) throws IOException {
-		ArrayList<Long> ret = new ArrayList<Long>();
+		ArrayList<Long> ret = new ArrayList<>();
 
         Path pt=new Path("hdfs:"+path);
             //Path pt=new Path("hdfs:/user/hbase/input/07-26/mongo1-07-26.txt");
@@ -36,7 +36,7 @@ public class HdfsUtil{
 	}
 
 	public static List<String> getStringFromFile(String path) throws IOException {
-		ArrayList<String> ret = new ArrayList<String>();
+		ArrayList<String> ret = new ArrayList<>();
 
         Path pt=new Path("hdfs:"+path);
             //Path pt=new Path("hdfs:/user/hbase/input/07-26/mongo1-07-26.txt");

@@ -1,14 +1,16 @@
 package com.cmti.analytics.app.station.task.mapreduce.sig.mrhandler;
 
-
-
 import static com.cmti.analytics.app.station.task.mapreduce.sig.SignatureConstant.COUNT;
 
 import java.io.IOException;
 import java.util.*;
 
+import org.apache.hadoop.hbase.client.Mutation;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapreduce.Reducer.Context;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.context.ApplicationContext;
@@ -17,7 +19,6 @@ import com.cmti.analytics.app.station.hbase.domain.RecordSig;
 import com.cmti.analytics.app.station.olapdatabase.domain.FactImsi;
 import com.cmti.analytics.app.station.olapdatabase.service.DimStationService;
 import com.cmti.analytics.app.station.olapdatabase.service.FactImsiService;
-import com.cmti.analytics.hbase.task.mapreduce.BaseMRHandler;
 import com.cmti.analytics.hbase.task.mapreduce.SetValueMRHandler;
 import com.cmti.analytics.hbase.task.mapreduce.util.MRUtil;
 import com.cmti.analytics.hbase.task.mapreduce.util.StringArrayWritable;
@@ -39,12 +40,10 @@ public class OlapUserCountMRHandler extends SetValueMRHandler<RecordSig> {
 
 	protected DimStationService dimStationService;	
 	protected FactImsiService factImsiService;	
-//	protected FactNonAggregateService factNonAggregateService; 
 
 	@Override
 	public OlapUserCountMRHandler initMap(){
-		ApplicationContext springContext = SpringUtil.getApplicationContext();	
-//		osVersionService = springContext.getBean("osVersionService", OsVersionService.class);		
+//		ApplicationContext springContext = SpringUtil.getApplicationContext();		
 		return this;
 	}
 	
@@ -52,12 +51,11 @@ public class OlapUserCountMRHandler extends SetValueMRHandler<RecordSig> {
 	public OlapUserCountMRHandler initReduce() {
 		ApplicationContext springContext = SpringUtil.getApplicationContext();
 		factImsiService = springContext.getBean("factImsiService", FactImsiService.class);	
-//		dimStationService = springContext.getBean("dimStationService", DimStationService.class);
 		return this;
 	}
 
 	@Override
-	public void doMap(RecordSig sig, org.apache.hadoop.mapreduce.Mapper.Context context) throws IOException, InterruptedException {
+	public void doMap(RecordSig sig, Mapper<ImmutableBytesWritable, Result, Text, StringArrayWritable>.Context context) throws IOException, InterruptedException {
 		Date date = sig.getEventDate();
 		String[] dateKeys = DateUtil.toKeyStrings(date);
 		
@@ -78,7 +76,7 @@ public class OlapUserCountMRHandler extends SetValueMRHandler<RecordSig> {
 	}
 
 	@Override
-	public void doReduce(Text keyText, Iterable<StringArrayWritable> ivalues, Context context) throws IOException, InterruptedException {
+	public void doReduce(Text keyText, Iterable<StringArrayWritable> ivalues, Reducer<Text, StringArrayWritable, ImmutableBytesWritable, Mutation>.Context context) throws IOException, InterruptedException {
 		Set<String> set = combineReduce(keyText, ivalues);
 		
 		if(set==null){

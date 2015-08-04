@@ -56,7 +56,7 @@ public class StringArrayWritable extends ArrayWritable {
 */
 
     public Set<String> toSet() {
-		Set<String> ret = new HashSet<String>(); 
+		Set<String> ret = new HashSet<>(); 
 		String[] value =  toStrings();
 		for(String v : value) {
 			ret.add(v);

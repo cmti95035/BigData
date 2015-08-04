@@ -17,6 +17,7 @@ import com.cmti.analytics.hbase.dao.HBaseObject;
 		hasUnmapped=false)  
 public class DriveTestDataMapping extends HBaseObject{
 
+	public final static String COUNTER_CF = "c";
 	public final static String DEFAULT_CF = "d";
 	public final static String DEFAULT_TABLE = "drive_test_data";
 	//keys 
@@ -35,8 +36,7 @@ public class DriveTestDataMapping extends HBaseObject{
 	@CompositeKey(order=2)
 	public Integer frame; 
 	
-	//columns//////////////////////////////////////////////////////////////////////
- 
+	//columns////////////////////////////////////////////////////////////////////// 
 
 	@Column(value = "cell")
 	public Integer cell;
@@ -53,6 +53,13 @@ public class DriveTestDataMapping extends HBaseObject{
 	@Column(value = "rscp")//PCCPCH RSCP/MR.TdScPccpchRscp
 	public Integer rscp;
 
+	@Column(value = "mr_count", cf=COUNTER_CF)//MR that can be projected to this DriveTestData
+	public Long mrCount;
+
+	@Column(value = "mr_rscp_sum", cf=COUNTER_CF)//rscp sum of the MRs
+	public Long mrRscpSum;
+	
+	
 	/*
 	public static void main(String[] args){//float is not enough for longitude/latitude
 		Double d1=  104.034714;

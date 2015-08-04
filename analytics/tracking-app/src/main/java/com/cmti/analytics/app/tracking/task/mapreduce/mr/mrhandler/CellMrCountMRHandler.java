@@ -5,8 +5,12 @@ import static com.cmti.analytics.app.tracking.task.mapreduce.mr.SignatureConstan
 import java.io.IOException;
 import java.util.*;
 
+import org.apache.hadoop.hbase.client.Mutation;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapreduce.Reducer.Context;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -30,7 +34,7 @@ public class CellMrCountMRHandler extends SingleIntegerValueMRHandler<Mr> {
 	private static final StringArrayWritable ONE = new StringArrayWritable(1);
 	
 	@Override
-	public void doMap(Mr mr, org.apache.hadoop.mapreduce.Mapper.Context context) throws IOException, InterruptedException {
+	public void doMap(Mr mr, Mapper<ImmutableBytesWritable, Result, Text, StringArrayWritable>.Context context) throws IOException, InterruptedException {
 		int cell = mr.getCellId(); 
 		String keyStr = MRUtil.buildKey(getSignature(), cell);
 				
@@ -39,7 +43,7 @@ public class CellMrCountMRHandler extends SingleIntegerValueMRHandler<Mr> {
 	}
 
 	@Override
-	public void doReduce(Text keyText, Iterable<StringArrayWritable> ivalues, Context context) throws IOException, InterruptedException {
+	public void doReduce(Text keyText, Iterable<StringArrayWritable> ivalues, Reducer<Text, StringArrayWritable, ImmutableBytesWritable, Mutation>.Context context) throws IOException, InterruptedException {
 		List<Integer> result = combineReduce(keyText, ivalues);
 		if(result==null){
 			return;

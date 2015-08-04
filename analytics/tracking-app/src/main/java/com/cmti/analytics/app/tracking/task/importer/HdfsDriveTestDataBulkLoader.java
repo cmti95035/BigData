@@ -18,23 +18,24 @@ import com.cmti.analytics.hbase.loader.BulkLoaderMapper;
  * 
 hdfs dfs -mkdir /data
 hdfs dfs -mkdir /data/input
-hdfs dfs -mkdir /data/input/roadtest
-hdfs dfs -put 0102885120140928160610ms9.csv /data/input/roadtest
+hdfs dfs -mkdir /data/input/drivetest
+hdfs dfs -put 0102885120140928160610ms9.csv /data/input/drivetest
 
 on my local cloudera VM:
 export HADOOP_OPTS="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml"
  export HADOOP_CLASSPATH=/usr/lib/hbase/hbase-protocol.jar
- export HADOOP_CLASSPATH=/home/hadoop/hbase/hbase-0.94.18.jar
 hdfs dfs -rm -r /data/output/roadtest
- hadoop jar tracking-app-1.0-SNAPSHOT.jar com.cmti.analytics.app.tracking.task.importer.HdfsRoadTestDataBulkLoader /data/input/roadtest /data/output/roadtest -D mapreduce.map.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" -D mapreduce.reduce.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml"  
+ hadoop jar tracking-app-1.0-SNAPSHOT.jar com.cmti.analytics.app.tracking.task.importer.HdfsDriveTestDataBulkLoader /data/input/drivetest /data/output/roadtest -D mapreduce.map.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" -D mapreduce.reduce.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml"  
 
 on AWS:
+mkdir logs
 export HADOOP_OPTS="-Dsite=aws -Dlog4j.configurationFile=log4j2/log4j2_prod.xml"
-hdfs dfs -rm -r /data/output/roadtest
-nohup hadoop jar tracking-app-1.0-SNAPSHOT.jar com.cmti.analytics.app.tracking.task.importer.HdfsRoadTestDataBulkLoader /data/input/roadtest /data/output/roadtest -D mapreduce.map.java.opts="-Dsite=aws -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" -D mapreduce.reduce.java.opts="-Dsite=aws -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" >HdfsRoadTestDataBulkLoader.log &  
-tail -f HdfsRoadTestDataBulkLoader.log 
+hdfs dfs -rm -r /data/output/drivetest
+  hadoop jar tracking-app-1.0-SNAPSHOT.jar com.cmti.analytics.app.tracking.task.importer.HdfsDriveTestDataBulkLoader /data/input/drivetest /data/output/drivetest -D mapreduce.map.java.opts="-Dsite=aws -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" -D mapreduce.reduce.java.opts="-Dsite=aws -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" 
  
- hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles  /data/output/roadtest road_test_data
+  chmod u+r tracking-app-1.0-SNAPSHOT.jar  ; export HADOOP_OPTS="-Dsite=aws -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" ; hdfs dfs -rm -r /data/output/drivetest ;   hadoop jar tracking-app-1.0-SNAPSHOT.jar com.cmti.analytics.app.tracking.task.importer.HdfsDriveTestDataBulkLoader /data/input/drivetest /data/output/drivetest -D mapreduce.map.java.opts="-Dsite=aws -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" -D mapreduce.reduce.java.opts="-Dsite=aws -Dlog4j.configurationFile=log4j2/log4j2_prod.xml"
+
+ hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles  /data/output/drivetest drive_test_data
 
  * @author Guobiao Mo
  *
@@ -56,7 +57,7 @@ public class HdfsDriveTestDataBulkLoader extends BulkLoader<DriveTestData, Objec
 
 	@Override
 	public Class<? extends BulkLoaderMapper> getMapperClass(){
-		BulkLoaderMapper<DriveTestData, Object> mapper = new BulkLoaderMapper<DriveTestData, Object>();
+		BulkLoaderMapper<DriveTestData, Object> mapper = new BulkLoaderMapper<>();
 		return mapper.getClass();
 	}
 

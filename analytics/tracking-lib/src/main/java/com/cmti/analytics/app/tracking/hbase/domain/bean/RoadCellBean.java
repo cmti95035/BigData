@@ -24,18 +24,7 @@ public class RoadCellBean extends RoadCellMapping {
 	
 
 //field
-	public void setLength(Integer length){
-		boolean updated = !ObjectUtil.equals(this.length, length);
-		if(updated){
-			this.length = length;
-			setDirty("length");
-		}
-	}
-
-	public Integer getLength(){
-		return length;
-	}
- 	public void setCellId(Integer cellId){
+	public void setCellId(Integer cellId){
 		boolean updated = !ObjectUtil.equals(this.cellId, cellId);
 		if(updated){
 			this.cellId = cellId;
@@ -45,6 +34,17 @@ public class RoadCellBean extends RoadCellMapping {
 
 	public Integer getCellId(){
 		return cellId;
+	}
+ 	public void setDriveTestId(String driveTestId){
+		boolean updated = !ObjectUtil.equals(this.driveTestId, driveTestId);
+		if(updated){
+			this.driveTestId = driveTestId;
+			setDirty("driveTestId");
+		}
+	}
+
+	public String getDriveTestId(){
+		return driveTestId;
 	}
  	public void setFuzzyId(Integer fuzzyId){
 		boolean updated = !ObjectUtil.equals(this.fuzzyId, fuzzyId);
@@ -101,6 +101,52 @@ public class RoadCellBean extends RoadCellMapping {
 					
 		list.add(value);
 		setDirty("latitudeList");
+	}
+	
+ 	public void setFrameList(java.util.ArrayList<java.lang.Integer> frameList){
+		boolean updated = !ObjectUtil.equals(this.frameList, frameList);
+		if(updated){
+			this.frameList = frameList;
+			setDirty("frameList");
+		}
+	}
+
+	public java.util.ArrayList<java.lang.Integer> getFrameList(){
+		return frameList;
+	}
+
+	public void addFrameList(Integer value){
+		java.util.ArrayList<java.lang.Integer> list = getFrameList();
+		if(list==null){
+			list = new java.util.ArrayList<java.lang.Integer>();
+			setFrameList(list);
+		}
+					
+		list.add(value);
+		setDirty("frameList");
+	}
+	
+ 	public void setRscpList(java.util.ArrayList<java.lang.Integer> rscpList){
+		boolean updated = !ObjectUtil.equals(this.rscpList, rscpList);
+		if(updated){
+			this.rscpList = rscpList;
+			setDirty("rscpList");
+		}
+	}
+
+	public java.util.ArrayList<java.lang.Integer> getRscpList(){
+		return rscpList;
+	}
+
+	public void addRscpList(Integer value){
+		java.util.ArrayList<java.lang.Integer> list = getRscpList();
+		if(list==null){
+			list = new java.util.ArrayList<java.lang.Integer>();
+			setRscpList(list);
+		}
+					
+		list.add(value);
+		setDirty("rscpList");
 	}
 	
   	

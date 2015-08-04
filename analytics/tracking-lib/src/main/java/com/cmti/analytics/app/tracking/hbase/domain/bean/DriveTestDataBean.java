@@ -87,6 +87,28 @@ public class DriveTestDataBean extends DriveTestDataMapping {
 	public Integer getRscp(){
 		return rscp;
 	}
+ 	public void setMrCount(Long mrCount){
+		boolean updated = !ObjectUtil.equals(this.mrCount, mrCount);
+		if(updated){
+			this.mrCount = mrCount;
+			setDirty("mrCount");
+		}
+	}
+
+	public Long getMrCount(){
+		return mrCount;
+	}
+ 	public void setMrRscpSum(Long mrRscpSum){
+		boolean updated = !ObjectUtil.equals(this.mrRscpSum, mrRscpSum);
+		if(updated){
+			this.mrRscpSum = mrRscpSum;
+			setDirty("mrRscpSum");
+		}
+	}
+
+	public Long getMrRscpSum(){
+		return mrRscpSum;
+	}
   	
 	@Override
 	public String toString(){

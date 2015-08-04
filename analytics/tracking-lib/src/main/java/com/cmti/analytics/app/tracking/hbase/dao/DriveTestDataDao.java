@@ -3,25 +3,20 @@ package com.cmti.analytics.app.tracking.hbase.dao;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
-import org.apache.commons.configuration.Configuration;
 import org.apache.commons.lang3.text.StrTokenizer;
 import org.apache.hadoop.hbase.client.Put;
-import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.mapreduce.Mapper.Context;
 import org.apache.hadoop.mapreduce.lib.input.FileSplit;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import com.cmti.analytics.app.tracking.hbase.domain.MrOnRoad; 
+import com.cmti.analytics.app.tracking.hbase.domain.Mr;
 import com.cmti.analytics.app.tracking.hbase.domain.DriveTestData;
 import com.cmti.analytics.app.tracking.util.TrackingUtil;
 import com.cmti.analytics.hbase.dao.ExportDao;
-import com.cmti.analytics.hbase.dao.HBaseGenericDao;
-import com.cmti.analytics.hbase.util.HBaseUtil;
+import com.cmti.analytics.hbase.util.FamilyColumn;
 import com.cmti.analytics.util.StringUtil;
  
 
@@ -32,8 +27,30 @@ import com.cmti.analytics.util.StringUtil;
  */
 public class DriveTestDataDao extends ExportDao<DriveTestData, Object> {
 
+	protected static final Logger logger = LogManager.getLogger(DriveTestDataDao.class);
 	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");//2014/9/28 16:06:28
+	MrDao mrDao = new MrDao();
 
+	public void addMr(int roadId, String driveTestId, int frame, Mr mr) throws IOException, InterruptedException{
+		logger.info("going to add Mr {} to DriveTestData {}", mr, frame);
+		
+		//super.getKey(t);//FIXME
+		//DriveTestData driveTestData = super.getByKey(rowKey);//FIXME
+		
+		DriveTestData driveTestData = new DriveTestData();
+		
+		driveTestData.setDriveTestId(driveTestId);
+		driveTestData.setFrame(frame);
+		driveTestData.setRoadId(roadId);
+		
+		FamilyColumn fc = new FamilyColumn(DriveTestData.COUNTER_CF, "mr_count");//TODO move this logic to HBaseGenericDao
+		super.increment(driveTestData, fc.getFamilyBytes(), fc.getColumnBytes(), 1L);
+
+		fc = new FamilyColumn(DriveTestData.COUNTER_CF, "mr_rscp_sum");
+		super.increment(driveTestData, fc.getFamilyBytes(), fc.getColumnBytes(), mr.getRscp().longValue());				
+	}
+	
+	
 	//used by bulk loader, set hbase timestamp as RoadTestData time
 	@Override
 	public Put getPut(DriveTestData t) throws IOException, InterruptedException {

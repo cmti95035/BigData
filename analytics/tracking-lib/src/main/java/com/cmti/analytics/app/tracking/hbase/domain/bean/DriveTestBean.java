@@ -27,28 +27,6 @@ public class DriveTestBean extends DriveTestMapping {
 	public Integer getRoadId(){
 		return roadId;
 	}
- 	public void setTime(java.util.Date time){
-		boolean updated = !ObjectUtil.equals(this.time, time);
-		if(updated){
-			this.time = time;
-			setDirty("time");
-		}
-	}
-
-	public java.util.Date getTime(){
-		return time;
-	}
- 	public void setDirection(Boolean direction){
-		boolean updated = !ObjectUtil.equals(this.direction, direction);
-		if(updated){
-			this.direction = direction;
-			setDirty("direction");
-		}
-	}
-
-	public Boolean getDirection(){
-		return direction;
-	}
   	
 	@Override
 	public String toString(){

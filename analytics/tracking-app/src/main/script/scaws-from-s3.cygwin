@@ -1,0 +1,22 @@
+set zookeeper: /cmti-hbase/src/main/resources/hbase/hbase-site_aws.xml
+switch to AWS Hadoop and HBase: 1. root pom.xml, 2. hbase pom.xml, 3. tracking-app pom.xml
+
+mvn -Dhadoop.profile=2.0 clean package
+
+
+scp -i /cygdrive/c/CM/AWS/gmo.pem /cygdrive/c/CM/sichuan-data/9-29-2csv-roadtest/0102885120140928160610ms9.csv  hadoop@ec2-54-148-164-221.us-west-2.compute.amazonaws.com:/home/hadoop
+yes
+scp -i /cygdrive/c/CM/AWS/gmo.pem /cygdrive/c/git/cmti2/cmti/analytics/tracking-app/target/tracking-app-1.0-SNAPSHOT.jar  hadoop@ec2-54-148-164-221.us-west-2.compute.amazonaws.com:/home/hadoop
+
+scp -i /cygdrive/c/CM/AWS/gmo.pem /cygdrive/c/git/cmti2/cmti/analytics/tracking-app/src/main/my_note/sc*sh  hadoop@ec2-54-148-164-221.us-west-2.compute.amazonaws.com:/home/hadoop
+
+scp -i /cygdrive/c/CM/AWS/gmo.pem /cygdrive/c/CM/AWS/gmo.pem   hadoop@ec2-54-148-164-221.us-west-2.compute.amazonaws.com:/home/hadoop
+
+
+scp -i /cygdrive/c/CM/AWS/gmo.pem /cygdrive/c/CM/sichuan-data/9-29-2csv-roadtest/0102885120140928160610ms9.csv  hadoop@ec2-52-24-62-18.us-west-2.compute.amazonaws.com:/home/hadoop
+yes
+scp -i /cygdrive/c/CM/AWS/gmo.pem /cygdrive/c/git/cmti2/cmti/analytics/tracking-app/target/tracking-app-1.0-SNAPSHOT.jar  hadoop@ec2-52-24-62-18.us-west-2.compute.amazonaws.com:/home/hadoop
+
+scp -i /cygdrive/c/CM/AWS/gmo.pem /cygdrive/c/git/cmti2/cmti/analytics/tracking-app/src/main/my_note/sc*sh  hadoop@ec2-52-24-62-18.us-west-2.compute.amazonaws.com:/home/hadoop
+
+scp -i /cygdrive/c/CM/AWS/gmo.pem /cygdrive/c/CM/AWS/gmo.pem   hadoop@ec2-52-24-62-18.us-west-2.compute.amazonaws.com:/home/hadoop

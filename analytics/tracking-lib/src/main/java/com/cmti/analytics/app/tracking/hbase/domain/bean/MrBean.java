@@ -24,7 +24,29 @@ public class MrBean extends MrMapping {
 	
 
 //field
-	public void setCellId(Integer cellId){
+	public void setImsi2(Long imsi2){
+		boolean updated = !ObjectUtil.equals(this.imsi2, imsi2);
+		if(updated){
+			this.imsi2 = imsi2;
+			setDirty("imsi2");
+		}
+	}
+
+	public Long getImsi2(){
+		return imsi2;
+	}
+ 	public void setTime2(java.util.Date time2){
+		boolean updated = !ObjectUtil.equals(this.time2, time2);
+		if(updated){
+			this.time2 = time2;
+			setDirty("time2");
+		}
+	}
+
+	public java.util.Date getTime2(){
+		return time2;
+	}
+ 	public void setCellId(Integer cellId){
 		boolean updated = !ObjectUtil.equals(this.cellId, cellId);
 		if(updated){
 			this.cellId = cellId;

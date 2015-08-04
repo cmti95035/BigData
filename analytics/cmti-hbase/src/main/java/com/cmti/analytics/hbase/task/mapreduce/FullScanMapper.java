@@ -10,7 +10,6 @@ import org.apache.hadoop.io.Text;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.cmti.analytics.conf.Config;
 import com.cmti.analytics.hbase.dao.HBaseGenericDao;
 import com.cmti.analytics.hbase.dao.HBaseObject;
 import com.cmti.analytics.hbase.task.mapreduce.util.MRUtil;
@@ -37,7 +36,7 @@ public abstract class FullScanMapper<T extends HBaseObject> extends TableMapper<
 	   	//protected abstract List<String> getHandlerNames();
 
 		@Override
-		protected void setup(org.apache.hadoop.mapreduce.Mapper.Context context) throws IOException, InterruptedException {
+		protected void setup(Context context) throws IOException, InterruptedException {
 //			Config.getConfig();
 			
 			handlers = MRUtil.getMRHandler(this.getClass());

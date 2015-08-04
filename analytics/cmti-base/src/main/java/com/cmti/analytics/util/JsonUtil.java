@@ -12,7 +12,7 @@ public class JsonUtil{
 
 	public static Map<String, Object> getMap(String line) {
 		ObjectMapper mapper = new ObjectMapper();//FIXME use threadlocal
-		Map<String, Object> data = new HashMap<String, Object>(); 
+		Map<String, Object> data = new HashMap<>(); 
 		
 		if(StringUtils.isNotBlank(line))
 		try {

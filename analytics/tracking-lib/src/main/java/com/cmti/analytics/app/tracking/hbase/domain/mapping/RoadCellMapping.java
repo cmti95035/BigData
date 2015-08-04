@@ -35,11 +35,14 @@ public class RoadCellMapping extends HBaseObject{
 
 	//columns//////////////////////////////////////////////////////////////////////
 
-	@Column(value = "len")
-	public Integer length;
+	//@Column(value = "len")//size of longitudeList, can be derived from the lists.
+//	public Integer length;
 
 	@Column(value = "cell")
 	public Integer cellId;	
+
+	@Column(value = "drive_test_id")
+	public String driveTestId;
 
 	//@Column(value = "fuz")
 //	public Boolean fuzzy;	
@@ -54,5 +57,10 @@ public class RoadCellMapping extends HBaseObject{
 	@Column(value = "lat")//Latitude list
 	public ArrayList<Double> latitudeList;	
 	//public Double[] latitudeArray;	
+
+	@Column(value = "frame")//Latitude list
+	public ArrayList<Integer> frameList;	
 	
+	@Column(value = "rscp")//Latitude list
+	public ArrayList<Integer> rscpList;	
 }

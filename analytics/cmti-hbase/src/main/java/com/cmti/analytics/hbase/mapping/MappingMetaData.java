@@ -80,7 +80,7 @@ public class MappingMetaData<T extends HBaseObject, P> {
 	 */
 	
 	public List<Object> getColumnValues(T t, List<String> columns){
-		List<Object> ret=new ArrayList<Object>();
+		List<Object> ret=new ArrayList<>();
 		
 		if(columns==null || columns.size()==0){
 			for(IColumn<T> mc : mappedColumns){//all mapped columns
@@ -194,7 +194,7 @@ public class MappingMetaData<T extends HBaseObject, P> {
 			return null;
 		}
 
-		List<T> ret = new ArrayList<T>();
+		List<T> ret = new ArrayList<>();
 		int i=0;
 		for(Result r:rs){
 			ret.add(parse(r));

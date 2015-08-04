@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion> 
+	
+  <parent>
+  	<groupId>com.cmti</groupId>
+  	<artifactId>analytics</artifactId>
+  	<version>1.0-SNAPSHOT</version>
+  </parent>
+
+    <groupId>com.cmti</groupId>    
+	<artifactId>tracking-app</artifactId>
+	<packaging>jar</packaging>
+	<version>${global.version}</version>
+	<name>Tracking application</name>
+
+
+	<build>
+		<plugins>
+			<!-- download and include source and javadoc in eclipse -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+          		<version>2.9</version>
+                <configuration>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                </configuration>
+            </plugin>
+            
+			<!-- Pack as a single jar for running -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<id>make-jar-with-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+              				<transformers>
+              				<!-- http://maven.apache.org/plugins/maven-shade-plugin/examples/resource-transformers.html -->
+                				<transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                  					<resource>META-INF/spring.handlers</resource>
+                				</transformer>
+                				<transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                  					<resource>META-INF/spring.schemas</resource>
+                				</transformer>
+                				<transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                				<!-- http://stackoverflow.com/questions/17265002/hadoop-no-filesystem-for-scheme-file -->
+              				</transformers>
+              				<filters>
+                				<filter>
+       								<artifact>org.springframework:spring-tx</artifact>
+                  					<includes>
+                    					<include>**</include>
+                  					</includes>
+                				</filter>
+                				<filter>
+       								<artifact>org.slf4j:log4j-over-slf4j</artifact>
+                  					<includes>
+                    					<include>**</include>
+                  					</includes>
+                				</filter>
+                				<!-- filter>
+       								<artifact>junit:junit</artifact>
+                  					<includes>
+                    					<include>junit/framework/**</include>
+                    					<include>org/junit/**</include>
+                  					</includes>
+                  					<excludes>
+                    					<exclude>org/junit/experimental/**</exclude>
+                    					<exclude>org/junit/runners/**</exclude>
+                  					</excludes>
+                				</filter-->
+                				<filter>
+       								<artifact>junit:junit</artifact>
+                  					<excludes>
+                    					<exclude>**</exclude>
+                  					</excludes>
+                				</filter>
+                				<!-- 
+                				<filter>
+       								<artifact>javax.servlet</artifact>
+                  					<excludes>
+                    					<exclude>**</exclude>
+                  					</excludes>
+                				</filter>
+                				
+                				<filter>
+       								<artifact>javax.servlet.jsp</artifact>
+                  					<excludes>
+                    					<exclude>**</exclude>
+                  					</excludes>
+                				</filter>
+                				
+                				<filter>
+       								<artifact>tomcat</artifact>
+                  					<excludes>
+                    					<exclude>**</exclude>
+                  					</excludes>
+                				</filter><!- -
+                				<filter>
+       								<artifact>org.apache.hadoop</artifact>
+                  					<excludes>
+                    					<exclude>**</exclude>
+                  					</excludes>
+                				</filter>
+                				<filter>
+       								<artifact>org.apache.hbase</artifact>
+                  					<excludes>
+                    					<exclude>**</exclude>
+                  					</excludes>
+                				</filter>-->
+                				<filter>
+                  					<artifact>*:*</artifact>
+                  					<excludes>
+                    					<exclude>META-INF/*.SF</exclude>
+                    					<exclude>META-INF/*.DSA</exclude>
+                    					<exclude>META-INF/*.RSA</exclude>
+                    					<exclude>META-INF/persistence.xml</exclude>
+                    					<!-- if don't exclude persistence.xml, it will show up in multiple places and got this error
+                    					Error: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [spring/db.xml]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Conflicting persistence unit definitions for name 'DASHBOARD': file:/yarn/nm/usercache/cloudera/filecache/222/station-app-1.0-SNAPSHOT.jar, file:/yarn/nm/usercache/cloudera/appcache/application_1423763223531_0002/filecache/10/job.jar/job.jar
+                    					we need to pack this persistence.xml in a standalone jar file: 
+                    					
+                    					cd src\main\resources
+										jar -cvf p.jar META-INF
+                    					
+                    					 hadoop jar station-app-1.0-SNAPSHOT.jar com.cmti.analytics.app.station.task.mapreduce.sig.RecordSigMR  -libjars  p.jar    -D mapred.map.child.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" -D mapred.reduce.child.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml"  
+ 
+                    					
+                    					  -->
+                  					</excludes>
+                  					<!-- includes>
+                    					<include>org/apache/hadoop/hbase/client/RpcRetryingCallerFactory.class</include>
+                  					</includes -->
+                				</filter>
+              				</filters>
+							<!-- >artifactSet>
+								<excludes>
+									<exclude>junit:junit</exclude>
+								</excludes>
+							</artifactSet-->
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+
+	</build>
+
+<!-- http://caffeinbean.wordpress.com/2011/03/01/hadoop-failed-to-set-setxincludeawaretrue-for-parser-error-and-how-to-resolve-it/ -->
+    <dependencies> 
+    
+  	<dependency>
+		<groupId>com.cmti</groupId>
+		<artifactId>tracking-lib</artifactId>
+		<version>${global.version}</version>
+	</dependency>   
+            
+	</dependencies>
+
+
+	<repositories>
+		<repository>
+			<id>alternate repo</id>
+			<url>https://maven.nuxeo.org/nexus/content/repositories/public/</url>
+		</repository>
+
+		<repository>
+			<id>central</id>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository>
+	</repositories>
+
+</project>

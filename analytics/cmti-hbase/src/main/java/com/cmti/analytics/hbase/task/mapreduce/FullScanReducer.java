@@ -29,14 +29,15 @@ public class FullScanReducer<T extends HBaseObject> extends TableReducer<Text, S
 //		handlers = setupMRHandlers();
 		for(BaseMRHandler<T> handler : handlers){
 			handler.initReduce();
-			logger.error("include: "+handler.getClass().getName());
+			logger.info("include: "+handler.getClass().getName());
 		}
 	}
 
 	@Override
  	public void reduce(Text key, Iterable<StringArrayWritable> values, Context context) throws IOException, InterruptedException {
 			for(BaseMRHandler<T> handler : handlers){
-				handler.doReduce(key, values, context);
+				handler.doReduce(key, values, null); //FIXME
+				//handler.doReduce(key, values, context);
 			}
     }
 

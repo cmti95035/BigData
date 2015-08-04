@@ -46,18 +46,28 @@ public class MapperFactory {
 
 	private static void addDefaultMappers() {
 		addMapper(new TypeLiteral<Long>(){;}, LongMapper.instance);
+		addMapper(new TypeLiteral<Long[]>(){;}, new LongArrayMapper());
+		addMapper(new TypeLiteral<ArrayList<Long>>(){;}, new LongListMapper());
+		
 		addMapper(new TypeLiteral<Integer>(){;}, IntegerMapper.instance);
+		addMapper(new TypeLiteral<Integer[]>(){;}, new IntegerArrayMapper());
+		addMapper(new TypeLiteral<ArrayList<Integer>>(){;}, new IntegerListMapper());
+		
 		addMapper(new TypeLiteral<Double>(){;}, DoubleMapper.instance);
 		addMapper(new TypeLiteral<Double[]>(){;}, new DoubleArrayMapper());
+		addMapper(new TypeLiteral<ArrayList<Double>>(){;}, new DoubleListMapper());
+		
 		addMapper(new TypeLiteral<Float>(){;}, FloatMapper.instance);
-		addMapper(new TypeLiteral<Float[]>(){;}, new FloatArrayMapper());
-		addMapper(new TypeLiteral<Boolean>(){;}, BooleanMapper.instance);
+		addMapper(new TypeLiteral<Float[]>(){;}, new FloatArrayMapper());		
+		addMapper(new TypeLiteral<ArrayList<Float>>(){;}, new FloatListMapper());
+		
 		addMapper(new TypeLiteral<String>(){;}, StringMapper.instance);
-		addMapper(new TypeLiteral<Date>(){;}, DateMapper.instance);
-		addMapper(new TypeLiteral<byte[]>(){;}, ByteArrayMapper.instance);
 		addMapper(new TypeLiteral<String[]>(){;}, new StringArrayMapper());
 		addMapper(new TypeLiteral<ArrayList<String>>(){;}, new StringListMapper());
-		addMapper(new TypeLiteral<ArrayList<Double>>(){;}, new DoubleListMapper());
+
+		addMapper(new TypeLiteral<Boolean>(){;}, BooleanMapper.instance);
+		addMapper(new TypeLiteral<Date>(){;}, DateMapper.instance);
+		addMapper(new TypeLiteral<byte[]>(){;}, ByteArrayMapper.instance);
 	}
 
 	private static <T> void addMapper(TypeLiteral<T> targetType, Mapper<T> mapper) {

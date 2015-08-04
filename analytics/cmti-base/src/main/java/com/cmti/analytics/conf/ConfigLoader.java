@@ -50,7 +50,7 @@ public class ConfigLoader {
 
 		try {
 			base.load(resource);
-			logger.error("Loaded configuration from " + resource);
+			logger.info("Loaded configuration from {}", resource);
 		} catch (ConfigurationException e) {
 			throw new RuntimeException(e);
 		}

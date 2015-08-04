@@ -18,8 +18,8 @@ import com.cmti.analytics.hbase.loader.BulkLoaderMapper;
  
 
 /**
- * read MR files and generates HFiles, all files are in HDFS.
- * 
+ * read XML format MR files and generates HFiles, all files are in HDFS.
+ * input files are zipped files which are read through ZipFilesFileInputFormat.
  * 
 hdfs dfs -mkdir /data/input/mrxml
 hdfs dfs -put *.zip /data/input/mrxml

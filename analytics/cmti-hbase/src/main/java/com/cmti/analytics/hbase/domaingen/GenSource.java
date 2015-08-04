@@ -73,8 +73,8 @@ public class GenSource {
 		context.put("homePackage", homePackage);//"com.cmti.analytics"		
 		context.put("rawName", getRawName());//"Event"
 
-		ArrayList<DomainField> keys = new ArrayList<DomainField>();
-		ArrayList<DomainField> fs = new ArrayList<DomainField>();
+		ArrayList<DomainField> keys = new ArrayList<>();
+		ArrayList<DomainField> fs = new ArrayList<>();
 
 		Field[] fields = mappingClass.getDeclaredFields();
 		

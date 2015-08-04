@@ -93,7 +93,7 @@ public class SigEventAutoGenSpout extends BaseRichSpout {
     @Override
     public Map<String, Object> getComponentConfiguration() {
         if(!_isDistributed) {
-            Map<String, Object> ret = new HashMap<String, Object>();
+            Map<String, Object> ret = new HashMap<>();
             ret.put(Config.TOPOLOGY_MAX_TASK_PARALLELISM, 1);
             return ret;
         } else {

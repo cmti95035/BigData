@@ -1,17 +1,16 @@
  
 create 'mr', {NAME => 'd', VERSIONS => 1, BLOCKCACHE=>'false', COMPRESSION =>'SNAPPY'}
-create 'mr_on_road', {NAME => 'd', VERSIONS => 1, BLOCKCACHE=>'false', COMPRESSION =>'SNAPPY'}
-create 'road_test_data', {NAME => 'd', VERSIONS => 1, BLOCKCACHE=>'false', COMPRESSION =>'SNAPPY'}
+
+create 'drive_test_data', {NAME => 'd', VERSIONS => 1, BLOCKCACHE=>'false', COMPRESSION =>'SNAPPY'}, {NAME=>'c', IN_MEMORY => 'true'}
 
 create 'road', {NAME => 'd', VERSIONS => 10, IN_MEMORY => 'true', COMPRESSION =>'SNAPPY'}
-
 put 'road' , "\x00\x0F\xB2\xF3", 'd:province','sichuan'
 put 'road' , "\x00\x0F\xB2\xF3", 'd:city','chengdu'
-put 'road' , "\x00\x0F\xB2\xF3",'d:name','3 huan'
-put 'road' , "\x00\x0F\xB2\xF3",'d:loop',"\xFF"  
+put 'road' , "\x00\x0F\xB2\xF3",'d:name','3 ring'
+put 'road' , "\x00\x0F\xB2\xF3",'d:loop',"\x01"  
 
-create 'road_test', {NAME => 'd', VERSIONS => 1, IN_MEMORY => 'true', COMPRESSION =>'SNAPPY'}
-put 'road_test' , '0102885120140928160610ms9.csv','d:road_id',"\x00\x0F\xB2\xF3" 
+create 'drive_test', {NAME => 'd', VERSIONS => 1, IN_MEMORY => 'true', COMPRESSION =>'SNAPPY'}
+put 'drive_test' , '0102885120140928160610ms9.csv','d:road_id',"\x00\x0F\xB2\xF3" 
 
 create 'road_cell', {NAME => 'd', VERSIONS => 10, IN_MEMORY => 'true', COMPRESSION =>'SNAPPY'}
 
@@ -20,7 +19,9 @@ create 'aa', {NAME => 'd'}
 
 
 
-
+reset drive_test_data counter:
+alter  'drive_test_data', {NAME => 'c', METHOD => 'delete'}
+alter  'drive_test_data', {NAME=>'c', IN_MEMORY => 'true'}
 
 
 put 'road' , "\x00\x0F\xB2\xF3",'d:loop',"\x01" //true

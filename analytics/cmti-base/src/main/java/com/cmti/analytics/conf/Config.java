@@ -55,7 +55,7 @@ public class Config {
 		while(keys.hasNext()) {
 			String key = keys.next();
 			String value = config.getString(key);
-			logger.error(key +"="+ value);
+			logger.info("{}={}", key, value);
 		}
 	}
 

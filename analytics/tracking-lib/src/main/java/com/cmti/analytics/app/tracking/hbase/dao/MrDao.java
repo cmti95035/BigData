@@ -13,9 +13,14 @@ import org.apache.commons.lang3.text.StrTokenizer;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.mapreduce.Mapper.Context;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+import com.cmti.analytics.app.tracking.hbase.dao.RoadCellDao;
 import com.cmti.analytics.app.tracking.hbase.domain.Mr;
-import com.cmti.analytics.app.tracking.hbase.domain.DriveTestData;
+ 
+
+import com.cmti.analytics.conf.Config;
 import com.cmti.analytics.hbase.dao.ExportDao;
 import com.cmti.analytics.hbase.util.HBaseUtil;
 import com.cmti.analytics.util.StringUtil;
@@ -28,9 +33,10 @@ import com.cmti.analytics.util.StringUtil;
  */
 public class MrDao extends ExportDao<Mr, Object> {
 
+	protected static final Logger logger = LogManager.getLogger(MrDao.class);
 	//SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ"); for parseLine2
 	SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	
+
 	public static List<Integer> cellList=Arrays.asList(
 		61027
 ,61028
@@ -181,19 +187,62 @@ public class MrDao extends ExportDao<Mr, Object> {
 ,61719);
 	Set<Integer> cellSet = new HashSet<Integer>(cellList);//for fast search
 	
+	//Set<Integer> cellSet;//all cells on all roads   FIXME
+	
+	boolean roadCellOnly;
+/*
+	public void init(){
+		Configuration config = Config.getConfig();
+		roadCellOnly = config.getBoolean("mr.import.road.cell.only", true);
+		roadCellOnly=true;//FIXME
+		logger.error("roadCellOnly={}", roadCellOnly);
+
+		if(roadCellOnly) {		
+			try {
+				RoadCellDao roadCellDao = new RoadCellDao();
+				roadCellDao.open();
+				cellSet = roadCellDao.getAllCellIds();
+				logger.error("roadCellDao.getAllCellIds() cell size = {}", cellSet.size());
+				roadCellDao.close();
+			} catch (IOException e) {
+				logger.error("roadCellDao.getAllCellIds()", e);
+			}		
+		}		
+	}
+/* when this object is created by reflection, this method is not called*/
+	public MrDao(){
+	//	init();
+	}
+
+	public boolean shouldImport(String cellId){
+		if(roadCellOnly) {
+			return cellSet.contains(Integer.parseInt(cellId));
+		}
+		
+		return true;
+	}
+	
+	public boolean shouldImport(int cellId){
+		if(roadCellOnly) {
+			logger.error("roadCellDao.getAllCellIds() cell size = {} ", cellSet.size());
+			logger.error("roadCellDao.getAllCellIds()  cellId={}",  cellId);
+			return cellSet.contains(cellId);
+		}
+		
+		return true;		
+	}
 
 	//used by bulk loader, set hbase timestamp as Mr time
 	@Override
 	public Put getPut(Mr t) throws IOException, InterruptedException {
 		return getPut(t, t.getTime().getTime());
 	}
-
 	
 	@Override
 	public Mr parseLine(String line, Context context) {
 		Mr mr = new Mr();
 		
-		//research if opencsv can do a better job here
+		//research if opencsv can do a better job here TODO
 		StrTokenizer st = new StrTokenizer(line, ",");
 		st.setIgnoreEmptyTokens(false);
 		
@@ -204,29 +253,29 @@ public class MrDao extends ExportDao<Mr, Object> {
 			logger.error("{} data.length < 11 {}", data.length, line);
 			return null;
 		}
-
-		int cell = StringUtil.getInt(data[2]);
-		
-		if(!cellSet.contains(cell)){//TODO should load all MR
-		//	logger.error("{} not in", cell);
-			return null;
-		}else{
-			//logger.error("{} in", cell);
-		}
-		mr.setCellId(cell);
-		
 		
 		long imsi = StringUtil.getLong(data[1]);
 		mr.setImsi(imsi);
 
+		int cell = StringUtil.getInt(data[2]);
+		
+		if(shouldImport(cell)==false){
+//			logger.error("{} not on any road", cell);
+			return null;
+		}
+		
+		mr.setCellId(cell);
+		
 		try {
 			mr.setTime(dateFormat.parse(data[6]));
 		} catch (ParseException e) {
 			logger.error("SimpleDateFormat ParseException {}", line);
 		}
 
-		mr.setRscp(StringUtil.getInt(data[data.length-1]));
-			 
+		//mr.setRscp(StringUtil.getInt(data[data.length-1]));//what Go said TODO confirm
+		mr.setRscp(StringUtil.getInt(data[3]));
+
+		//logger.error("mr={} ", mr);
 		return mr;
 	}
 

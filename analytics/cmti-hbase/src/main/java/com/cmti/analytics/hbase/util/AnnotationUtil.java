@@ -52,7 +52,7 @@ It looks into all super classes until it finds it.
 	public Long rank;	
  */
 	public final static <A extends Annotation> List<Field> getAnnotationFields(Class<?> targetClass, Class<A> annotationClass) {
-		List<Field> ret = new ArrayList<Field>();
+		List<Field> ret = new ArrayList<>();
 		Class<?> superClass = targetClass;
 		do{
 			Field[] fields = superClass.getDeclaredFields();

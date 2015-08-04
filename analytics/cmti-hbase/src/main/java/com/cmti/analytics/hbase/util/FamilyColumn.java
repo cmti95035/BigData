@@ -39,6 +39,17 @@ public class FamilyColumn implements Comparable<FamilyColumn>{
 		familyBytes = Bytes.toBytes(family);
 		columnBytes = Bytes.toBytes(column);		
 	}
+	public FamilyColumn(String family, byte[] columnBytes) {
+		if(StringUtils.isBlank(family)) {
+			throw new IllegalArgumentException("ColumnFamily cannot be null or empty");
+		}
+		
+		this.family = family;
+		this.column = Bytes.toString(columnBytes);
+
+		this.familyBytes = Bytes.toBytes(family);
+		this.columnBytes = columnBytes;		
+	}
 
 	public FamilyColumn(byte[] familyBytes, byte[] columnBytes) {//TODO do we need 2 copies?
 		this.familyBytes = familyBytes;

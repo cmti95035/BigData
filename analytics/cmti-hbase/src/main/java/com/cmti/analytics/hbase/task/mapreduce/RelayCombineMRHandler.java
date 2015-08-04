@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapreduce.Reducer.Context;
+import org.apache.hadoop.mapreduce.Reducer;
 
 import com.cmti.analytics.hbase.dao.HBaseObject;
 import com.cmti.analytics.hbase.task.mapreduce.util.StringArrayWritable;
@@ -17,7 +17,7 @@ import com.cmti.analytics.hbase.task.mapreduce.util.StringArrayWritable;
  */
 public abstract class RelayCombineMRHandler<T extends HBaseObject> extends BaseMRHandler<T>{
 	@Override
-	public void doCombine(Text keyText, Iterable<StringArrayWritable> ivalues, Context context) throws IOException, InterruptedException {
+	public void doCombine(Text keyText, Iterable<StringArrayWritable> ivalues, Reducer<Text, StringArrayWritable, Text, StringArrayWritable>.Context context) throws IOException, InterruptedException {
 		String keyStr = keyText.toString();
 		if(keyStr.startsWith(getSignature()) == false) {
 			return;

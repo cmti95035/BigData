@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+	<properties>
+		<global.version>1.0-SNAPSHOT</global.version>
+		<spring.version>4.1.4.RELEASE</spring.version>
+		<junit.version>4.11</junit.version>
+		<jdk.version>1.7</jdk.version>
+		<jstl.version>1.2</jstl.version>
+		
+		<!-- must use 4.1.2 - see http://stackoverflow.com/questions/10550511/illegalstateexception-with-hibernate-4-and-manytoone-cascading -->
+		<!-- 4.1.2 no error, but db data bad
+		4.3.7 latest, in HibernateMetadataUtil.java, use import org.hibernate.jpa.HibernateEntityManagerFactory;
+		
+		
+		<hadoop.version>2.0.0-cdh4.7.0</hadoop.version>
+		<hbase.version>0.94.15-cdh4.7.0</hbase.version>
+		
+		find cloudera versions:
+		http://www.cloudera.com/content/cloudera/en/documentation/core/latest/topics/cdh_vd_cdh_package_tarball.html
+		http://www.cloudera.com/content/cloudera/en/documentation/core/latest/topics/cdh_vd_cdh_package_previous.html
+		
+		hadoop
+		http://repo1.maven.org/maven2/org/apache/hadoop/hadoop-common/
+		 -->		 
+		
+		<!-- amazon AWS  
+		<hadoop.version>2.4.0</hadoop.version>
+		<hbase.version>0.94.18</hbase.version>
+			-->
+		<hadoop.version>2.5.0-cdh5.3.0</hadoop.version>
+		<hbase.version>0.98.6-cdh5.3.0</hbase.version>	 
+		
+		<hibernate.version>4.3.8.Final</hibernate.version>
+		<java.home>C:/app/jdk1.8.0_31</java.home>
+    </properties>
+	
+  <!--parent>
+  	<groupId>com.cmti</groupId>
+  	<artifactId>parent</artifactId>
+  	<version>1.0-SNAPSHOT</version>
+  </parent-->
+  
+  <groupId>com.cmti</groupId>
+  <version>1.0-SNAPSHOT</version>
+  <artifactId>analytics</artifactId>
+  <packaging>pom</packaging>
+  <name>CMTI Analytics</name>
+ 
+  <modules>
+    <module>cmti-base</module>
+    <module>cmti-db</module>
+    <module>cmti-hbase</module>
+    
+    <module>cmti-spark</module>
+    
+    <module>tracking-lib</module>
+    <module>tracking-app</module>
+    <module>tracking-web</module>
+    
+    <!-- 
+
+	<module>cmti-redis</module>
+    <module>cmti-storm</module>
+    <module>cmti-kafka</module>
+	
+    <module>station-lib</module>
+    <module>station-app</module>	
+    <module>station-web</module>
+    
+    
+    
+    <module>web-saiku</module
+<module>hot-area</module>	-->
+  </modules>
+
+  <build>
+    <pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${jdk.version}</source>
+          <target>${jdk.version}</target>
+		  <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+    </plugins>
+    </pluginManagement>
+  </build>
+
+  <dependencies>
+  
+  <dependency>
+	<groupId>log4j</groupId>
+	<artifactId>log4j</artifactId>
+	<version>1.2.17</version>
+</dependency>
+  
+  <!-- 
+        <dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<version>1.7.10</version>
+			<scope>provided</scope>
+		</dependency>
+     -->
+  </dependencies>
+</project>

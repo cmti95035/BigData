@@ -17,7 +17,7 @@ import com.cmti.analytics.hbase.task.mapreduce.FullScanReducer;
  * this MR full scans mr table.
  
  export HADOOP_OPTS="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml"
- export HADOOP_CLASSPATH=/usr/lib/hbase/hbase-protocol.jar 
+ export HADOOP_CLASSPATH=/usr/lib/hbase/hbase-protocol.jar (no need for VM and AWS)
  hadoop jar tracking-app-1.0-SNAPSHOT.jar com.cmti.analytics.app.tracking.task.mapreduce.mr.MrMR -D mapreduce.map.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" -D mapreduce.reduce.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml"  
   
  #hadoop jar tracking-app-1.0-SNAPSHOT.jar com.cmti.analytics.app.tracking.task.mapreduce.mr.MrMR -D mapred.map.child.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" -D mapred.reduce.child.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml"  
@@ -52,7 +52,7 @@ public class MrMR extends FullScanMR<Mr>{
 
 	@Override
 	public Class<? extends FullScanCombiner<Mr>> getCombinerClass(){
-		return MrCombiner.class;
+		return null;//return MrCombiner.class;
 	}
 
 	@Override

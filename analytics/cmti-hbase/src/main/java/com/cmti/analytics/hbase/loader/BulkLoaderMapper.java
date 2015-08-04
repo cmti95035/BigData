@@ -39,6 +39,7 @@ public class BulkLoaderMapper<T extends HBaseObject, P> extends Mapper<LongWrita
 			try {
 				Class daoClass = Class.forName(className);
 				dao = (ExportDao<T, P>) ReflectUtil.newInstance(daoClass);
+				//dao.init(); FIXME
 			} catch (ClassNotFoundException e) {
 				logger.error(className, e);
 			}
@@ -55,6 +56,8 @@ public class BulkLoaderMapper<T extends HBaseObject, P> extends Mapper<LongWrita
 
 			T t = dao.parseLine(line, context);
 				
+			logger.error(t);
+			
 			if(t == null){
 				logger.debug("parse result == null for line:{}", line);
 				return;

@@ -35,10 +35,11 @@ public class DriveTestMapping extends HBaseObject{
 	@Column(value = "road_id")
 	public Integer roadId;
 
-	@Column(value = "time")
+	/**
+	@Column(value = "time") //time can be found in driveTestId
 	public Date time;
 
-	@Column(value = "dir")//do we need this? TODO
+	@Column(value = "dir")//do we need this?  
 	public Boolean direction;
-
+*/
 }

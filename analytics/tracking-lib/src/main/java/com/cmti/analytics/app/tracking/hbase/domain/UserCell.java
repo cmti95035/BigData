@@ -1,6 +1,8 @@
 package com.cmti.analytics.app.tracking.hbase.domain;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,16 +16,17 @@ import org.apache.logging.log4j.Logger;
 public class UserCell {
 	protected static final Logger logger = LogManager.getLogger(UserCell.class);
 
-	int cellId;
-	Date enteringDate;
-	Date exitingDate;
-	long timeInCell;//time spent in the cell
-	int startId;//start id in the user mr list
-	int endId;//end id in the user mr list	
+	private int cellId;
 
+	private List<Mr> mrList = new ArrayList<>();
+
+	public void addMr(Mr mr){
+		mrList.add(mr);
+	}	
+	
 	@Override
 	public String toString() {
-		return String.format("UserCell(cellId=%s, enteringDate=%s, exitingDate=%s, startId=%s, endId=%s)", cellId, enteringDate, exitingDate, startId, endId);
+		return String.format("UserCell(cellId=%s, MRs=%s)", cellId, Arrays.toString(mrList.toArray()));
 	}
 	
 ///////////////////////////////////////////////
@@ -35,43 +38,11 @@ public class UserCell {
 		this.cellId = cellId;
 	}
 
-	public Date getEnteringDate() {
-		return enteringDate;
+	public List<Mr> getMrList() {
+		return mrList;
 	}
 
-	public void setEnteringDate(Date enteringDate) {
-		this.enteringDate = enteringDate;
-	}
-
-	public Date getExitingDate() {
-		return exitingDate;
-	}
-
-	public void setExitingDate(Date exitingDate) {
-		this.exitingDate = exitingDate;
-	}
-
-	public long getTimeInCell() {
-		return timeInCell;
-	}
-
-	public void setTimeInCell(long timeInCell) {
-		this.timeInCell = timeInCell;
-	}
-
-	public int getStartId() {
-		return startId;
-	}
-
-	public void setStartId(int startId) {
-		this.startId = startId;
-	}
-
-	public int getEndId() {
-		return endId;
-	}
-
-	public void setEndId(int endId) {
-		this.endId = endId;
+	public void setMrList(List<Mr> mrList) {
+		this.mrList = mrList;
 	}
 }

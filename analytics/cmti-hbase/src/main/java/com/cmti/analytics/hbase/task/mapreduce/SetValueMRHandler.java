@@ -25,7 +25,7 @@ public abstract class SetValueMRHandler<T extends HBaseObject> extends BaseMRHan
 		}
 
 		Iterator<StringArrayWritable> it=ivalues.iterator();
-		Set<String> accountIds = new HashSet<String>();
+		Set<String> accountIds = new HashSet<>();
 		while(it.hasNext()){
 			StringArrayWritable saw = it.next();
 			accountIds.addAll(saw.toSet());

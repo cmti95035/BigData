@@ -11,7 +11,19 @@ public class Mr extends MrBean implements Comparable<Mr>{
 	protected static final Logger logger = LogManager.getLogger(Mr.class);
 
 	public void setTime(long time){
-		this.time = new Date(time);
+		setTime(new Date(time));
+	}
+
+	@Override
+	public void setImsi(Long imsi){
+		super.setImsi(imsi);//TODO this to be done by GenSource. imsi2/time2 is be used by hive mapping and hbase filter
+		super.setImsi2(imsi);
+	}
+
+	@Override
+	public void setTime(Date time){
+		super.setTime(time);
+		super.setTime2(time);
 	}
 
 	@Override

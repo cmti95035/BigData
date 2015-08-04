@@ -35,7 +35,7 @@ public abstract class IntegerLongValueMRHandler<T extends HBaseObject> extends B
 			count += Integer.parseInt(pair[0]);
 			sum += Long.parseLong(pair[1]);
 		}
-		ArrayList<Object> ret = new ArrayList<Object>();
+		ArrayList<Object> ret = new ArrayList<>();
 		ret.add(count);
 		ret.add(sum);
 		

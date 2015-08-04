@@ -9,12 +9,11 @@ import org.apache.commons.configuration.Configuration;
 
 import com.cmti.analytics.app.tracking.hbase.dao.RoadCellDao;
 import com.cmti.analytics.app.tracking.hbase.dao.RoadDao;
-import com.cmti.analytics.app.tracking.hbase.domain.Road;
 import com.cmti.analytics.app.tracking.hbase.domain.RoadCell;
 import com.cmti.analytics.app.tracking.hbase.domain.DriveTestData;
 import com.cmti.analytics.conf.Config;
 import com.cmti.analytics.hbase.task.scan.IHandler;
- 
+
 /**
  * scan RoadTestData of a road to create Road cells of that road
  * 
@@ -46,7 +45,7 @@ public class DriveTestRoadCellHandler implements IHandler<DriveTestData>{
 			throw new RuntimeException(e);
 		}
 	}
-	 
+	
 	@Override
 	public void close() throws IOException {
 		saveAndClearRoad();
@@ -59,7 +58,7 @@ public class DriveTestRoadCellHandler implements IHandler<DriveTestData>{
 	RoadCell cell;
 	//Double longitude, latitude;
 	
-	List<RoadCell> cells=new ArrayList<RoadCell>();
+	List<RoadCell> cells=new ArrayList<>();
 	
 	@Override 
 	public void handle(DriveTestData roadTestData)  throws IOException{	//can handle multiple roads.
@@ -69,7 +68,7 @@ public class DriveTestRoadCellHandler implements IHandler<DriveTestData>{
 		}else{
 			logger.error("cellId {} not in MrDao.cellList!!!!!!!!!!!!!!!!!", cellId);				
 		}
-	*/	
+	*/
 		
 		if(cell==null){//brand new
 			newRoadCell(roadTestData);
@@ -79,7 +78,7 @@ public class DriveTestRoadCellHandler implements IHandler<DriveTestData>{
 		Integer lastRoadId = cell.getRoadId();
 		Integer thisRoadId = roadTestData.getRoadId();
 		
-		if(thisRoadId.equals(lastRoadId) == false){//new road 
+		if(thisRoadId.equals(lastRoadId) == false){//save old and create a new road. for now, multiple roads case is not tested.
 			logger.info("thisRoadId {}!= lastRoadId {}",thisRoadId, lastRoadId);
 			//output cells in the previous road, 
 			saveAndClearRoad();
@@ -89,7 +88,7 @@ public class DriveTestRoadCellHandler implements IHandler<DriveTestData>{
 		
 		if(cell.getCellId().equals(roadTestData.getCell())){
 			//in the same cell, add lon and lat if not present
-			cell.appendGeo(roadTestData);
+			cell.appendDriveTestData(roadTestData);
 		}else{	//new cell
 			newRoadCell(roadTestData);
 			return;
@@ -100,8 +99,9 @@ public class DriveTestRoadCellHandler implements IHandler<DriveTestData>{
 		cell = new RoadCell();
 		cell.setCellId(roadTestData.getCell());
 		cell.setRoadId(roadTestData.getRoadId());
+		cell.setDriveTestId(roadTestData.getDriveTestId());
 		// add lat lon 
-		cell.appendGeo(roadTestData);
+		cell.appendDriveTestData(roadTestData);
 		cells.add(cell);
 	}
 
@@ -111,7 +111,7 @@ public class DriveTestRoadCellHandler implements IHandler<DriveTestData>{
 	//calculate distance
 	//combine ender starter and their lon lat
 	
-	//TODO drive test car may ran overlap some road segment, 
+	//TODO drive test car may ran overlap some road segment for a loop? 
 	private void saveAndClearRoad() throws IOException {//all cells in cells should have the same road id
 		
 		//for a loop, combine starter and ender if they are the same cell.
@@ -121,12 +121,11 @@ public class DriveTestRoadCellHandler implements IHandler<DriveTestData>{
 		//Road road = roadDao.getByKey(roadId);
 		
 		//logger.info("road {}", road);
-		//TODO based on road.loop to ....		
+		//FIXME based on road.loop to ....		
 		
 		RoadCell cellLast = cells.get(cells.size()-1);
 		if(cell0.getCellId().equals(cell.getCellId())) {
-			cell0.getLongitudeList().addAll(0, cellLast.getLongitudeList());
-			cell0.getLatitudeList().addAll(0, cellLast.getLatitudeList());
+			cell0.getFrameList().addAll(0, cellLast.getFrameList());
 		}
 		cells.remove(cells.size()-1);
 		
@@ -145,7 +144,7 @@ public class DriveTestRoadCellHandler implements IHandler<DriveTestData>{
 			//find fuzzy FIXME ender starter fuzzy 
 			for(int j = len-1; j>i+1; j--) {
 				RoadCell cellj = cells.get(j);
-				if(cellj.getCellId().equals(cellId) && j-i< fuzzyLookAheadCell){
+				if(j-i< fuzzyLookAheadCell && cellj.getCellId()==cellId) {
 					//if(tmpCell.getCellId().equals(cellId) && j-i<len/2){ cd = 9607 has issue, cell 9607 appears far away					
 //					logger.error("apart={} {} {} same cell id, mark all between fuzzy = true", j-i, cell, tmpCell);
 					
