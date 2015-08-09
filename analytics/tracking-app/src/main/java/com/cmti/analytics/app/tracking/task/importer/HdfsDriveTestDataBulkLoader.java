@@ -23,9 +23,8 @@ hdfs dfs -put 0102885120140928160610ms9.csv /data/input/drivetest
 
 on my local cloudera VM:
 export HADOOP_OPTS="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml"
- export HADOOP_CLASSPATH=/usr/lib/hbase/hbase-protocol.jar
-hdfs dfs -rm -r /data/output/roadtest
- hadoop jar tracking-app-1.0-SNAPSHOT.jar com.cmti.analytics.app.tracking.task.importer.HdfsDriveTestDataBulkLoader /data/input/drivetest /data/output/roadtest -D mapreduce.map.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" -D mapreduce.reduce.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml"  
+hdfs dfs -rm -r /data/output/drivetest
+ hadoop jar tracking-app-1.0-SNAPSHOT.jar com.cmti.analytics.app.tracking.task.importer.HdfsDriveTestDataBulkLoader /data/input/drivetest /data/output/drivetest -D mapreduce.map.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" -D mapreduce.reduce.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml"  
 
 on AWS:
 mkdir logs

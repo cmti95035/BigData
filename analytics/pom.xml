@@ -20,21 +20,23 @@
 		<hadoop.version>2.0.0-cdh4.7.0</hadoop.version>
 		<hbase.version>0.94.15-cdh4.7.0</hbase.version>
 		
-		find cloudera versions:
-		http://www.cloudera.com/content/cloudera/en/documentation/core/latest/topics/cdh_vd_cdh_package_tarball.html
-		http://www.cloudera.com/content/cloudera/en/documentation/core/latest/topics/cdh_vd_cdh_package_previous.html
+		find cloudera versions: http://www.cloudera.com/content/cloudera/en/documentation/core/latest/topics/cdh_vd_cdh5_maven_repo.html
 		
 		hadoop
 		http://repo1.maven.org/maven2/org/apache/hadoop/hadoop-common/
 		 -->		 
 		
-		<!-- amazon AWS  -->
+		<!-- amazon AWS  - ->
 		<hadoop.version>2.4.0</hadoop.version>
-		<hbase.version>0.94.18</hbase.version>
+		<hbase.version>0.94.18</hbase.version> -->
 			<!-- 
 		<hadoop.version>2.5.0-cdh5.3.0</hadoop.version>
 		<hbase.version>0.98.6-cdh5.3.0</hbase.version>	 
 		 -->
+		 
+		<hadoop.version>2.6.0-cdh5.4.2</hadoop.version>
+		<hbase.version>1.0.0-cdh5.4.2</hbase.version>	
+		
 		<hibernate.version>4.3.8.Final</hibernate.version>
 		<java.home>C:/app/jdk1.8.0_31</java.home>
     </properties>

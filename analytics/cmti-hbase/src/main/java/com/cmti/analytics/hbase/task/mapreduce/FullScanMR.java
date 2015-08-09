@@ -66,9 +66,9 @@ public abstract class FullScanMR<T extends HBaseObject> extends ConfiguredMR {
 		init();
 
 
-		hbaseConfig.setInt("mapreduce.map.memory.mb", 1024*10);//FIXME
-
-		hbaseConfig.setInt("mapreduce.reduce.memory.mb", 1024*10);
+//		hbaseConfig.setInt("mapreduce.map.memory.mb", 1024*10);//FIXME
+//
+	//	hbaseConfig.setInt("mapreduce.reduce.memory.mb", 1024*10);
 		
 		String jobName = getClass().getSimpleName() + " MR job";
 		Job job = new Job(hbaseConfig, jobName);

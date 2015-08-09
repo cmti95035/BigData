@@ -18,11 +18,10 @@ import com.cmti.analytics.hbase.loader.BulkLoaderMapper;
  * 
 hdfs dfs -mkdir /data/input/mock
 hdfs dfs -put mock*.txt /data/input/mock
-
- export HADOOP_CLASSPATH=/usr/lib/hbase/hbase-protocol.jar (need this?)
+ 
 export HADOOP_OPTS="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml"
 hdfs dfs -rm -r /data/output/mr
- hadoop jar tracking-app-1.0-SNAPSHOT.jar com.cmti.analytics.app.tracking.task.importer.HdfsMrBulkLoader /data/input/mrfull/gsm0  /data/output/mr    -D mapreduce.map.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" -D mapreduce.reduce.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml"  
+ hadoop jar tracking-app-1.0-SNAPSHOT.jar com.cmti.analytics.app.tracking.task.importer.HdfsMrBulkLoader /data/input/mock  /data/output/mr    -D mapreduce.map.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml" -D mapreduce.reduce.java.opts="-Dsite=gmo -Dlog4j.configurationFile=log4j2/log4j2_prod.xml"  
 
 
 AWS:

@@ -89,14 +89,14 @@ hadoop 2.0.0-->
 		
 <!-- hadoop end  -->
   	
-<!-- hbase 0.94  for AWS   
+<!-- hbase 0.94  for AWS    
 		<dependency>
     	    <groupId>org.apache.hbase</groupId>
     	    <artifactId>hbase</artifactId>
     	    <version>${hbase.version}</version>
 		</dependency>
-		  -->  
-<!-- hbase 0.98 for local VM-->  
+		  --> 
+<!-- hbase 0.98, 1.0.0 for Cloudera VM --> 
 		<dependency>
     	    <groupId>org.apache.hbase</groupId>
     	    <artifactId>hbase-client</artifactId>
@@ -105,28 +105,9 @@ hadoop 2.0.0-->
 
 		<dependency>
     	    <groupId>org.apache.hbase</groupId>
-    	    <artifactId>hbase-common</artifactId>
-    	    <version>${hbase.version}</version>
-		</dependency>
-
-		<dependency>
-    	    <groupId>org.apache.hbase</groupId>
-    	    <artifactId>hbase-hadoop2-compat</artifactId>
-    	    <version>${hbase.version}</version>
-		</dependency>
-
-		<dependency>
-    	    <groupId>org.apache.hbase</groupId>
     	    <artifactId>hbase-server</artifactId>
     	    <version>${hbase.version}</version>
-		</dependency>
-
-    	<dependency>
-			<groupId>com.google.inject</groupId>
-			<artifactId>guice</artifactId>
-			<version>3.0</version>
-		</dependency>
-                       
+		</dependency>        
 	</dependencies>
 
 
