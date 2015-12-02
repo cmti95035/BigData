@@ -1,0 +1,32 @@
+{
+  "type": "record",
+  "name": "Profile",
+  "namespace": "com.chinamobile.faceClassification.server",
+  "doc": "Represents a profile of a given employee",
+  "fields": [
+    {
+          "name": "profileId",
+          "type": "long",
+          "doc": "system generated ID for this profile",
+    	  "optional": true
+    },
+	{
+      "name": "title",
+      "type": "string",
+      "doc": "The employee's title",
+	  "optional": false
+    },
+	{
+      "name": "phone",
+      "type": "string",
+      "doc": "The employee's phone number",
+	  "optional": false
+    },    
+	{
+      "name": "name",
+      "type": "string",
+      "doc": "The employee's name",
+	  "optional": false
+    }
+  ]
+}

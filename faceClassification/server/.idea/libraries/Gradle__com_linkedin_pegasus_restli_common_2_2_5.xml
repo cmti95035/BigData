@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: com.linkedin.pegasus:restli-common:2.2.5">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/linkedin/pegasus/restli-common/2.2.5/restli-common-2.2.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,32 @@
+apply plugin: 'war'
+apply plugin: 'pegasus'
+
+ext.apiProject = project(':api')
+
+pegasus.main.idlOptions.addIdlItem(['com.chinamobile.faceClassification.server.impl'])
+dependencies {
+  compile 'org.glassfish:javax.json:1.0.4'
+  compile project(path: ':api', configuration: 'dataTemplate')
+  compile spec.product.pegasus.restliServer
+  compile spec.product.pegasus.restliNettyStandalone  
+  runtime externalDependency.slf4jApi
+  runtime externalDependency.slf4jLog4j2
+  runtime externalDependency.slf4jLog4j2core
+  runtime files('libs/mysql-connector-java-5.1.35-bin.jar')
+}
+
+// Below is only used for running jetty from within gradle for demo purposes.
+configurations {
+  jetty8
+}
+
+dependencies {
+  jetty8 "org.mortbay.jetty:jetty-runner:8.1.16.v20140903"
+}
+
+task JettyRunWar(type: JavaExec) {
+  main = "org.mortbay.jetty.runner.Runner"
+  args = [war.archivePath]
+  //jvmArgs = ["-Xdebug", "-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"]
+  classpath configurations.jetty8
+}

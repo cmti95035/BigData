@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.linkedin.pegasus:restli-netty-standalone:2.2.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.linkedin.pegasus/restli-netty-standalone/2.2.5/e713f662776bdd89a410f7ddf022945872ee5a4f/restli-netty-standalone-2.2.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.linkedin.pegasus/restli-netty-standalone/2.2.5/6d9179b2eaadf0932ed5e3092df513e1dd034c46/restli-netty-standalone-2.2.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

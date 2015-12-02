@@ -1,0 +1,20 @@
+{
+  "type": "record",
+  "name": "FaceClassification",
+  "namespace": "com.chinamobile.faceClassification.server",
+  "doc": "Represents the face classification result, the most matched profile and its associated metadata",
+  "fields": [
+    {
+          "name": "matchedProfile",
+          "type": "Profile",
+          "doc": "matched employee profile",
+    	  "optional": false
+    },
+	{
+      "name": "metadata",
+      "type": "Metadata",
+      "doc": "The metadata of the classification",
+	  "optional": false
+    }
+  ]
+}

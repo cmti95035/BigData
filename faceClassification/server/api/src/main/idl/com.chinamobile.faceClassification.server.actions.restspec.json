@@ -1,0 +1,17 @@
+{
+  "name" : "actions",
+  "namespace" : "com.chinamobile.faceClassification.server",
+  "path" : "/actions",
+  "doc" : "generated from: com.chinamobile.faceClassification.server.impl.ActionsResource",
+  "actionsSet" : {
+    "actions" : [ {
+      "name" : "classifyPhoto",
+      "doc" : "the method that receives a thumbnail photo and then call the backend to return\n classification results",
+      "parameters" : [ {
+        "name" : "faceImage",
+        "type" : "com.chinamobile.faceClassification.server.FaceImage"
+      } ],
+      "returns" : "com.chinamobile.faceClassification.server.FaceClassification"
+    } ]
+  }
+}

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: com.linkedin.pegasus:li-jersey-uri:2.2.5">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/linkedin/pegasus/li-jersey-uri/2.2.5/li-jersey-uri-2.2.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: com.linkedin.pegasus:pegasus-common:2.2.5">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/linkedin/pegasus/pegasus-common/2.2.5/pegasus-common-2.2.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

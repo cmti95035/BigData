@@ -1,0 +1,20 @@
+{
+  "type": "record",
+  "name": "FaceImage",
+  "namespace": "com.chinamobile.faceClassification.server",
+  "doc": "Represents an incoming image for face classification",
+  "fields": [
+	{
+      "name": "imageContent",
+      "type": "bytes",
+      "doc": "the binary content of the image",
+	  "optional": false
+    },
+	{
+      "name": "imageName",
+      "type": "string",
+      "doc": "the file name of the image",
+	  "optional": false
+    }
+  ]
+}

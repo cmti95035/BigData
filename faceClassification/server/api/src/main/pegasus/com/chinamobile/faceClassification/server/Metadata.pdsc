@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "name": "Metadata",
+  "namespace": "com.chinamobile.faceClassification.server",
+  "doc": "Represents the metadata of the face classification result",
+  "fields": [
+	{
+      "name": "dataMap",
+      "type":  { "type" : "map", "values" : "string" },
+      "doc": "the metadata attributes in a map format",
+	  "optional": false
+    }
+  ]
+}
