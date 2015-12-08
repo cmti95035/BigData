@@ -1,5 +1,7 @@
 package com.chinamobile.faceClassification.server.db.mysql;
 
+import org.slf4j.Logger;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -33,5 +35,12 @@ public class DBUtilities {
 		}
 
 		return conn;
+	}
+
+	public static void printStackTrace(Logger logger, StackTraceElement[] elements){
+		if(logger != null && elements != null) {
+			for(StackTraceElement element : elements)
+				logger.error(String.valueOf(element));
+		}
 	}
 }

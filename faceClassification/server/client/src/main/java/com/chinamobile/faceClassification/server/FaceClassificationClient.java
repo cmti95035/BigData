@@ -38,10 +38,11 @@ public class FaceClassificationClient {
     private static ActionsRequestBuilders actionsRequestBuilders = new ActionsRequestBuilders();
 
     public static void main(String[] args) throws Exception {
+        classifyImage("/Users/jianli/Downloads/sweethome.jpg");
     }
 
-    private FaceClassification classifyImage(String fileName){
-        FaceImage faceImage = new FaceImage().setImageName(fileName).setImageContent(ByteString.copy(readFromFile(fileName)));
+    private static FaceClassification classifyImage(String fileName){
+        FaceImage faceImage = new FaceImage().setImageName(getBaseName(fileName)).setImageContent(ByteString.copy(readFromFile(fileName)));
 
         ActionRequest<FaceClassification> actionRequest = actionsRequestBuilders.actionClassifyPhoto().faceImageParam(faceImage).build();
 
@@ -50,13 +51,21 @@ public class FaceClassificationClient {
             Response<FaceClassification> response = responseFuture.getResponse();
 
             FaceClassification faceClassification = response.getEntity();
-            System.out.println("\naddCircleMember generates memberId: " + (faceClassification == null ? "null" : faceClassification));
+            System.out.println("\nclassifyImage returns: " + (faceClassification == null ? "null" : faceClassification));
 
             return faceClassification;
         }catch (RemoteInvocationException e) {
             e.printStackTrace();
             return null;
         }
+    }
+
+    private static String getBaseName(String fileName){
+        if(fileName == null)
+            return null;
+
+        String[] parts = fileName.split("/");
+        return parts[parts.length - 1];
     }
 
     private static byte[] readFromFile(String fileName) {
