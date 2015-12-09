@@ -55,6 +55,8 @@ public class ActionsResource {
 
         String command = "/tmp/myscript " + fileName;
         int retValue = 0;
+        Profile matchedProfile = new Profile();
+        StringBuilder sb = new StringBuilder();
         try {
             Process cmdProc = Runtime.getRuntime().exec(command);
 
@@ -62,15 +64,24 @@ public class ActionsResource {
             BufferedReader stdoutReader = new BufferedReader(
                     new InputStreamReader(cmdProc.getInputStream()));
             String line;
+            int lineCount = 0;
+
+            _log.debug("command returns:");
             while ((line = stdoutReader.readLine()) != null) {
-                _log.debug("command returns:");
+
+                if(lineCount == 0)
+                    matchedProfile = dataService.getProfileByName(line);    // expect to get the matched name on the first line
+                else
+                    sb.append(line);
+                lineCount++;
                 _log.debug(line);
             }
 
+            _log.error("Error output:");
             BufferedReader stderrReader = new BufferedReader(
                     new InputStreamReader(cmdProc.getErrorStream()));
             while ((line = stderrReader.readLine()) != null) {
-                _log.error("Error output:");
+
                 _log.error(line);
             }
 
@@ -84,6 +95,6 @@ public class ActionsResource {
         }
 
         // TODO: to call Jingxian's Python script to do the classification and generate result
-        return new FaceClassification().setMatchedProfile(new Profile()).setMetadata("");
+        return new FaceClassification().setMatchedProfile(matchedProfile == null ? new Profile() : matchedProfile).setMetadata(sb.toString());
     }
 }

@@ -24,6 +24,6 @@ public class DataServiceImpl implements DataService{
 
 	@Override
 	public Profile getProfileByName(String name) {
-		return null;
+		return db.getProfileByName(name);
 	}
 }
