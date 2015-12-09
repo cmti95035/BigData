@@ -29,7 +29,7 @@ public class FaceClassificationClient {
     private static final HttpClientFactory http = new HttpClientFactory();
     private static final Client r2Client = new TransportClientAdapter(
             http.getClient(Collections.<String, String>emptyMap()));
-    private static final String BASE_URL = "http://localhost:8080/faceClassification/";
+    private static final String BASE_URL = "http://localhost:8080/";
     private static RestClient restClient = new RestClient(r2Client, BASE_URL);
     public static String ALPHABETES = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789_#?!&*";
     public static String NUMBERS = "0123456789";
@@ -42,6 +42,7 @@ public class FaceClassificationClient {
     }
 
     private static FaceClassification classifyImage(String fileName){
+//        FaceImage faceImage = new FaceImage().setImageName(getBaseName(fileName));
         FaceImage faceImage = new FaceImage().setImageName(getBaseName(fileName)).setImageContent(ByteString.copy(readFromFile(fileName)));
 
         ActionRequest<FaceClassification> actionRequest = actionsRequestBuilders.actionClassifyPhoto().faceImageParam(faceImage).build();

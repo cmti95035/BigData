@@ -1,4 +1,8 @@
+# Ignore Intellij related
+.ieda
+.ieda/
 .gradle
+.gradle/
 build/
 
 # Ignore Gradle GUI config

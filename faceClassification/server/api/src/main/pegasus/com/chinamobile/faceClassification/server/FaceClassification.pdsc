@@ -12,7 +12,7 @@
     },
 	{
       "name": "metadata",
-      "type": "Metadata",
+      "type": "string",
       "doc": "The metadata of the classification",
 	  "optional": false
     }
