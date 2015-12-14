@@ -29,7 +29,8 @@ public class FaceClassificationClient {
     private static final HttpClientFactory http = new HttpClientFactory();
     private static final Client r2Client = new TransportClientAdapter(
             http.getClient(Collections.<String, String>emptyMap()));
-    private static final String BASE_URL = "http://localhost:8080/";
+    private static final String BASE_URL = "http://54.153.110.173:6666/";
+//    private static final String BASE_URL = "http://localhost:6666/";
     private static RestClient restClient = new RestClient(r2Client, BASE_URL);
     public static String ALPHABETES = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789_#?!&*";
     public static String NUMBERS = "0123456789";
@@ -38,7 +39,7 @@ public class FaceClassificationClient {
     private static ActionsRequestBuilders actionsRequestBuilders = new ActionsRequestBuilders();
 
     public static void main(String[] args) throws Exception {
-        classifyImage("/Users/jianli/Downloads/sweethome.jpg");
+        classifyImage("/Users/jianli/Downloads/409.jpg");
     }
 
     private static FaceClassification classifyImage(String fileName){
