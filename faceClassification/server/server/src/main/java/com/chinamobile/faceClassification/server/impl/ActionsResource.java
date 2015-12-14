@@ -53,7 +53,8 @@ public class ActionsResource {
                     "write content to file " + faceImage.getImageName() + " failed");
         }
 
-        String command = "/tmp/myscript " + fileName;
+        String homeVar = System.getenv("HOME");
+        String command = "/usr/bin/python " + homeVar + "/faceClassification/classification.py " + fileName;
         int retValue = 0;
         Profile matchedProfile = new Profile();
         StringBuilder sb = new StringBuilder();
@@ -69,8 +70,10 @@ public class ActionsResource {
             _log.debug("command returns:");
             while ((line = stdoutReader.readLine()) != null) {
 
-                if(lineCount == 0)
-                    matchedProfile = dataService.getProfileByName(line);    // expect to get the matched name on the first line
+                if(lineCount == 0) {
+                    if(!line.startsWith("No match"))
+                        matchedProfile = dataService.getProfileByName(line);    // expect to get the matched name on the first line
+                }
                 else
                     sb.append(line);
                 lineCount++;
