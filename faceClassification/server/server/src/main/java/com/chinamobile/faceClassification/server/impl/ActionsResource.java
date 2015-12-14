@@ -72,7 +72,7 @@ public class ActionsResource {
 
                 if(lineCount == 0) {
                     if(!line.startsWith("No match"))
-                        matchedProfile = dataService.getProfileByName(line);    // expect to get the matched name on the first line
+                        matchedProfile = dataService.getProfileByName(line.toLowerCase());    // expect to get the matched name on the first line
                 }
                 else
                     sb.append(line);
