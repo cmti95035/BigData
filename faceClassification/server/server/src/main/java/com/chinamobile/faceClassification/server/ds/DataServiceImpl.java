@@ -1,7 +1,7 @@
 package com.chinamobile.faceClassification.server.ds;
 
 import com.chinamobile.faceClassification.server.Profile;
-import com.chinamobile.faceClassification.server.db.SocialDB;
+import com.chinamobile.faceClassification.server.db.FaceClassificationDB;
 import com.chinamobile.faceClassification.server.db.mysql.DBImpl;
 
 public class DataServiceImpl implements DataService{
@@ -10,7 +10,7 @@ public class DataServiceImpl implements DataService{
 	private String dbName;
 	private String userName;
 	private String password;
-	private SocialDB db;
+	private FaceClassificationDB db;
 	
 	public DataServiceImpl(String url, String name, String uName, String pwd)
 	{

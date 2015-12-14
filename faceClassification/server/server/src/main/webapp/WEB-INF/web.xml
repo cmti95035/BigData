@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
 
   <display-name>人脸识别服务器端</display-name>
-  <description>Social Server</description>
+  <description>Face Classification Server</description>
 
   <!-- servlet definitions -->
   <servlet>

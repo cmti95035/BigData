@@ -1,13 +1,13 @@
 package com.chinamobile.faceClassification.server.db.mysql;
 
 import com.chinamobile.faceClassification.server.Profile;
-import com.chinamobile.faceClassification.server.db.SocialDB;
+import com.chinamobile.faceClassification.server.db.FaceClassificationDB;
 
 import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Random;
 
-public class DBImpl implements SocialDB {
+public class DBImpl implements FaceClassificationDB {
 
     private Connection conn;
     private final String SELECT_LAST_ID = "SELECT LAST_INSERT_ID()";

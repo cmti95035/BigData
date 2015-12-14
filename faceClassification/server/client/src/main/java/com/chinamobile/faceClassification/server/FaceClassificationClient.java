@@ -39,7 +39,7 @@ public class FaceClassificationClient {
     private static ActionsRequestBuilders actionsRequestBuilders = new ActionsRequestBuilders();
 
     public static void main(String[] args) throws Exception {
-        classifyImage("/Users/jianli/Downloads/409.jpg");
+        classifyImage("/Users/jianli/Downloads/sweethome.jpg");
     }
 
     private static FaceClassification classifyImage(String fileName){
