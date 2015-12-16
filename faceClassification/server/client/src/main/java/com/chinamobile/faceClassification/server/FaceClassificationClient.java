@@ -1,5 +1,7 @@
 package com.chinamobile.faceClassification.server;
 
+import com.linkedin.common.callback.FutureCallback;
+import com.linkedin.common.util.None;
 import com.linkedin.data.ByteString;
 import com.linkedin.r2.RemoteInvocationException;
 import com.linkedin.r2.transport.common.Client;
@@ -29,7 +31,7 @@ public class FaceClassificationClient {
     private static final HttpClientFactory http = new HttpClientFactory();
     private static final Client r2Client = new TransportClientAdapter(
             http.getClient(Collections.<String, String>emptyMap()));
-    private static final String BASE_URL = "http://54.153.110.173:6666/";
+    private static final String BASE_URL = "http://52.53.254.134:6666/";
 //    private static final String BASE_URL = "http://localhost:6666/";
     private static RestClient restClient = new RestClient(r2Client, BASE_URL);
     public static String ALPHABETES = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789_#?!&*";
@@ -39,7 +41,14 @@ public class FaceClassificationClient {
     private static ActionsRequestBuilders actionsRequestBuilders = new ActionsRequestBuilders();
 
     public static void main(String[] args) throws Exception {
-        classifyImage("/Users/jianli/Downloads/sweethome.jpg");
+        classifyImage("/Users/jianli/Downloads/409.jpg");
+        classifyImage("/Users/jianli/Downloads/419.jpg");
+        classifyImage("/Users/jianli/Downloads/429.jpg");
+        classifyImage("/Users/jianli/Downloads/439.jpg");
+        classifyImage("/Users/jianli/Downloads/449.jpg");
+        classifyImage("/Users/jianli/Downloads/zy.jpg");
+        restClient.shutdown(new FutureCallback<None>());
+        http.shutdown(new FutureCallback<None>());
     }
 
     private static FaceClassification classifyImage(String fileName){
