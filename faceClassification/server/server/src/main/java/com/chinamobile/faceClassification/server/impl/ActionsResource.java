@@ -4,7 +4,9 @@ import com.chinamobile.faceClassification.server.FaceClassification;
 import com.chinamobile.faceClassification.server.FaceImage;
 import com.chinamobile.faceClassification.server.Metadata;
 import com.chinamobile.faceClassification.server.Profile;
+import com.chinamobile.faceClassification.server.db.mysql.DBUtilities;
 import com.chinamobile.faceClassification.server.ds.DataService;
+import com.linkedin.data.template.SetMode;
 import com.linkedin.data.template.StringMap;
 import com.linkedin.restli.common.HttpStatus;
 import com.linkedin.restli.server.RestLiServiceException;
@@ -67,7 +69,7 @@ public class ActionsResource {
             String line;
             int lineCount = 0;
 
-            _log.debug("command returns:");
+            _log.error("command returns:");
             while ((line = stdoutReader.readLine()) != null) {
 
                 if(lineCount == 0) {
@@ -77,7 +79,7 @@ public class ActionsResource {
                 else
                     sb.append(line);
                 lineCount++;
-                _log.debug(line);
+                _log.error(line);
             }
 
             _log.error("Error output:");
@@ -95,9 +97,13 @@ public class ActionsResource {
             throw new RestLiServiceException(
                     HttpStatus.S_500_INTERNAL_SERVER_ERROR,
                     "failed to execute command: " + command );
+        }catch (Exception ex) {
+            _log.error("Something wrong...");
+            DBUtilities.printStackTrace(_log, ex.getStackTrace());
         }
 
-        // TODO: to call Jingxian's Python script to do the classification and generate result
-        return new FaceClassification().setMatchedProfile(matchedProfile == null ? new Profile() : matchedProfile).setMetadata(sb.toString());
+        FaceClassification result = new FaceClassification().setMatchedProfile(matchedProfile == null ? new Profile() : matchedProfile).setMetadata(sb.toString(), SetMode.IGNORE_NULL);
+        _log.error("Returned result: " + result);
+        return result;
     }
 }

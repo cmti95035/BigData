@@ -47,6 +47,7 @@ public class FaceClassificationClient {
         classifyImage("/Users/jianli/Downloads/439.jpg");
         classifyImage("/Users/jianli/Downloads/449.jpg");
         classifyImage("/Users/jianli/Downloads/zy.jpg");
+        classifyImage("/Users/jianli/Downloads/wb.jpg");
         restClient.shutdown(new FutureCallback<None>());
         http.shutdown(new FutureCallback<None>());
     }
