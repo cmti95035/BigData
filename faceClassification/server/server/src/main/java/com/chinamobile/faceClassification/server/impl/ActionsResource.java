@@ -54,7 +54,7 @@ public class ActionsResource {
         }
 
         String homeVar = System.getenv("HOME");
-        String command = "/usr/bin/python " + homeVar + "/faceClassification/classification.py " + fileName;
+        String command = "/usr/bin/python " + homeVar + "/faceClassification/classification2.py " + fileName;
         int retValue = 0;
         Profile matchedProfile = new Profile();
         StringBuilder sb = new StringBuilder();
